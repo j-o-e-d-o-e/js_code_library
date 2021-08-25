@@ -1,0 +1,13 @@
+date
+
+eloquent, ch.8
+
+month start at zero, e.g. December is 11
+yet, day numbers start at one
+
+getTime() returns the date's timestamp
+negative numbers for times before 1970
+Date constructor treats a single arg as a timestamp
+
+EXAMPLE
+console.log(new Date(1982, 0, 3).toString()); // -> Sun Jan 03 1982 00:00:00

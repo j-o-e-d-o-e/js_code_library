@@ -1,0 +1,20 @@
+module
+
+eloquent, ch.9
+
+(1) CommonJS modules
+require() makes sure the module is loaded and returns its interface
+    - loader wraps the module code in a function
+    - modules automatically get their own scope
+exports allows depending modules to get access to the dependency
+    - module.exports replaces interface obj with a given value
+
+(2) ES modules
+use of keyword 'import' -> integrated into language, not a func (like require())
+'export' in front of a func, class or variable (let, const, var)
+module'es interface is a set of named bindings, not a single value (like (1))
+
+
+EXAMPLE
+
+

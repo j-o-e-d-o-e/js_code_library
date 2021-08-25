@@ -1,0 +1,35 @@
+higher-order func
+
+eloquent js, p.88f.
+
+pass function values to other functions
+the given function fills a "gap" in the called function
+
+'arr.filter()' returns a new array with only the elements that pass the given test (2)
+'arr.map()' transforms an array by applying a given function to all of its elements and returns a new array from the returned values (3)
+'app.reduce()' computes a single value from the array (sometimes also called fold) (4) 
+
+EXAMPLE
+(1)
+// func creates new func with arg 'n'
+const greaterThan = n => {
+    return m => m > n;
+}
+// creating new func with n=10
+const greaterThan10 = greaterThan(10);
+// m=11
+console.log(greaterThan10(11));
+
+(2)
+console.log([1,2,3].filter(el => el > 2));
+// -> [3]
+(3)
+console.log([1,2,3].map(el => el > 2));
+// -> [false, false, true]
+(4)
+function average(array) {
+    return array.reduce((a, b) => a + b) / array.length;
+}
+
+console.log(average([1, 2, 3, 4, 5]));
+// -> 3

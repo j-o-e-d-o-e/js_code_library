@@ -1,0 +1,29 @@
+object->get/set
+
+definitive, ch.6.10.6
+
+private properties are declared with underscore
+getter/setter used e.g. for sanity checks
+causes implicit invocation, when querying or setting the value of its properties
+
+
+EXAMPLE
+const box = {
+    locked: true,
+    _content: ["gold piece"],
+    get content() {
+        if (this.locked) throw new Error("Locked!");
+        return this._content;
+    },
+    set content(val){
+        this._content.push(val);
+    }
+};
+
+box.content = "diamond";
+console.log(box._content)
+try {
+    console.log(box.content)
+} catch (e) {
+    console.log(e.message)
+}

@@ -1,0 +1,27 @@
+array
+
+eloquent, p.62/definitive, ch.7
+
+- are untyped: different elements of the same array may be of different types
+- are dynamic: no need to declare a fixed size when creating it
+- can be sparse: elements need not have contiguous indexes starting at 0
+    - there may be gaps
+    - value of length property > number of elements
+    - created with Array() constructor, e.g. new Array(5)
+
+'arr[arr.length] = 1' adds a new element (e.g. 1) by assignment (like push())
+    - if length property is set to n < arr.length, any element whose index > n are deleted (1)
+
+delete operator removes element from array, but does not affect length property (2)
+    - if delete is used, the array becomes sparse
+
+EXAMPLE
+(1)
+let a = [1,2,3];
+a.length = 1;
+console.log(a); // => [ 1 ]
+(2)
+let a = [1,2,3];
+delete a[1]
+console.log(1 in a); // => false
+console.log(a.length); // => 3

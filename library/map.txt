@@ -1,0 +1,18 @@
+map
+
+eloquent, p.108
+
+'map.set()' adds an entry
+'map.get(key)' gets an entry by its key
+'map.has(key)' checks whether that map contains that key
+
+EXAMPLE
+let ages = new Map();
+ages.set("Boris", 39);
+ages.set("Liang", 22);
+ages.set("Julia", 62);
+
+console.log(`Julia is ${ages.get("Julia")}`);
+// -> Julia is 62
+console.log("Is Jack's age known?", ages.has("Jack"));
+// -> Is Jack's age known? false

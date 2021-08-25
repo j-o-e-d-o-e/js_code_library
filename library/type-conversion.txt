@@ -1,0 +1,13 @@
+type conversion
+
+eloquent, p.19f.
+
+when operator is applied to the wrong type of value, js will quietly convert that value to the type it needs (type coercion)
+
+three-character comparison recommended (last example) to prevent unexpected type coercion
+
+EXAMPLE
+console.log("5" - 1) // -> 4
+console.log("5" + 1) // -> 51
+console.log(false == 0)
+// -> true
