@@ -1,13 +1,9 @@
 higher-order func
 
-eloquent js, p.88f.
+eloquent js, p.88f./defintive, ch.8.8.2
 
 pass function values to other functions
 the given function fills a "gap" in the called function
-
-'arr.filter()' returns a new array with only the elements that pass the given test (2)
-'arr.map()' transforms an array by applying a given function to all of its elements and returns a new array from the returned values (3)
-'app.reduce()' computes a single value from the array (sometimes also called fold) (4) 
 
 EXAMPLE
 (1)
