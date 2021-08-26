@@ -17,13 +17,13 @@ def iterate_files():
 
 
 def print_toc(toc):  # prompts table of content
-    print("JS CODE LIBRARY".center(80, "="))
+    print("JS CODE LIBRARY".center(88, "="))
     table = []
     for i in toc:
         temp = []
         temp.append(str((toc.index(i) + 1)) + " - " + i["title"])
         if i["tags"]:
-            temp.append("\t")
+            # temp.append("\t")
             temp.append("-> (" + str((toc.index(i) + 1)) + ") " + i["tags"])
         table.append(temp)
     col_width = max(len(word) for row in table for word in row) - 6
