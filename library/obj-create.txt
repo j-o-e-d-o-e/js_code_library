@@ -9,8 +9,9 @@ three ways to create obj
     - 'new' followed by constructor (2)
         - since ES/JS 2015
     - Object.create() (3)
-        - if null passed, newly created ob will not inherit anything, not even toString()
+        - returns a newly created obj that inherits from a specified prototype obj
         - Object.create(Object.prototype)) behaves like {} (1) or new Object() (2)
+        - if null passed, newly created ob will not inherit anything, not even toString()
 
 EXAMPLE
 (1)

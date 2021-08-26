@@ -21,4 +21,3 @@ let c = Object.create(unitCircle); // c inherits the property r
 c.x = 1; c.y = 1; // c defines two properties of its own
 c.r = 2; // c overrides its inherited property
 console.log(unitCircle.r) // => 1: the prototype is not affected
-

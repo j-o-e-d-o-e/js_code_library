@@ -1,0 +1,55 @@
+class
+
+definitive, ch.9
+
+set of objs that inherit properties from the same prototype
+the prototype-property of the constructor is used as the prototype of the newly created obj
+
+keyword 'class' since ES6
+    - class-body includes method-definitions that use method-shorthand (keyword omitted) (1)
+    - class can be also defined as expressions (2)
+    - if constructor-func is omitted, an empty constructor-func will be implicitly created
+    - to define instance-vars/fields, one must do that in the constructor-func (or in one of the methods)
+    - like obj-literals, getter/setter can be defined
+
+field initialization since 2020 (3)
+    - out of the constructor and directly in the class-body
+    - if initialization omitted, initial value of the field will be 'undefined'
+    - private fields are prefixed with '#'
+
+
+EXAMPLE
+(1)
+class Range {
+    constructor(from, to) {
+        this.from = from;
+        this.to = to;
+    }
+    includes(x) {
+        return this.from <= x && x <= this.to;
+    }
+    toString() {
+        return `(${this.from}...${this.to})`;
+    }
+    get getFrom(){
+        return `get ${this.from}`;
+    }
+    static COUNT = 0;
+    static count() {
+        return ++Range.COUNT;
+    }
+}
+Range.COUNT = 10;
+let r = new Range(1, 3);
+r.includes(2) // => true
+r.toString() // => "(1...3)"
+Range.count(); // => 11
+(2)
+let Square = class { constructor(x) { this.area = x * x; } };
+new Square(3).area // => 9
+(3)
+class Buffer {
+    #size = 0;
+    capacity = 4096;
+    buffer = new Uint8Array(this.capacity);
+}
