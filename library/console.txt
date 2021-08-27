@@ -1,0 +1,23 @@
+console
+
+defintive, ch.11.8
+
+log() converts args to strings and outputs them
+clear() clears the console when that is possible
+table() attempts to display its args as table
+    - works best when arg is relatively short arr of objs with same props
+count() takes a string as arg and logs that string followed by the number of times it has been called
+    - e.g. to keep track of how many times an event handler has been triggered
+    - countReset() resets the counter for the specified string
+
+EXAMPLE
+let o = {name: 'joe', age: undefined};
+let a = [o, o, o];
+console.table(a);
+┌─────────┬───────┬───────────┐
+│ (index) │ name  │    age    │
+├─────────┼───────┼───────────┤
+│    0    │ 'joe' │ undefined │
+│    1    │ 'joe' │ undefined │
+│    2    │ 'joe' │ undefined │
+└─────────┴───────┴───────────┘

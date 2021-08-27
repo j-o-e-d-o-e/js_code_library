@@ -1,0 +1,22 @@
+timer
+
+definitive, ch.11.10
+
+(1) setTimeout() invokes a func once after period of time
+    - 1st: func
+    - 2nd: num that specifies how many millisecs should elapse before func is invoked
+        - if omitted, if defaults to 0 ("as soon as possible")
+(2) setInterval() invokes a func repeatedly
+    - args, like setTimeout()
+    - returns val to cancel execution
+        - in browser, typically a num
+        - in node, an obj
+        - to cancel, pass val to clearTimeout()
+
+EXAMPLE
+let clock = setInterval(() => {
+    console.clear();
+    console.log(new Date().toLocaleTimeString());
+}, 1000);
+// After 5 seconds: stop the repeating code above.
+setTimeout(() => { clearInterval(clock); }, 5000);

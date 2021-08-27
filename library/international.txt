@@ -1,0 +1,22 @@
+internationalization
+
+definitive, Ch.11.7
+
+JS's internationalization API to format nums, including monetary amounts and percentages
+(1) Intl.NumberFormat
+    - 2 args for constructor
+        - locale, e.g. "de-DE"
+        - obj that specifies how num should be formatted
+    - format() returns an appropriately formatted string
+(2) Intl.DateTimeFormat
+    - constructor takes the same 2 args like Intl.NumberFormat()
+(3) Intl.Collator
+    - for sorting/comparing (collation order)
+    - constructor takes the same 2 args like Intl.NumberFormat()
+
+EXAMPLE
+(1)
+let euros = Intl.NumberFormat("de", {style: "currency", currency: "EUR"});
+euros.format(10) // => 10,00 €
+(2)
+Intl.DateTimeFormat("de-DE").format(new Date()); // => 27.8.2021
