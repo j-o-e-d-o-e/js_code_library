@@ -1,0 +1,13 @@
+async/await
+
+definitive, ch.13.3
+
+since ES2017
+
+d
+
+since ES2018, for/await-loop allows to work streams of async events
+    -
+
+EXAMPLE
+d

@@ -1,0 +1,9 @@
+callback
+
+definitive, ch.13.1
+
+func passed to another func which invokes callback-func if some condition is met or some (async) event occurs
+    - invocation of callback notifies you of the condition or event, e.g. mouse click
+    - for network events: XMLHttpRequest to handle async server's response
+        - XMLHttpRequest largely been replaced by fetch() (Promise-based)
+    - Node is deeply ascny and defines many APIs that use callbacks and events

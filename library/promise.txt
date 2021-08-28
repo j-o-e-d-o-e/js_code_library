@@ -1,0 +1,32 @@
+promise
+
+definitive, ch.13.2
+
+since ES6, an obj that represents the (not-yet-available) result of an async operation
+    - its states: pending -> fulfilled or rejected -> settled
+    - if fullfilled, promise returns result
+    - if rejected, promise returns Error obj (or something similar)
+    - chaining promises: fetch().then(resp => ...).then(content => ...) (1)
+
+then()
+    - instance-method of the promise obj
+    - 1st arg: func if async computation completes normally/promise is fullfilled
+        - registered func will be called once when promised computation is complete
+    - 2nd arg: func if computation fails/promise is rejected
+        -rarely used, instead use catch()
+catch()
+    - registered func handles rejected promise
+    - shorthand for calling then() with null as 1st arg and error-handler as 2nd arg
+
+fetch()
+    - Promise-based Fetch API
+    - text()/json() accesses response-body with content-type text/json and return promise
+
+EXAMPLE
+fetch("/api/user/profile") // task1 returns promise1
+    .then(response => { // then() invoked on promise1 -> task2 returns promise2
+        return response.json();
+    })
+    .then(profile => { // then() invoked on promise2 -> task3 returns result
+        displayUserProfile(profile);
+    });

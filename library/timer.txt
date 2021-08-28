@@ -6,12 +6,13 @@ definitive, ch.11.10
     - 1st: func
     - 2nd: num that specifies how many millisecs should elapse before func is invoked
         - if omitted, if defaults to 0 ("as soon as possible")
+        - to cancel, pass val to clearTimeout()
 (2) setInterval() invokes a func repeatedly
     - args, like setTimeout()
     - returns val to cancel execution
         - in browser, typically a num
         - in node, an obj
-        - to cancel, pass val to clearTimeout()
+        - to cancel, pass val to clearInterval()
 
 EXAMPLE
 let clock = setInterval(() => {

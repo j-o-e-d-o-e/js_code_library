@@ -7,7 +7,7 @@ unordered/un-indexed, iterable collection of values not allowing duplicates
     - membership is based on strict equality checks (===)
     - WeakSet implements a set of objects that does not prevent those objs from being garbage collected
 arg of Set()-constructor
-    - an arr or iterable obj (including other Set objs)
+    - an arr or iterable obj (including other Set objs and strings)
     - if omitted, empty set
 size-property tells how many vals the set contains (like length-property of an arr)
 add() adds an elem
