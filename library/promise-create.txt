@@ -1,4 +1,4 @@
-promise->create
+promise->creation
 
 definitive, ch.13.2.6
 
