@@ -1,0 +1,33 @@
+promise->create
+
+definitive, ch.13.2.6
+
+(1) Promises based on other Promises
+    - given a promise, create a new oby by calling .then() on it
+(2) Promises based on synchronous values
+    - Promise.resolve() returns a Promise that will be immediately fulfilled to given val
+        - single arg: val to be returned
+    - Promise.reject() returns a Promise that will be rejected with given val as the reason
+        - single arg: val to be returned (like Promise.resolve())
+(3) Promise()-constructor
+    - one arg: func with two args
+        - 1st arg: by convention, named 'resolve'
+        - 2nd arg: 'reject'
+        - func performs async operation and then calls either resolve or fulfill
+    - returned Promise is under the control of the passed func
+
+EXAMPLE
+(1)
+// Promise returned by getJson() resolves to the Promise returned by resp.json()
+function getJSON(url) {
+    return fetch(url).then(resp => resp.json());
+}
+(3)
+function wait(duration) {
+    return new Promise((resolve, reject) => {
+        if (duration < 0) {
+            reject(new Error("Time travel not yet implemented"));
+        }
+        value.setTimeout(resolve, duration);
+    });
+}

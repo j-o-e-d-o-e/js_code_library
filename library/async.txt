@@ -4,10 +4,36 @@ definitive, ch.13.3
 
 since ES2017
 
-d
+keywords simplify the use of Promises
 
-since ES2018, for/await-loop allows to work streams of async events
+(1) await expressions
+    - one arg: Promise
+    - waits until Promise is settled
+        - if fulfilled, value of await is the fulfillment val of Promise
+        - if rejected, expression throws the rejection val of Promise
+    - you can only use await within funcs that have been declared with async
+
+(2) async functions
+    - declaring a func async means that the return val will be a Promise
+        - if succeeded, Promise obj resolves to val
+        - if failed, async func returns a rejected Promise
+    - func declared with async will implicitly return a Promise
+
+(3) since ES2018, async iterators
+    - used with for/await (new form of the for..of)
     -
 
 EXAMPLE
-d
+(1)
+let response = await fetch("/api/user/profile");
+let profile = await response.json();
+(2)
+async function getHighScore() {
+    let response = await fetch("/api/user/profile");
+    let profile = await response.json();
+    return profile.highScore;
+}
+(3)
+for await (const response of promises) {
+    handle(response);
+}

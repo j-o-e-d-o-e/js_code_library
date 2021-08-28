@@ -3,26 +3,50 @@ promise
 definitive, ch.13.2
 
 since ES6, an obj that represents the (not-yet-available) result of an async operation
-    - its states: pending -> fulfilled or rejected -> settled
-    - if fullfilled, promise returns result
-    - if rejected, promise returns Error obj (or something similar)
+    - its states: pending -> resolved/fulfilled or rejected -> settled
+        - if fulfilled, val is returned
+            - invokes callback func with val as arg
+        - if resolved, return value is itself a Promise (chaining promises)
+        - if rejected, Error obj (or something similar) is returned
+        - if settled, computation is done
     - chaining promises: fetch().then(resp => ...).then(content => ...) (1)
+    - instance-methods of promise obj: .then(), .catch(), .finally()
 
-then()
-    - instance-method of the promise obj
-    - 1st arg: func if async computation completes normally/promise is fullfilled
+.then()
+    - 1st arg: registered func handles fulfilled promise
         - registered func will be called once when promised computation is complete
-    - 2nd arg: func if computation fails/promise is rejected
+    - 2nd arg: registered func handles rejected promise
         -rarely used, instead use catch()
-catch()
+.catch()
     - registered func handles rejected promise
     - shorthand for calling then() with null as 1st arg and error-handler as 2nd arg
+    - catches an error in promise chain
+    - can also be inserted in a promise chain (not only at its end)
+    - centralizes error-handling into a single catch() at then end of a chain of then()-calls
+.finally()
+    - since ES2018
+    - registered func will be invoked when Promise settles
+        - promise always settles, whether it is fulfilled or rejected
+    - will not be passed any args
+    - useful for cleanup, e.g. closing open files or connections
+Promise.all() (1)
+    - to execute a number of async operations in parallel
+    - takes an array of Promise objs as input and returns a Promise
+    - returned Promise will be rejected if any of the input Promises are rejected
+    - otherwise, it will be fulfilled with an array of the fulfillment vals of each of the input Promises
+    - input array can also contain non-Promise vals
+        - treated as if it is the val of an already fulfilled Promise and copied unchanged into output arr
 
-fetch()
-    - Promise-based Fetch API
+Promise-based Fetch API: fetch() (2)
     - text()/json() accesses response-body with content-type text/json and return promise
 
 EXAMPLE
+(1)
+const urls = [ /* array of URLs */];
+promises = urls.map(url => fetch(url).then(r => r.text()));
+Promise.all(promises).then(bodies => { /* todo */
+}).catch(e => console.error(e));
+(2)
 fetch("/api/user/profile") // task1 returns promise1
     .then(response => { // then() invoked on promise1 -> task2 returns promise2
         return response.json();
