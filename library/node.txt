@@ -24,10 +24,6 @@ global process-obj
     - exit() terminates the program
 
 by default, node installation includes the npm-package manager
-    - keeps track of dependencies in package.json
-    - 'npm init' creates package.json
-    - 'npm install' downloads and installs all declared dependencies in package.json
-    - dependencies are stored in dir node_modules/
 docs: https://nodejs.org/api
 
 program life cycle
