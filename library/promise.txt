@@ -9,7 +9,7 @@ since ES6, an obj that represents the (not-yet-available) result of an async ope
         - if resolved, return value is itself a Promise (chaining promises)
         - if rejected, Error obj (or something similar) is returned
         - if settled, computation is done
-    - chaining promises: fetch().then(resp => ...).then(content => ...) (1)
+    - chaining promises: fetch().then(resp => ...).then(content => ...)
     - instance-methods of promise obj: .then(), .catch(), .finally()
 
 .then()
@@ -36,9 +36,6 @@ Promise.all() (1)
     - otherwise, it will be fulfilled with an array of the fulfillment vals of each of the input Promises
     - input array can also contain non-Promise vals
         - treated as if it is the val of an already fulfilled Promise and copied unchanged into output arr
-
-Promise-based Fetch API: fetch() (2)
-    - text()/json() accesses response-body with content-type text/json and return promise
 
 EXAMPLE
 (1)

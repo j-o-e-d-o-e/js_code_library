@@ -1,0 +1,18 @@
+fetch()
+
+definitive, ch. 15.11.1
+
+Promise-based API for making HTTP requests in browser
+
+
+text()/json() accesses response-body with content-type text/json and return promise
+
+EXAMPLE
+(1)
+fetch("/api/user/profile") // task1 returns promise1
+    .then(response => { // then() invoked on promise1 -> task2 returns promise2
+        return response.json();
+    })
+    .then(profile => { // then() invoked on promise2 -> task3 returns result
+        displayUserProfile(profile);
+    });
