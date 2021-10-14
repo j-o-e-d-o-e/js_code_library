@@ -11,33 +11,33 @@ const literature = [
 ];
 let library = [];
 
+function readTitleAndSrc(fn) {
+    return new Promise((resolve) => {
+        const reader = readline.createInterface({input: fs.createReadStream(DIR + '/' + fn)});
+        let count = 1;
+        let lines = []; // reading 1st and 3rd line (title and src)
+        reader.on('line', function (line) {
+            if (count > 3) reader.close();
+            else if (count !== 2) lines.push(line);
+            count++;
+        });
+        reader.once('close', function () {
+            resolve([fn, lines]);
+        });
+    });
+}
+
 function setup() {
     return new Promise((resolve, reject) => {
-        fs.readdir(DIR, (err, filenames) => {
+        fs.readdir(DIR, async (err, filenames) => {
             if (err) return reject('Opening Directory ' + DIR + 'failed.');
-            let promises = filenames.map(fn => {
-                return new Promise((resolve) => {
-                    const reader = readline.createInterface({input: fs.createReadStream(DIR + '/' + fn)});
-                    let count = 1;
-                    let lines = []; // reading 1st and 3rd line (title and src)
-                    reader.on('line', function (line) {
-                        if (count > 3) reader.close();
-                        else if (count !== 2) lines.push(line);
-                        count++;
-                    });
-                    reader.once('close', function () {
-                        resolve([fn, lines]);
-                    });
-                });
-            });
-            Promise.all(promises).then(files => {
-                let count = 1;
-                files.forEach(([fn, lines]) => {
-                    library.push({index: count, fn, title: lines[0], src: lines[1]})
-                    count++;
-                });
-                resolve();
-            });
+            let promises = filenames.map(fn => readTitleAndSrc(fn));
+            let count = 1;
+            for await (const [fn, lines] of promises) {
+                library.push({index: count, fn, title: lines[0], src: lines[1]})
+                count++;
+            }
+            resolve();
         });
     });
 }

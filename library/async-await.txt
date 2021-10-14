@@ -7,22 +7,18 @@ since ES2017
 keywords simplify the use of Promises
     - allow to structure Promise-based code as if it was synchronous
 
-(1) await expressions
+(1) await
     - one arg: Promise
-    - waits until Promise is settled
-        - if fulfilled, value of await is the fulfillment val of Promise
-        - if rejected, expression throws the rejection val of Promise
-    - you can only use await within funcs that have been declared with async
-
+    - 'await p' waits until Promise p settles
+        - if fulfilled, value is the fulfillment val of the promise
+        - if rejected, throws the rejection val of the promise
+    - is only valid within funcs that have been declared 'async'
 (2) async functions
-    - declaring a func async means that the return val will be a Promise
-        - if succeeded, Promise obj resolves to val
-        - if failed, async func returns a rejected Promise
-    - func declared with async will implicitly return a Promise
-
-(3) since ES2018, async iterators
-    - used with for..await (new form of the for..of)
-    -
+    - declaring a func async means that its return-val will be a Promise
+(3) since ES2018, for await..of
+    - assigns fulfillment-val of Promise-array to loop-var
+    - instead of Promise.all(), computes result step-by-step (see entry: promise)
+    - only valid within async func (like await)
 
 EXAMPLE
 (1)
@@ -35,6 +31,9 @@ async function getHighScore() {
     return profile.highScore;
 }
 (3)
-for await (const response of promises) {
-    handle(response);
+let promises = filenames.map(fn => readTitleAndSrc(fn));
+let count = 1;
+for await (const [fn, lines] of promises) {
+    library.push({index: count, fn, title: lines[0], src: lines[1]})
+    count++;
 }

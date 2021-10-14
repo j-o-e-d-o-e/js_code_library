@@ -64,7 +64,9 @@ fetch("/api/user/profile") // task1 returns promise1
         displayUserProfile(profile);
     });
 (2)
-const urls = [ /* array of URLs */];
-promises = urls.map(url => fetch(url).then(r => r.text()));
-Promise.all(promises).then(bodies => { /* todo */
-    }).catch(e => console.error(e));
+let files = await Promise.all(filenames.map(fn => readTitleAndSrc(fn)));
+let count = 1;
+files.forEach(([fn, lines]) => {
+    library.push({index: count, fn, title: lines[0], src: lines[1]})
+    count++;
+});
