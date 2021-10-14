@@ -31,6 +31,7 @@ async function getHighScore() {
     return profile.highScore;
 }
 (3)
+// see setup() in code_library.js: callback of readdir() is declared async
 let promises = filenames.map(fn => readTitleAndSrc(fn));
 let count = 1;
 for await (const [fn, lines] of promises) {

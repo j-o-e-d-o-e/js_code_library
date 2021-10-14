@@ -64,6 +64,7 @@ fetch("/api/user/profile") // task1 returns promise1
         displayUserProfile(profile);
     });
 (2)
+// see setup() in code_library.js: callback of readdir() is declared async
 let files = await Promise.all(filenames.map(fn => readTitleAndSrc(fn)));
 let count = 1;
 files.forEach(([fn, lines]) => {
