@@ -12,7 +12,7 @@ three notations to define as
         - it is up to you to assign the newly defined func-obj to a constant if you are going to need to refer to it multiple times
         - cannot be invoked before they are defined
     - an arrow function (3)
-        - if body is a singule return-statement, you can omit the return-keyword, semicolon and curly braces
+        - if body is a single return-statement, you can omit the return-keyword, semicolon and curly braces
             - if expression to be returned is additionally an obj-literal, put the obj-literal inside parentheses
         - when only one parameter, you can omit the parentheses
         - if no parameters, parameter list is just an empty set of parentheses

@@ -4,46 +4,58 @@ definitive, ch.13.2
 
 since ES6, an obj that represents the (not-yet-available) result of an async operation
     - its states: pending -> resolved/fulfilled or rejected -> settled
-        - if fulfilled, val is returned
+        - if fulfilled ("promise kept"), val is returned
             - invokes callback func with val as arg
-        - if resolved, return value is itself a Promise (chaining promises)
-        - if rejected, Error obj (or something similar) is returned
+        - if resolved (but not yet fulfilled), return value is itself a Promise (chaining promises)
+        - if rejected ("promise broken"), Error obj (or something similar) is returned
         - if settled, computation is done
-    - chaining promises: fetch().then(resp => ...).then(content => ...)
-    - instance-methods of promise obj: .then(), .catch(), .finally()
+    - chaining promises: fetch().then(resp => ...).then(content => ...) (1)
+        - fetch()-calls in sequential chain on same level
 
+instance-methods of promise obj: .then(), .catch(), .finally()
 .then()
     - 1st arg: registered func handles fulfilled promise
         - registered func will be called once when promised computation is complete
     - 2nd arg: registered func handles rejected promise
         -rarely used, instead use catch()
+    - invoked on promise obj which is returned by an async func
+    - if called mulitple times on the same promise obj, each registered func will be called on fulfillment
 .catch()
     - registered func handles rejected promise
     - shorthand for calling then() with null as 1st arg and error-handler as 2nd arg
-    - catches an error in promise chain
+        - promise.then(null, callback) == promise.catch(callback)
+    - catches a thrown error in promise chain at a previous stage
     - can also be inserted in a promise chain (not only at its end)
-    - centralizes error-handling into a single catch() at then end of a chain of then()-calls
+        - if previous callbacks return normally, catch() will be skipped
+        - if callback recovers and returns normally, next then() will be invoked
+    - centralizes error-handling into a single catch() at the end of a chain of then()-calls
 .finally()
     - since ES2018
     - registered func will be invoked when Promise settles
         - promise always settles, whether it is fulfilled or rejected
-    - will not be passed any args
+    - no args are passed to registered callback
+    - returns a new Promise obj (like then() and catch())
+        - but, generally ignored
     - useful for cleanup, e.g. closing open files or connections
-Promise.all() (1)
+
+Promise.all() (2)
     - to execute a number of async operations in parallel
     - takes an array of Promise objs as input and returns a Promise
     - returned Promise will be rejected if any of the input Promises are rejected
     - otherwise, it will be fulfilled with an array of the fulfillment vals of each of the input Promises
     - input array can also contain non-Promise vals
         - treated as if it is the val of an already fulfilled Promise and copied unchanged into output arr
+    - since ES2020: Promise.allSettled()
+        - never rejects
+        - returns array of objs, each has additional 'status'-property set to 'fulfilled' or 'rejected'
+
+promise vs. callback (see entry: callback)
+    - better readability: Promise chain instead of nested callbacks
+    - better error-handling (due to catch())
+        - callbacks: error cannot be propageted back in nested structure
 
 EXAMPLE
 (1)
-const urls = [ /* array of URLs */];
-promises = urls.map(url => fetch(url).then(r => r.text()));
-Promise.all(promises).then(bodies => { /* todo */
-}).catch(e => console.error(e));
-(2)
 fetch("/api/user/profile") // task1 returns promise1
     .then(response => { // then() invoked on promise1 -> task2 returns promise2
         return response.json();
@@ -51,3 +63,8 @@ fetch("/api/user/profile") // task1 returns promise1
     .then(profile => { // then() invoked on promise2 -> task3 returns result
         displayUserProfile(profile);
     });
+(2)
+const urls = [ /* array of URLs */];
+promises = urls.map(url => fetch(url).then(r => r.text()));
+Promise.all(promises).then(bodies => { /* todo */
+    }).catch(e => console.error(e));

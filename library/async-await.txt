@@ -5,6 +5,7 @@ definitive, ch.13.3
 since ES2017
 
 keywords simplify the use of Promises
+    - allow to structure Promise-based code as if it was synchronous
 
 (1) await expressions
     - one arg: Promise
@@ -20,7 +21,7 @@ keywords simplify the use of Promises
     - func declared with async will implicitly return a Promise
 
 (3) since ES2018, async iterators
-    - used with for/await (new form of the for..of)
+    - used with for..await (new form of the for..of)
     -
 
 EXAMPLE
