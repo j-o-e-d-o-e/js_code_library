@@ -15,10 +15,13 @@ function readTitleAndSrc(fn) {
     return new Promise((resolve) => {
         const reader = readline.createInterface({input: fs.createReadStream(DIR + '/' + fn)});
         let count = 1;
-        let lines = []; // reading 1st and 3rd line (title and src)
+        let lines = {};
         reader.on('line', function (line) {
-            if (count > 3) reader.close();
-            else if (count !== 2) lines.push(line);
+            if (count === 1) lines.title = line;
+            else if (count === 3) {
+                lines.src = line;
+                reader.close();
+            }
             count++;
         });
         reader.once('close', function () {
@@ -30,28 +33,26 @@ function readTitleAndSrc(fn) {
 function setup() {
     return new Promise((resolve, reject) => {
         fs.readdir(DIR, async (err, filenames) => {
-            if (err) return reject('Opening Directory ' + DIR + 'failed.');
+            if (err) return reject('Opening Directory ' + DIR + ' failed.');
             let promises = filenames.map(fn => readTitleAndSrc(fn));
             let count = 1;
-            for await (const [fn, lines] of promises) {
-                library.push({index: count, fn, title: lines[0], src: lines[1]})
-                count++;
-            }
+            for await (const [fn, content] of promises)
+                library.push({index: count++, fn, title: content.title, src: content.src})
             resolve();
         });
     });
 }
 
-function toc(callback) {
+function toc() {
     log(delimiterH, 'JS CODE LIBRARY', delimiterH);
     for (let entry of library) {
         const len = entry.index < 10 ? entry.title.length - 1 : entry.title.length;
         log('%s - %s %s ->(%s) %s', entry.index, entry.title, " ".repeat(space - len), entry.index, entry.src)
     }
-    callback();
+    recursiveAsyncReadLine();
 }
 
-function entry(num, callback) {
+function entry(num) {
     log('\n' + delimiterE);
     const reader = readline.createInterface({input: fs.createReadStream(DIR + '/' + library[num - 1].fn)});
     let count = 1;
@@ -61,7 +62,7 @@ function entry(num, callback) {
     });
     reader.on('close', function () {
         log(delimiterE);
-        callback();
+        recursiveAsyncReadLine();
     });
 }
 
@@ -72,20 +73,21 @@ const reader = readline.createInterface({
 
 const recursiveAsyncReadLine = function () {
     reader.question('\nWhat would you like to read? ', function (input) {
-        const num = parseInt(input);
-        if (num === 667) {
+        const num = +input;
+        if (isNaN(num)) {
+            log('Not a num.');
+            recursiveAsyncReadLine();
+        } else if (num === 667) {
             log("Devil's neighbour wishes a good day.");
-            return reader.close(); // closing reader and returning from func
+            return reader.close();
         } else if (num < 0 || num > library.length) {
             log('Not a valid num.');
             recursiveAsyncReadLine();
-        } else {
-            if (num === 0) {
-                log('');
-                toc(recursiveAsyncReadLine);
-            } else
-                entry(num, recursiveAsyncReadLine); // calling func again to ask new question
-        }
+        } else if (num === 0) {
+            log('');
+            toc();
+        } else
+            entry(num);
     });
 };
 
@@ -94,16 +96,16 @@ function main() {
         flags(process.argv[2]);
         process.exit(0);
     }
-    setup().then(() => {
-        toc(recursiveAsyncReadLine);
-    }).catch(err => log(err));
+    setup()
+        .then(() => toc())
+        .catch(err => log(err));
 }
 
 function flags(f) {
     if (f === '-h' || f === '-help') {
         log(delimiterH, 'JS CODE LIBRARY', delimiterH);
-        log('Commands:\n\t- 0: Table of Content\n\t- 667: Exit');
-        log('Literature:');
+        log('Commands:\n\t- 0/Enter: Table of Content\n\t- 667: Exit');
+        log('\nLiterature:');
         for (let book of literature) log('\t-', book);
     }
 }
