@@ -101,6 +101,7 @@ function main() {
 
 function flags(f) {
     if (f === '-h' || f === '-help') {
+        log(delimiterH, 'JS CODE LIBRARY', delimiterH);
         log('Commands:\n\t- 0: Table of Content\n\t- 667: Exit');
         log('Literature:');
         for (let book of literature) log('\t-', book);
