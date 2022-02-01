@@ -1,14 +1,10 @@
 const fs = require('fs');
 const readline = require('readline');
 const log = console.log;
-const DIR = '/media/joe/E/programming/js/code_library/library'
-const delimiterH = '==================================='
-const delimiterE = '-----------------------------------'
-const space = 40;
-const literature = [
-    "David Flanagan (2020): JavaScript. The Definitive Guide, 7th Edition, O'Reilly.",
-    "Marijn Haverbeke (2018): Eloquent JavaScript, 3rd Edition, No Starch Press.",
-];
+const DIR = './library'
+const DELIMITER_H = '======================================='
+const DELIMITER_E = '---------------------------------------'
+const LITERATURE = ["David Flanagan (2020): JavaScript. The Definitive Guide, 7th Edition, O'Reilly.", "Marijn Haverbeke (2018): Eloquent JavaScript, 3rd Edition, No Starch Press.",];
 let library = [];
 
 function readTitleAndSrc(fn) {
@@ -17,8 +13,7 @@ function readTitleAndSrc(fn) {
         let count = 1;
         let lines = {};
         reader.on('line', function (line) {
-            if (count === 1) lines.title = line;
-            else if (count === 3) {
+            if (count === 1) lines.title = line; else if (count === 3) {
                 lines.src = line;
                 reader.close();
             }
@@ -36,24 +31,25 @@ function setup() {
             if (err) return reject('Opening Directory ' + DIR + ' failed.');
             let promises = filenames.map(fn => readTitleAndSrc(fn));
             let count = 1;
-            for await (const [fn, content] of promises)
-                library.push({index: count++, fn, title: content.title, src: content.src})
+            for await (const [fn, content] of promises) library.push({
+                index: count++, fn, title: content.title, src: content.src
+            })
             resolve();
         });
     });
 }
 
 function toc() {
-    log(delimiterH, 'JS CODE LIBRARY', delimiterH);
+    log(DELIMITER_H, 'JS CODE LIBRARY', DELIMITER_H);
     for (let entry of library) {
         const len = entry.index < 10 ? entry.title.length - 1 : entry.title.length;
-        log('%s - %s %s ->(%s) %s', entry.index, entry.title, " ".repeat(space - len), entry.index, entry.src)
+        log('%s - %s %s ->(%s) %s', entry.index, entry.title, " ".repeat(40 - len), entry.index, entry.src)
     }
-    recursiveAsyncReadLine();
+    recursiveAsyncReadInput();
 }
 
 function entry(num) {
-    log('\n' + delimiterE);
+    log('\n' + DELIMITER_E);
     const reader = readline.createInterface({input: fs.createReadStream(DIR + '/' + library[num - 1].fn)});
     let count = 1;
     reader.on('line', function (line) {
@@ -61,33 +57,31 @@ function entry(num) {
         count++;
     });
     reader.on('close', function () {
-        log(delimiterE);
-        recursiveAsyncReadLine();
+        log(DELIMITER_E);
+        recursiveAsyncReadInput();
     });
 }
 
 const reader = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+    input: process.stdin, output: process.stdout
 });
 
-const recursiveAsyncReadLine = function () {
+const recursiveAsyncReadInput = function () {
     reader.question('\nWhat would you like to read? ', function (input) {
         const num = +input;
         if (isNaN(num)) {
             log('Not a num.');
-            recursiveAsyncReadLine();
+            recursiveAsyncReadInput();
         } else if (num === 667) {
             log("Devil's neighbour wishes a good day.");
             return reader.close();
         } else if (num < 0 || num > library.length) {
             log('Not a valid num.');
-            recursiveAsyncReadLine();
+            recursiveAsyncReadInput();
         } else if (num === 0) {
             log('');
             toc();
-        } else
-            entry(num);
+        } else entry(num);
     });
 };
 
@@ -98,15 +92,18 @@ function main() {
     }
     setup()
         .then(() => toc())
-        .catch(err => log(err));
+        .catch(err => {
+            log(err);
+            process.exit(0);
+        });
 }
 
-function flags(f) {
-    if (f === '-h' || f === '-help') {
-        log(delimiterH, 'JS CODE LIBRARY', delimiterH);
+function flags(arg) {
+    if (arg === '-h' || arg === '-help') {
+        log(DELIMITER_H, 'JS CODE LIBRARY', DELIMITER_H);
         log('Commands:\n\t- 0/Enter: Table of Content\n\t- 667: Exit');
         log('\nLiterature:');
-        for (let book of literature) log('\t-', book);
+        console.table(LITERATURE);
     }
 }
 
