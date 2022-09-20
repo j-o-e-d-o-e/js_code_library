@@ -2,9 +2,18 @@ const fs = require('fs');
 const readline = require('readline');
 const log = console.log;
 const DIR = './library'
-const DELIMITER_H = '======================================='
-const DELIMITER_E = '---------------------------------------'
-const LITERATURE = ["David Flanagan (2020): JavaScript. The Definitive Guide, 7th Edition, O'Reilly.", "Marijn Haverbeke (2018): Eloquent JavaScript, 3rd Edition, No Starch Press.",];
+const DELIMITER_H = '=============================='
+const DELIMITER_E = '------------------------------'
+const RED = 91 // text color
+const GREEN = 32
+const CYAN = 96
+const COLOR_E = [CYAN, GREEN]
+const BLACK = 40 // background color
+const COLOR_E_BG = [BLACK, undefined]
+const LITERATURE = [
+    "David Flanagan (2020): JavaScript. The Definitive Guide, 7th Edition, O'Reilly.",
+    "Marijn Haverbeke (2018): Eloquent JavaScript, 3rd Edition, No Starch Press."
+];
 let library = [];
 
 function readTitleAndSrc(fn) {
@@ -28,7 +37,7 @@ function readTitleAndSrc(fn) {
 function setup() {
     return new Promise((resolve, reject) => {
         fs.readdir(DIR, async (err, filenames) => {
-            if (err) return reject('Opening Directory ' + DIR + ' failed.');
+            if (err) return reject(format({color: RED}, 'Opening Directory ' + DIR + ' failed.'));
             let promises = filenames.map(fn => readTitleAndSrc(fn));
             let count = 1;
             for await (const [fn, content] of promises) library.push({
@@ -40,26 +49,41 @@ function setup() {
 }
 
 function toc() {
-    log(DELIMITER_H, 'JS CODE LIBRARY', DELIMITER_H);
+    log(format({color: RED, bold: true}, `${DELIMITER_H} JS CODE LIBRARY ${DELIMITER_H}`));
     for (let entry of library) {
-        const len = entry.index < 10 ? entry.title.length - 1 : entry.title.length;
-        log('%s - %s %s ->(%s) %s', entry.index, entry.title, " ".repeat(40 - len), entry.index, entry.src)
+        log(format({
+            color: COLOR_E[entry.index % 2],
+            color_bg: COLOR_E_BG[entry.index % 2]
+        }, `${" ".repeat(entry.index < 10 ? 1 : 0)}${entry.index} - ${entry.title} ${" ".repeat(40 - entry.title.length)} ${entry.src}`));
     }
     recursiveAsyncReadInput();
 }
 
 function entry(num) {
-    log('\n' + DELIMITER_E);
-    const reader = readline.createInterface({input: fs.createReadStream(DIR + '/' + library[num - 1].fn)});
+    const entry = library[num - 1];
+    log(format({color: RED}, '\n' + DELIMITER_E));
+    log(format({color: COLOR_E[entry.index % 2], bold: true}, `${entry.index} - ${entry.title}`));
     let count = 1;
+    const reader = readline.createInterface({input: fs.createReadStream(DIR + '/' + entry.fn)});
     reader.on('line', function (line) {
-        if (count !== 2 && count !== 3) log(line);
-        count++;
+        if (count > 3) {
+            if (line === 'EXAMPLE') log(format({color: COLOR_E[entry.index % 2], bold: true}, line));
+            else log(format({color: COLOR_E[entry.index % 2]}, line));
+        } else count++;
     });
     reader.on('close', function () {
-        log(DELIMITER_E);
+        log(format({color: RED}, DELIMITER_E));
         recursiveAsyncReadInput();
     });
+}
+
+function format({color, color_bg = null, bold = false, underline = false}, str) {
+    const FORMAT_ESC = "\033[";
+    let format = color;
+    if (color_bg) format += ";" + color_bg;
+    if (bold) format += ";1";
+    if (underline) format += ";4";
+    return `${FORMAT_ESC}${format}m${str}${FORMAT_ESC}0m`;
 }
 
 const reader = readline.createInterface({
@@ -67,17 +91,17 @@ const reader = readline.createInterface({
 });
 
 const recursiveAsyncReadInput = function () {
-    reader.question('\nWhat would you like to read? ', function (input) {
+    reader.question(format({color: RED}, '\nWhat would you like to read? '), function (input) {
         const num = +input;
         if (isNaN(num)) {
-            log('Not a num.');
+            log(format({color: RED}, 'Not a num.'));
+            recursiveAsyncReadInput();
+        } else if (num < 0 || num > library.length) {
+            log(format({color: RED}, 'Not a valid num.'));
             recursiveAsyncReadInput();
         } else if (num === 667) {
-            log("Devil's neighbour wishes a good day.");
+            log(format({color: RED}, "Devil's neighbour wishes a good day."));
             return reader.close();
-        } else if (num < 0 || num > library.length) {
-            log('Not a valid num.');
-            recursiveAsyncReadInput();
         } else if (num === 0) {
             log('');
             toc();
@@ -100,10 +124,10 @@ function main() {
 
 function flags(arg) {
     if (arg === '-h' || arg === '-help') {
-        log(DELIMITER_H, 'JS CODE LIBRARY', DELIMITER_H);
-        log('Commands:\n\t- 0/Enter: Table of Content\n\t- 667: Exit');
-        log('\nLiterature:');
-        console.table(LITERATURE);
+        log(format({color: RED, bold: true}, `${DELIMITER_H} JS CODE LIBRARY ${DELIMITER_H}`));
+        log(format({color: CYAN}, "Commands\n\t- 0/'Enter': Table of Content\n\t- 667: Exit"));
+        log(format({color: GREEN}, 'Literature'));
+        for (let lit of LITERATURE) log(format({color: GREEN}, `\t- ${lit}`))
     }
 }
 
