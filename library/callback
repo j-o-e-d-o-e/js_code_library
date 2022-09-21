@@ -1,0 +1,33 @@
+callback
+
+definitive, ch.13.1
+
+func passed to another func which invokes this callback if some condition is met or some (async) event occurs
+    - invocation of callback notifies that the condition is met or event occured (e.g. mouse click)
+    - args of calllback-func allow to return computed val from callee to caller
+    - NodeJS is async by default and defines many APIs that use callbacks and events
+        - uses on() to register event-listeners (instead of addEventListener())
+
+ EXAMPLE
+ const readline = require('readline');
+ function entry(num, callback) {
+     const reader = readline.createInterface({
+         input: fs.createReadStream(DIR + '/' + library[num - 1].fn)
+     });
+    let count = 1;
+    reader.on('line', function (line) { // register a listener (2nd arg) for the event 'line' on obj reader
+        if (count !== 2 && count !== 3) console.log(line); // not 2nd and 3rd line
+        count++;
+    });
+    reader.on('close', () => callback()); // on event 'close' (EOF): call back (invoke listener)
+}
+const recursiveAsyncReadLine = function () {
+    const reader = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+    reader.question('\nWhat would you like to read? ', input => { // input: arg of callback
+        const num = parseInt(input);
+        entry(num, recursiveAsyncReadLine); // passing func itself to ask new question
+    });
+};

@@ -78,12 +78,12 @@ function entry(num) {
 }
 
 function format({color, color_bg = null, bold = false, underline = false}, str) {
-    const FORMAT_ESC = "\033[";
+    const ANSI_ESC = "\033[";
     let format = color;
     if (color_bg) format += ";" + color_bg;
     if (bold) format += ";1";
     if (underline) format += ";4";
-    return `${FORMAT_ESC}${format}m${str}${FORMAT_ESC}0m`;
+    return `${ANSI_ESC}${format}m${str}${ANSI_ESC}0m`;
 }
 
 const reader = readline.createInterface({

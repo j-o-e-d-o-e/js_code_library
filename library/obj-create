@@ -1,0 +1,39 @@
+object->creation
+
+definitive, ch.6
+
+three ways to create obj
+    - obj literal (1)
+        - shorthand props: omit identifier if var-name and identifier have same name (ES6)
+        - shorthand methods: omit function-keyword
+    - 'new' followed by constructor (2)
+        - since ES/JS 2015
+    - Object.create() (3)
+        - returns a newly created obj that inherits from a specified prototype obj
+        - Object.create(Object.prototype)) behaves like {} (1) or new Object() (2)
+        - if null passed, newly created ob will not inherit anything, not even toString()
+
+EXAMPLE
+(1)
+let a = {
+    b: 1, c: 3, multi() {
+        return this.b * this.c;
+    }
+}
+let {b, c} = a;
+console.log(b, c) // -> 1 3
+console.log(a.multi()) // -> 3
+(2)
+class Rabbit {
+    constructor(type) {
+        this.type = type;
+    }
+    speak(line) {
+        console.log(`The ${this.type} rabbit says '${line}'`);
+    }
+}
+let rabbit = new Rabbit("white");
+rabbit.speak("omg")
+rabbit = new Rabbit("purple").speak("omg");
+(3)
+let o1 = Object.create({x: 1, y: 2});

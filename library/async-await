@@ -1,0 +1,40 @@
+async/await
+
+definitive, ch.13.3
+
+since ES2017
+
+keywords simplify the use of Promises
+    - allow to structure Promise-based code as if it was synchronous
+
+(1) await
+    - one arg: Promise
+    - 'await p' waits until Promise p settles
+        - if fulfilled, value is the fulfillment val of the promise
+        - if rejected, throws the rejection val of the promise
+    - is only valid within funcs that have been declared 'async'
+(2) async functions
+    - declaring a func async means that its return-val will be a Promise
+(3) since ES2018, for await..of
+    - assigns fulfillment-val of Promise-array to loop-var
+    - instead of Promise.all(), computes result step-by-step (see entry: promise)
+    - only valid within async func (like await)
+
+EXAMPLE
+(1)
+let response = await fetch("/api/user/profile");
+let profile = await response.json();
+(2)
+async function getHighScore() {
+    let response = await fetch("/api/user/profile");
+    let profile = await response.json();
+    return profile.highScore;
+}
+(3)
+// see setup() in code_library.js: callback of readdir() is declared async
+let promises = filenames.map(fn => readTitleAndSrc(fn));
+let count = 1;
+for await (const [fn, lines] of promises) {
+    library.push({index: count, fn, title: lines[0], src: lines[1]})
+    count++;
+}

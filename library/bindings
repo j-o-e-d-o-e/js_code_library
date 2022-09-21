@@ -1,0 +1,10 @@
+bindings
+
+eloquent, p.24f.
+
+'var' is the way bindings were declared in pre-2015 js
+
+EXAMPLES
+let name = "Joe";
+const name = ´Joe´;
+var name = 'Joe';
