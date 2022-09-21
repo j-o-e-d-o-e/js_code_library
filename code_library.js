@@ -96,12 +96,12 @@ const recursiveAsyncReadInput = function () {
         if (isNaN(num)) {
             log(format({color: RED}, 'Not a num.'));
             recursiveAsyncReadInput();
-        } else if (num < 0 || num > library.length) {
-            log(format({color: RED}, 'Not a valid num.'));
-            recursiveAsyncReadInput();
         } else if (num === 667) {
             log(format({color: RED}, "Devil's neighbour wishes a good day."));
             return reader.close();
+        } else if (num < 0 || num > library.length) {
+            log(format({color: RED}, 'Not a valid num.'));
+            recursiveAsyncReadInput();
         } else if (num === 0) {
             log('');
             toc();
