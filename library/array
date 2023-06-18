@@ -8,11 +8,11 @@ eloquent, p.62/definitive, ch.7
     - there may be gaps
     - value of length property > number of elements
     - created with Array() constructor, e.g. new Array(5)
-'arr[arr.length] = 1' adds a new element (e.g. 1) by assignment (like push())
+- 'arr[arr.length] = 1' adds a new element (e.g. 1) by assignment (like push())
     - if length property is set to n < arr.length, any element whose index > n are deleted (1)
-delete operator removes element from array, but does not affect length property (2)
+- delete operator removes element from array, but does not affect length property (2)
     - if delete is used, the array becomes sparse
-since ES6: typed arrays
+- since ES6: typed arrays
     - all elems are numbers
     - e.g. Int8Array (definitive, ch.11.2)
 

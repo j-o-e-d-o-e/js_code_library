@@ -21,6 +21,7 @@ field initialization since 2020 (3)
 EXAMPLE
 (1)
 class Range {
+    static COUNT = 0;
     constructor(from, to) {
         this.from = from;
         this.to = to;
@@ -34,7 +35,6 @@ class Range {
     get getFrom(){
         return `get ${this.from}`;
     }
-    static COUNT = 0;
     static count() {
         return ++Range.COUNT;
     }
@@ -44,6 +44,7 @@ let r = new Range(1, 3);
 r.includes(2) // => true
 r.toString() // => "(1...3)"
 Range.count(); // => 11
+r.getFrom; // get 1
 (2)
 let Square = class { constructor(x) { this.area = x * x; } };
 new Square(3).area // => 9

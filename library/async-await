@@ -15,7 +15,7 @@ keywords simplify the use of Promises
     - is only valid within funcs that have been declared 'async'
 (2) async functions
     - declaring a func async means that its return-val will be a Promise
-(3) since ES2018, for await..of
+(3) for await..of (since ES2018)
     - assigns fulfillment-val of Promise-array to loop-var
     - instead of Promise.all(), computes result step-by-step (see entry: promise)
     - only valid within async func (like await)

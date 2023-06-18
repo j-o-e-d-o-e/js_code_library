@@ -8,19 +8,20 @@ func passed to another func which invokes this callback if some condition is met
     - NodeJS is async by default and defines many APIs that use callbacks and events
         - uses on() to register event-listeners (instead of addEventListener())
 
- EXAMPLE
- const readline = require('readline');
- function entry(num, callback) {
-     const reader = readline.createInterface({
-         input: fs.createReadStream(DIR + '/' + library[num - 1].fn)
-     });
-    let count = 1;
+EXAMPLE
+const fs = require('fs');
+const readline = require('readline');
+
+function entry(num, callback) {
+    const reader = readline.createInterface({
+        input: fs.createReadStream("./main.js")
+    });
     reader.on('line', function (line) { // register a listener (2nd arg) for the event 'line' on obj reader
-        if (count !== 2 && count !== 3) console.log(line); // not 2nd and 3rd line
-        count++;
+        reader.close();
     });
     reader.on('close', () => callback()); // on event 'close' (EOF): call back (invoke listener)
 }
+
 const recursiveAsyncReadLine = function () {
     const reader = readline.createInterface({
         input: process.stdin,
@@ -31,3 +32,5 @@ const recursiveAsyncReadLine = function () {
         entry(num, recursiveAsyncReadLine); // passing func itself to ask new question
     });
 };
+
+recursiveAsyncReadLine();

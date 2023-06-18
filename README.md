@@ -1,3 +1,5 @@
 # code library
 
-- run: `node code_library.js`
+- run
+    - current window: `node code_library.js`
+    - separat window: `./code_library`
