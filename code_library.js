@@ -5,7 +5,7 @@ const DIR = './library'
 const DELIMITER_H = '=============================='
 const DELIMITER_E = '------------------------------'
 const RED = 91 // text color
-const GREEN = 32
+const GREEN = 92
 const CYAN = 96
 const COLOR_E = [CYAN, GREEN]
 const BLACK = 40 // background color
