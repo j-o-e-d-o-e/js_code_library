@@ -3,7 +3,7 @@ object->properties
 eloquent, p.61ff./definitive, ch.6
 
 properties (name:value) are seperated by commas
-properties whose names aren't valid binding names have to be quoted
+    - properties whose names aren't valid binding names have to be quoted
 
 two ways to create or set
     - dot-operator (1)
@@ -19,7 +19,7 @@ conditionally access properties with '?' (3)
 
 'delete obj.prop' removes the named property from the object
     - delets only own properties, not inherited ones from prototype
-    - evalutes to true if deletion succeded of if it had no effect (like deleteing a non-existent prop)
+    - evaluates to true if deletion succeeded or if it had no effect (like deleteing a non-existent prop)
 'prop in obj' tells whether that object has a property with that name (including prototype's properties) (4)
 'obj.hasOwnProperty(prop)' checks whether that object has that given property (prototype excluded)
 'Object.keys(obj)' returns an array of strings: the object's property names (not those in its prototype)
