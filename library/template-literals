@@ -2,13 +2,13 @@ template literals
 
 eloquent, p.101
 
-for string interpolation
-requires backticks (`) instead of single or double quotes
+- for string interpolation
+- requires backticks (`) instead of single or double quotes
 
 EXAMPLE
-function speak(line, ...args) {
-    console.log(`The ${this.type} rabbit says '${line}' ${args}`);
+function speak(line) {
+    console.log(`The ${this.type} rabbit says '${line}'.`);
 }
 let whiteRabbit = {type: "white", speak};
 
-whiteRabbit.speak("Oh my ears and whiskers, how late it's getting!");
+whiteRabbit.speak("hey ho"); // The white rabbit says 'hey ho'.

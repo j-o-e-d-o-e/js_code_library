@@ -2,8 +2,8 @@ this
 
 eloquent, p.101
 
-arrow func do not bind their own 'this' but can see the 'this'-binding of the scope around them (1)
-regular func with keyword 'function' has its own 'this'-binding whose value depends on the way it is called (2)
+- arrow func do not bind their own 'this' but can see the 'this'-binding of the scope around them (1)
+- regular func with keyword 'function' has its own 'this'-binding whose value depends on the way it is called (2)
 
 EXAMPLE
 (1)

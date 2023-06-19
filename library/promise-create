@@ -9,7 +9,7 @@ definitive, ch.13.2.6
         - single arg: val to be returned
     - Promise.reject() returns a Promise that will be rejected with given val as the reason
         - single arg: val to be returned (like Promise.resolve())
-        - e.g. if error detected, report that error by returning a Promise before beginning an asnc operation
+        - e.g. if error detected, report that error by returning a Promise before beginning an async operation
 (3) Promise()-constructor
     - one arg: func with two params
         - 1st param: func, by convention, named 'resolve'

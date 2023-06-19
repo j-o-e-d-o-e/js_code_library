@@ -2,25 +2,26 @@ set
 
 definitive, ch.11.1.1
 
-since ES6
-unordered/un-indexed, iterable collection of values not allowing duplicates
+- unordered/un-indexed, iterable collection of values not allowing duplicates
     - membership is based on strict equality checks (===)
     - WeakSet implements a set of objects that does not prevent those objs from being garbage collected
-arg of Set()-constructor
-    - an arr or iterable obj (including other Set objs and strings)
+- Set()-constructor
+    - arg: an arr or iterable obj (including other Set objs and strings)
     - if omitted, empty set
-size-property tells how many vals the set contains (like length-property of an arr)
-add() adds an elem
-    - takes a single arg
-    - if array, it adds the arr itself, not its individual elems (unlike constructor)
-    - returns the set it is invoked on
-    - to add multiple values, use chained method calls: s.add('A').add('B').add('C');
-delete() deletes an elem
-    - only deletes a single elem at a time
-    - returns a bool val
-clear() clears all elems
-has() checks whether a specified val is member of the set
-forEach() is supported (but without indices)
+- size-property tells how many vals the set contains (like length-property of an arr)
+- methods
+    - add()
+        - takes a single arg
+        - if array, it adds the arr itself, not its individual elems (unlike constructor)
+        - returns the set it is invoked on
+        - to add multiple values, use chained method calls: s.add('A').add('B').add('C');
+    - delete()
+        - only deletes a single elem at a time
+        - returns a bool val
+    - clear() clears all elems
+    - has() checks whether a specified val is member of the set
+    - forEach() is supported (but without indices)
+- since ES6
 
 EXAMPLE
 let s = new Set([1, 2, 3]);

@@ -2,22 +2,19 @@ prototype
 
 eloquent, p.102ff./definitive, ch.6.3.2
 
-almost every object has a prototype (1)
-obj inherits from prototype
-prototype is fallback source of properties
-root prototype: Object.prototype
-
-querying properties looks up prototypes, setting them overrides inherited prototypes (2)
+- almost every object has a prototype (1)
+- obj inherits from prototype
+- prototype is fallback source of properties
+- root prototype: Object.prototype
+- querying properties looks up prototypes, setting them overrides inherited prototypes (2)
 
 EXAMPLE
 (1)
-console.log(Object.getPrototypeOf(Math.max) == Function.prototype);
-// -> true
-console.log(Object.getPrototypeOf([]) == Array.prototype);
-// -> true
+console.log(Object.getPrototypeOf(Math.max) == Function.prototype); // -> true
+console.log(Object.getPrototypeOf([]) == Array.prototype);          // -> true
 (2)
-let unitCircle = { r: 1 }; // An object to inherit from
-let c = Object.create(unitCircle); // c inherits the property r
-c.x = 1; c.y = 1; // c defines two properties of its own
-c.r = 2; // c overrides its inherited property
-console.log(unitCircle.r) // => 1: the prototype is not affected
+let unitCircle = { r: 1 };          // An object to inherit from
+let c = Object.create(unitCircle);  // c inherits the property r
+c.x = 1; c.y = 1;                   // c defines two properties of its own
+c.r = 2;                            // c overrides its inherited property
+console.log(unitCircle.r);          // => 1: the prototype is not affected

@@ -2,8 +2,7 @@ typeof
 
 eloquent, p.15
 
-produces a string value naming the type of the value you give it
+- produces a string value naming the type of the given value
 
 EXAMPLE
-console.log(typeof 4.5)
-// -> number
+console.log(typeof 4.5); // -> number

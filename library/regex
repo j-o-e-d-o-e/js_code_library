@@ -27,10 +27,10 @@ two ways to construct
 /\d/	        Any digit character
 /\w/	        An alphanumeric character (“word character”)
 /\s/	        Any whitespace character
-/./	            Any character except newlines
-/\b/	        A word boundary
-/^/	            Start of input
-/$/	            End of input
+/./             Any character except newlines
+/\b/            A word boundary
+/^/             Start of input
+/$/             End of input
 
 /b: word boundary
     - can be the start or end of the string or

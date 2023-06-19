@@ -2,11 +2,11 @@ subclass
 
 definitive, ch.9.5.2
 
-since ES6: creating subclass by adding an 'extends'-clause
-    - instance and static methods are inherited
-    - super-keyword to invoke constructor and methods of the superclass
-        - this-keyword may not be used in constructor until after invocation of superclass-constructur
-
+- creating subclass by adding an 'extends'-clause
+- instance and static methods are inherited
+- super-keyword to invoke constructor and methods of the superclass
+    - this-keyword may not be used in constructor until after invocation of superclass-constructur
+- since ES6
 
 EXAMPLE
 // A trivial Array subclass that adds getters for the first and last elements.
