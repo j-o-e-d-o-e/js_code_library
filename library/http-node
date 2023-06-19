@@ -2,10 +2,10 @@ http->node
 
 definitive, ch.16.8
 
-modules: http, https, http2
-APIs for implementing HTTP clients and servers
-more low-level
-get() for GET, request() in general, etc.
+- modules: http, https, http2
+- APIs for implementing HTTP clients and servers
+- more low-level
+- get() for GET, request() in general, etc.
 
 EXAMPLE
 const https = require("https");
@@ -19,8 +19,8 @@ https.get(url, function (res) {
     res.on('end', function () {
         body = JSON.parse(body);
         console.log(`In ${body.year}, ${body.total} flights, so far.`);
+        // e.g. In 2023, 13797 flights, so far.
     });
-})
-    .on('error', function (e) {
-        console.log("Got error: " + e.message);
-    });
+}).on('error', function (e) {
+    console.log("Got error: " + e.message);
+});

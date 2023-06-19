@@ -2,8 +2,8 @@ higher-order func
 
 eloquent js, p.88f./defintive, ch.8.8.2
 
-pass function values to other functions
-the given function fills a "gap" in the called function
+- pass function values to other functions
+- the given func fills a "gap" in the called func
 
 EXAMPLE
 (1)
@@ -14,18 +14,13 @@ const greaterThan = n => {
 // creating new func with n=10
 const greaterThan10 = greaterThan(10);
 // m=11
-console.log(greaterThan10(11));
-
+console.log(greaterThan10(11)); // true
 (2)
-console.log([1,2,3].filter(el => el > 2));
-// -> [3]
+console.log([1,2,3].filter(el => el > 2)); // [3]
 (3)
-console.log([1,2,3].map(el => el > 2));
-// -> [false, false, true]
+console.log([1,2,3].map(el => el > 2)); // [false, false, true]
 (4)
 function average(array) {
     return array.reduce((a, b) => a + b) / array.length;
 }
-
-console.log(average([1, 2, 3, 4, 5]));
-// -> 3
+console.log(average([1, 2, 3, 4, 5])); // 3

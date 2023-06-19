@@ -4,14 +4,12 @@ definitive, ch. 15.11.1
 
 Promise-based API for making HTTP requests in browser
 
-text()/json() access response-body with content-type text/json and return promise
-    - although, the initial Promise if fulfilled (returned by fetch())
-    - and the data within the response-header is available
+text() resp. json() access response-body with content-type text resp. json and return promise
+    - although, the initial Promise if fulfilled (returned by fetch()) and the data within the response-header is available
     - the body of the response may not yet have arrived
     - therefore, text()/json() return promises 
 
 EXAMPLE
-(1)
 fetch("/api/user/profile") // task1 returns promise1
     .then(response => { // then() invoked on promise1 -> task2 returns promise2
         return response.json();

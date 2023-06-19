@@ -9,4 +9,3 @@ JS's Error class
     - modern browsers and node define additionally a property 'stack'
         - its val is a multi-line-string that contains the strack trace
     - subclasses of Error: e.g. SyntaxError, ReferenceError
-        

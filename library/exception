@@ -1,0 +1,26 @@
+exception handling
+
+eloquent, ch.8
+
+(1) raising an exception
+    - jumps out of the current function and its callers
+    - all the way down to the first call that started the current execution
+(2) catching an exception
+    -  allows to address the problem and then continue to run the program
+
+EXAMPLE
+function comp(input) {
+    if (typeof input === "number") return input + 1;
+    throw new Error(input + " is NaN."); // (1)
+}
+
+function input(val) {
+    return comp(val);
+}
+
+try { // (2)
+    console.log(input(3));  // 4
+    console.log(input("3"));// Something went wrong: 3 is NaN.
+} catch (error) {
+    console.log("Something went wrong: " + error.message);
+}

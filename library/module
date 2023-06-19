@@ -27,16 +27,16 @@ eloquent, ch.9/definitive, ch.10
     - EXPORT
         - put keyword 'export' in front of a func, class or variable (let, const, var) (2.1)
             - only possible for declarations that have a name
-        - to export from a single place (typically at then end of the module): export {} (2.2)
+        - to export from a single place (typically at the end of the module): export {} (2.2)
         - to export only one value, it is common to use 'export default' (2.3)
             - can export any expression, including anonymous funcs
-        - named exports: export { render as renderLayout };
+        - named export, e.g. export { render as renderLayout };
     - IMPORT
         - 'import'-keyword loads exported values
             - string of the module from which a value is imported is a path (typically, starts with "./")
-            - wildcard-import: import * as stats from "./module.js" (2.1)
-            - named imports: import { render as renderUI } from "./ui.js"
-        - to load an ES module in node, set "type": "module" in the package.json
+            - wildcard-import, e.g. import * as stats from "./module.js" (2.1)
+            - named import, e.g. import { render as renderUI } from "./ui.js"
+        - to load an ES module in node, set "type": "module" in package.json
 
 EXAMPLE
 (1.1)

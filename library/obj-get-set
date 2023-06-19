@@ -2,10 +2,9 @@ object->get/set
 
 definitive, ch.6.10.6
 
-private properties are declared with underscore
-getter/setter used e.g. for sanity checks
-causes implicit invocation, when querying or setting the value of its properties
-
+- private properties are declared with underscore
+- getter/setter used e.g. for sanity checks
+- causes implicit invocation, when querying or setting the value of its properties
 
 EXAMPLE
 const box = {
@@ -15,15 +14,15 @@ const box = {
         if (this.locked) throw new Error("Locked!");
         return this._content;
     },
-    set content(val){
+    set content(val) {
         this._content.push(val);
     }
 };
 
-box.content = "diamond";
-console.log(box._content)
+box.content = "diamond"; // implicit invoke of setter
+console.log(box._content); // [ 'gold piece', 'diamond' ]
 try {
-    console.log(box.content)
+    console.log(box.content) // implicit invoke of getter
 } catch (e) {
-    console.log(e.message)
+    console.log(e.message) // Locked!
 }

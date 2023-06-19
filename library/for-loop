@@ -5,32 +5,23 @@ eloquent, ch.8
 (1) for..of
     - iterates over the values of an iterable obj, like arrays and strings
     - using arr.entries() returns the indices and elems
-
 (2) for..in
     - iterates overall enumerable property key of an obj
-
-'for(;;)' creates a loop that doesn't terminate on its own (3)
+(3) 'for(;;)' creates a loop that doesn't terminate on its own (3)
 
 EXAMPLE
-let a = "joe";
 (1)
-for (let i of a) {
-    console.log(i)
-} // -> j o e
-for (let [index, elem] of [1, 2, 3].entries()) {
-    console.log(index, elem);
-} // -> 0 1   1 2   2 3
-(2)
-for (let i in [1, 2, 3]) {
-    console.log(i)
-} // -> 0 1 2
-(3)
-for (let i of [1,2,3]) {
-    console.log(i)
-}
+let a = "joe";
+for (let i of a) console.log(i) // -> j o e
 
+for (let [index, elem] of [1, 2, 3].entries()) {
+    console.log(index, elem); // -> 0 1   1 2   2 3
+}
+(2)
+for (let i in [1, 2, 3]) console.log(i) // -> 0 1 2
+(3)
 let count = 1;
 for (; ;) {
     if (count > 3) break
-    console.log(count++);
+    console.log(count++); // 1 2 3
 }
