@@ -2,7 +2,7 @@ promise
 
 definitive, ch.13.2
 
-since ES6, an obj that represents the (not-yet-available) result of an async operation
+an obj that represents the (not-yet-available) result of an async operation
     - its states: pending -> resolved/fulfilled or rejected -> settled
         - if fulfilled ("promise kept"), val is returned
             - invokes callback func with val as arg
@@ -11,13 +11,14 @@ since ES6, an obj that represents the (not-yet-available) result of an async ope
         - if settled, computation is done
     - chaining promises: fetch().then(resp => ...).then(content => ...) (1)
         - fetch()-calls in sequential chain on same level
+    - since ES6
 
-instance-methods of promise obj: .then(), .catch(), .finally()
+instance-methods of promise-obj
 .then()
     - 1st arg: registered func handles fulfilled promise
         - registered func will be called once when promised computation is complete
     - 2nd arg: registered func handles rejected promise
-        -rarely used, instead use catch()
+        - rarely used, instead use catch()
     - invoked on promise obj which is returned by an async func
     - if called mulitple times on the same promise obj, each registered func will be called on fulfillment
 .catch()
