@@ -5,6 +5,8 @@ definitive, ch.6
 three ways to create obj
     (1) obj literal
         - shorthand props: omit identifier if var-name and identifier have same name (ES6)
+            - keys/identifiers do not need to be wrapped in quotation marks
+            - unless they contain special characters, e.g. 'key-with-dashes'
         - shorthand methods: omit function-keyword
     (2) 'new' followed by constructor
         - since ES/JS 2015

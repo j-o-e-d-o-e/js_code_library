@@ -8,17 +8,18 @@ properties (name:value) are seperated by commas
 two ways to create or set
     - dot-operator (1)
         - uses literal name of the addressed property
-        - works only with names that look like valid binding names
+        - works only with names that look like valid binding names (without special characters)
         - 'obj.prop=val' replaces the property's value if it already existed or creates a new property on the object
     - square brackets (2)
         - expression is evaluated to get the property name
+        - useful for properties containing special chars, e.g. obj['key-with-dashes']
         - for elements in an array (since nums aren't valid binding names)
 conditionally access properties with '?' (3)
     - since ES 2020
     - if not sure whether obj contains a prop whose props are requested
 
 'delete obj.prop' removes the named property from the object
-    - delets only own properties, not inherited ones from prototype
+    - deletes only own properties, not inherited ones from prototype
     - evaluates to true if deletion succeeded or if it had no effect (like deleteing a non-existent prop)
 'prop in obj' tells whether that object has a property with that name (including prototype's properties) (4)
 'obj.hasOwnProperty(prop)' checks whether that object has that given property (prototype excluded)
