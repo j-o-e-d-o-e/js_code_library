@@ -6,6 +6,9 @@ string
     - accessible via array-notation
     - like array, deleting elems does not affect length-property (1)
 - concatenation via addition-operator
+- like nums, can be compared by using comparison-operators
+    - according to dictionary (lexicographical) order
+    - exact order of all chars, see: fileformat.info/info/charset/UTF-16/list.htm
 - methods (2), e.g.
     - includes() checks whether another string is part the the given str
     - startsWith()/endsWith()
