@@ -17,8 +17,15 @@ for (let i of a) console.log(i) // -> j o e
 for (let [index, elem] of [1, 2, 3].entries()) {
     console.log(index, elem); // -> 0 1   1 2   2 3
 }
-(2)
+(2.1)
 for (let i in [1, 2, 3]) console.log(i) // -> 0 1 2
+(2.2)
+let ls = {
+    'Mary Jane': 1,
+    'Joe Doe': 2,
+};
+for (let name in ls) ls[name] += 100;
+// { 'Mary Jane': 101, 'Joe Doe': 102 }
 (3)
 let count = 1;
 for (; ;) {
