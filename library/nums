@@ -1,0 +1,25 @@
+nums->math
+
+
+
+two types
+    - number: usually
+    - bigint: for precision/large nums
+methods of built-in global obj 'Math'
+    - 'round()' rounds to nearest int
+    - 'floor()' rounds down
+    - 'ceil()' rounds up
+    - 'pow()' returns x^y
+        - alternatively, use exponentiation-operator: x ** y
+    - 'random()' returns pseudo-random num between 0 and 1
+    - 'sqrt()' return sqaure root of arg
+SEE ALSO:
+    - developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+
+EXAMPLE
+Math.round(234.34);         // => 234
+Math.floor(234.34);         // => 234
+Math.ceil(234.34);          // => 235
+Math.pow(3, 2);             // => 9
+Math.pow(3, 2) === 3 ** 2;  // true
+Math.sqrt(25);              // => 5

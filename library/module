@@ -34,6 +34,7 @@ eloquent, ch.9/definitive, ch.10
     - IMPORT
         - 'import'-keyword loads exported values
             - string of the module from which a value is imported is a path (typically, starts with "./")
+                - apparently, .js-suffix can not be omitted
             - wildcard-import, e.g. import * as stats from "./module.js" (2.1)
             - named import, e.g. import { render as renderUI } from "./ui.js"
         - to load an ES module in node, set "type": "module" in package.json

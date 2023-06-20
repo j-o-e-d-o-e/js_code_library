@@ -1,0 +1,39 @@
+test->jest
+
+jestjs.io/docs/getting-started
+
+- install: `npm install --save-dev jest` (for each project)
+- run: `npm test`
+- methods
+    - describe(): bundles tests
+    - test(): single test
+    - expect(): actual result
+    - toBe(): expected result
+    - toBeCloseTo(): expected result for doubles
+
+EXAMPLE
+// main.js (to be tested)
+const sum = (x, y) => x + y;
+module.exports = sum;
+
+// main.test.js (tests)
+const sum = require('./main');
+
+describe('sum', () => {
+    test('positive integers', () => {
+        expect(sum(1, 2)).toBe(3);
+    });
+    test('positive and negative integer', () => {
+        expect(sum(3, -2)).toBe(1);
+    });
+});
+// package.json
+{
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}

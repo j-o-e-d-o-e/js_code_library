@@ -1,0 +1,20 @@
+jsdoc
+
+
+
+annotations, e.g.
+    - @param
+    - @returns
+
+EXAMPLE
+/**
+ * Computes the mean of an array of numbers
+ * 
+ * @param data int-array
+ * @returns {number} the mean of all elements
+ */
+function mean(data){
+    return data.reduce((x, y) => x + y) / data.length;
+}
+
+let res = mean([1,2,3,4,5]); // 3
