@@ -34,8 +34,8 @@ methods defined by the Array class/prototype
     - push() appends one or more values to the end of an array and returns new length (4)
     - pop() deletes the last element, decrements the length and returns the value (4)
         - push() and pop() modify the array in place
-    - unshift() adds elements at the start (shifting existing elems to higher indexes) and returns length
-    - shift() removes 1st elem (shifting all elems down) and returns its value
+    - unshift() adds elements at the start (shifting existing elems up), increments length and returns length
+    - shift() removes 1st elem (shifting all elems down), decrements length and returns its value
 (5) subarrays
     - slice(start, end) returns a subarray with the elements between start (inclusive) and end (exclusive) (5.1)
         - if only one arg: all elems from start to end of the array

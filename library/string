@@ -1,0 +1,24 @@
+string
+
+
+
+- list/array of chars
+    - accessible via array-notation
+    - like array, deleting elems does not affect length-property (1)
+- concatenation via addition-operator
+- methods (2), e.g.
+    - includes() checks whether another string is part the the given str
+    - startsWith()/endsWith()
+    - slice(): returns substring with the elems between start (incl) and end (excl)
+
+EXAMPLE
+(1)
+let word = " joe\t";
+let str = word.trim();
+console.log(word.length);   // 5
+console.log(str.length);    // 3
+(2)
+"joe"[0];               // j
+"joe".length;           // 3
+'joe'.endsWith("e");    // true
+"joe".slice(1);         // oe
