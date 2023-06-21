@@ -2,13 +2,28 @@ callback
 
 definitive, ch.13.1
 
-func passed to another func which invokes this callback if some condition is met or some (async) event occurs
+- func passed to another func which invokes this callback if some condition is met or some (async) event occurs
     - invocation of callback notifies that the condition is met or event occured (e.g. mouse click)
     - args of calllback-func allow to return computed val from callee to caller
     - NodeJS is async by default and defines many APIs that use callbacks and events
         - uses on() to register event-listeners (instead of addEventListener())
+- SEE ALSO:
+    - /exercism/javascript/fruit-picker
 
 EXAMPLE
+(1)
+// Caller function takes a callback function
+function apply(callback, num) {
+    return callback(num); // one arg
+}
+
+// Callback must expect one arg from the calling func
+function square(n = 2) {
+    return n * n;
+}
+let res = apply(square, 5); // => 25
+res = apply(square);        // => 4
+(2)
 const fs = require('fs');
 const readline = require('readline');
 

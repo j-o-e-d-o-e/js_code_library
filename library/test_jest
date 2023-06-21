@@ -4,12 +4,20 @@ jestjs.io/docs/getting-started
 
 - install: `npm install --save-dev jest` (for each project)
 - run: `npm test`
-- methods
+- methods, e.g.
     - describe(): bundles tests
     - test(): single test
     - expect(): actual result
     - toBe(): expected result
     - toBeCloseTo(): expected result for doubles
+- mocks
+    - creation
+        - jest.mock() mocks a module
+        - jest.fn() creates a mock func
+    - methods, e.g.
+        - toHaveBeenCalledTimes(): how often called
+        - toHaveBeenCalledWith(): called with specified args
+    - SEE ALSO: /exercism/javascript/fruit-picker
 
 EXAMPLE
 // main.js (to be tested)

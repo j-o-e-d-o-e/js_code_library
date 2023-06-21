@@ -4,6 +4,7 @@ eloquent js, p.88f./defintive, ch.8.8.2
 
 - pass function values to other functions
 - the given func fills a "gap" in the called func
+- SEE ALSO: /exercism/javascript/coordinate-transformation
 
 EXAMPLE
 (1)
