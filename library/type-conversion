@@ -2,10 +2,33 @@ type conversion
 
 eloquent, p.19f.
 
-- when operator is applied to the wrong type of value, js will quietly convert that value to the type it needs (type coercion)
-- three-character comparison recommended to prevent unexpected type coercion
+(1) explicit conversion (using funcs)
+    - 'Boolean(val)' converts any value to a boolean
+        - falsy values (convert to 'false'): false, 0, an empty string, null, undefined, NaN
+        - truthy values: all other vals
+    - 'Number(val)' converts val to a num
+        - whitespaces at the beginnning and end of a string are ignored
+        - empty string is converted to '0'
+        - if fails, returns NaN
+    - 'String(val)' converts val to a string
+        - for arrays, resulting elems are separated by commas
+(2) implicit conversion (type coercion)
+    - when operator is applied to the wrong type of value, js will quietly convert that value to the type it needs
+    - three-character comparison recommended to prevent unexpected type coercion
+- SEE ALSO
+    - /exercism/javascript/lucky-numbers
 
 EXAMPLE
+(1)
+Boolean(1);             // true
+Boolean(' ');           // true
+Number('  -12.34  ');   // -12.34
+(2)
 console.log("5" - 1);    // -> 4
 console.log("5" + 1);    // -> 51
 console.log(false == 0); // -> true
+
+const num = 0;
+if (num) {
+  // block is NOT executed because 0 is falsy (like C)
+}

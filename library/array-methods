@@ -30,6 +30,7 @@ methods defined by the Array class/prototype
         - calling a.flatMap(f) is the same as (but more efficient than) a.map(f).flat()
 (3) concatenation
     - concat() creates and returns a new array containing elems of the arrays
+    - join() returns a new string with all elems separated as defined by arg
 (4) stacks/queues
     - push() appends one or more values to the end of an array and returns new length (4)
     - pop() deletes the last element, decrements the length and returns the value (4)
