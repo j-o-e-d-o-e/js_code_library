@@ -1,23 +1,32 @@
-spread
+rest/spread
 
 eloquent, p.76f./definitive, ch.6.10.4
 
-- spread-operator unpacks arrays (1) or iterable objs (such as strings) (2) to their elements
-- useful for creating a copy of an obj (3)
+- rest
+    - appears on the left-hand side of an assignment
+    - packs zero or more elems into a single array
+    - arr-var must be the last element in a destructing assignment (1)
+- spread
+    - appears on the right-hand side of an assignment    
+    - unpacks array (2.1) or iterable obj (such as strings) (2.2)
+    - useful for creating a copy of an obj (2.3)
 
 EXAMPLE
 (1)
+const [a, b, ...everythingElse] = [0, 1, 2, 3];
+everythingElse; // => [2, 3]
+(2.1)
 function concat(a, b) {
     return `${a} + ${b}`;
 }
 console.log(concat(...[1, 2, 3])); // -> 1 + 2
-(2)
+(2.2)
 let position = { x: 0, y: 0 };
 let dimensions = { width: 100, height: 75 };
 let rect = { ...position, ...dimensions };
 let res = rect.x + rect.y + rect.width + rect.height;
 console.log(res); // => 175
-(3)
+(2.3)
 const device = {color: "blue"};
 let res = device;
 console.log(res === device); // true
