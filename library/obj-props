@@ -2,57 +2,61 @@ object->properties
 
 eloquent, p.61ff./definitive, ch.6
 
-properties (name:value) are seperated by commas
-    - properties whose names aren't valid binding names have to be quoted
+properties (key:value) are seperated by commas
+    - keys that aren't valid binding names have to be quoted
 
 two ways to create/set or get
-    - dot-operator (1)
-        - uses literal name of the addressed property
-        - works only with names that look like valid binding names (without special characters)
-        - 'obj.prop=val' replaces the property's value if it already existed or creates a new property on the object
-    - square brackets (2)
-        - expression is evaluated to get the property name
-        - useful for properties containing special chars, e.g. obj['key with whitespace']
-        - for elements in an array (since nums aren't valid binding names)
-conditionally access properties with '?.' (3)
-    - since ES 2020, optional chaining operator
-    - if not sure whether obj contains a prop whose props are requested
-    - if not the case, 'undefined' is returned
-    - '??' allows to set default value if prop is null or undefined (nullish coalescing operator)
+    (1) dot-operator
+        - accepts only static keys
+        - works only with keys without special characters or whitespace
+        - 'obj.key=val' replaces the property's value if it already existed or creates a new property on the object
+        - optional chaining operator '?.' (1.2)
+            - if not sure whether obj (parent) contains a prop whose props are requested
+            - if not the case, 'undefined' is returned
+        - nullish coalescing operator '??' (both since ES 2020)
+            - allows to set default value if prop is null or undefined
+    (2) square brackets
+        - allows for dynamic keys (evaluated from an expression during runtime)
+            - e.g. concatenated string, return val from a func
+        - for keys containing special chars, e.g. obj['key with whitespace']
+        - for elements in an array (since nums aren't valid bindings)
 
-'delete obj.prop' removes the named property from the object
-    - deletes only own properties, not inherited ones from prototype
+- 'delete obj.key' removes the prop according to key from the obj
+    - deletes only own props, not inherited ones from prototype
     - evaluates to true if deletion succeeded or if it had no effect (like deleting a non-existent prop)
     - array notation: delete obj["prop"]
-'prop in obj' tells whether that object has a property with that name (including prototype's properties) (4)
-'obj.hasOwnProperty(prop)' checks whether that object has that given property (prototype excluded)
-'Object.keys(obj)' returns an array of strings: the object's property names (not those in its prototype) (5)
-'Object.assign(objA, objB)' copies all properties from object B into object A
+- 'key in obj' tells whether obj has a prop with that key (including prototype's props) (3)
+- 'Object.hasOwn(obj, key)' checks whether obj has property with given key (prototype excluded)
+- 'Object.keys(obj)' returns array of strings: the object's property keys (not those in its prototype) (4)
+- 'Object.assign(objA, objB)' copies all props from obj B into obj A
     - expects two or more objs as args
     - modifies and returns the first arg
     - props in target obj are overwritten if existing in source objs
+- SEE ALSO
+    - /exercism/javascript/high-score-board
+    - /exercism/javascript/amusment-park
 
 EXAMPLE
-(1)
+(1.1)
 obj.x
+(1.2)
+let devices = { laptop: "think-pad" };
+devices.desktop.cpu; // TypeErrorw
+devices.desktop?.cpu; // undefined
+devices.desktop.gpu ?? "nothing"; // TypeError
+devices.desktop?.gpu ?? "nothing"; // nothing
 (2)
 let ls = {
     'Mary Jane': 1,
 };
 ls["Joe Doe"] = 21; // { 'Mary Jane': 1, 'Joe Doe': 21 }
 (3)
-let devices = { laptop: "think-pad" };
-devices.desktop.cpu; // TypeErrorw
-devices.desktop?.cpu; // undefined
-devices.desktop.gpu ?? "nothing"; // TypeError
-devices.desktop?.gpu ?? "nothing"; // nothing
-(4)
 let descr = {
     "thoughts on this lib": "address the details",
     entries: undefined
 };
 console.log("thoughts on this lib" in descr); // -> true
-(5)
+(4)
 let ls = {
     'Mary Jane': 1,
     'Joe Doe': 2,
