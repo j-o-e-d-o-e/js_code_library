@@ -2,7 +2,8 @@ spread
 
 eloquent, p.76f./definitive, ch.6.10.4
 
-spread-operator unpacks arrays (1) or iterable objs (such as strings) (2) to their elements
+- spread-operator unpacks arrays (1) or iterable objs (such as strings) (2) to their elements
+- useful for creating a copy of an obj (3)
 
 EXAMPLE
 (1)
@@ -16,3 +17,9 @@ let dimensions = { width: 100, height: 75 };
 let rect = { ...position, ...dimensions };
 let res = rect.x + rect.y + rect.width + rect.height;
 console.log(res); // => 175
+(3)
+const device = {color: "blue"};
+let res = device;
+console.log(res === device); // true
+res = {...device};
+console.log(res === device); // false

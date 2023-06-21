@@ -34,7 +34,8 @@ JS funcs are objs. Therefore, they
         - length: the number of params
         - name: name when defined
 
-JS funcs are executed using the scope they are defined in (6)
+- JS funcs are executed using the scope they are defined in (6)
+- if func states 'return;' (without val), its return val is undefined
 
 EXAMPLE
 (1)
