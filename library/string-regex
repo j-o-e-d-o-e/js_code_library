@@ -2,23 +2,36 @@ string->regex
 
 eloquent, ch.8
 
-- replace() replaces part of the string with another string (1)
-- g (global): all matches in the string will be replaced, not just the first
-    - possible to pass a func as 2nd arg to replace() (3)
-- search() returns the first index on which the regex pattern was found (4)
-    - or, -1 if it was not found
-- match() matches string against regex
-- SEE ALSO: entry->regex
+(1) replace() replaces part of the string with another string
+    - 1st arg: regex/string to search for
+    - 2nd arg: replacement, may be a func
+    - returns new string
+(2) search() returns the first index on which the regex pattern was found
+    - if not found, returns -1
+(3) match() matches string against regex and returns array of matches
+    - arr contains match, its index, input-string , etc.
+    - combined with '/g' arr returns all occurences
+(4) split() divides string according to given regex/string and returns arr
+
+- SEE ALSO
+    - entry: regex
+    - /exercism/javascript/regular-chatbot
 
 EXAMPLE
 (1)
-console.log("luck".replace("l", "d")); -> duck
+"luck".replace("l", "d"); // => duck
+
+"Doe, Joe\nJane, Mary".replace(/(\w+), (\w+)/g, "$2 $1");
+// => Joe Doe    Mary Jane
+
+'joe doe'.replace(/\b(joe|doe)\b/g, str => str.toUpperCase());
+// JOE DOE
 (2)
-console.log("Doe, Joe\nJane, Mary".replace(/(\w+), (\w+)/g, "$2 $1"));
-// -> Joe Doe    Mary Jane
+"  word".search(/\S/); // -> 2
 (3)
-let s = "the cia and fbi";
-console.log(s.replace(/\b(fbi|cia)\b/g, str => str.toUpperCase()));
-// → the CIA and FBI
+"one two 100".match(/\d+/);
+// [ '100', index: 8, input: 'one two 100', groups: undefined ]
+
+'Home, sweet home.'.match(/home/gi); // ["Home", "home"]
 (4)
-console.log("  word".search(/\S/)); // -> 2
+'joe doe'.split(' '); // [ 'joe', 'doe' ]

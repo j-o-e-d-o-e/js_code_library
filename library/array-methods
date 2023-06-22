@@ -22,7 +22,14 @@ methods defined by the Array class/prototype
         - stops iterating the first time predicate returns true
     - reduce() resp. reduceRight() combines elems to produce a single value (1.6)
         - takes two args: func and (optional) initial value
-    - reverse() reverses array (1.7)
+    - reverse() reverses the order of the elems of an array in place (1.7)
+    - fill() sets elems to a specified value (1.8)
+        - modifies array in place
+        - 1st arg: value for elems
+        - 2nd arg: starting index
+            - if omitted, starts at index 0
+        - 3rd arg: exlusive ending index (optional)
+        - returns the modified array
 (2) flattening
     - flat() creates and returns a new flattened array (2.1)
         - arg specifies nesting level to flat
@@ -32,6 +39,9 @@ methods defined by the Array class/prototype
 (3) concatenation
     - concat() creates and returns a new array containing elems of the arrays
     - join() returns a new string with all elems separated as defined by arg
+        - 1st arg: delimiter (optional)
+        - if arg omitted, a comma is used as separator/delimiter
+        - opposite of String.split()
 (4) stacks/queues
     - push() appends one or more values to the end of an array and returns new length (4)
     - pop() deletes the last element, decrements the length and returns the value (4)
@@ -52,13 +62,6 @@ methods defined by the Array class/prototype
         - additional args:  elems to be inserted starting at start pos (1st arg)
             - if omitted, no insertion
         - returns an array of the deleted elems
-    - fill() sets elems to a specified value (5.3)
-        - modifies array in place
-        - 1st arg: value for elems
-        - 2nd arg: starting index
-            - if omitted, starts at index 0
-        - 3rd arg: exlusive ending index (optional)
-        - returns the modified array
 (6) search/sort
     - also supported by strings
     - indexOf() resp. lastIndexOf() searches for an elem from the start resp. end (6.1)
@@ -73,14 +76,9 @@ methods defined by the Array class/prototype
             - if func returns negative num, 1st arg before 2nd arg
             - if positive num, 2nd arg before 1st arg
             - if zero, order stays the same
-    - reverse() reverses the order of the elems of an array in place
-(7) array-to-string conversions
-    - join() converts all elems to strings and concatenates them, returning the resulting string
-        - 1st arg: delimiter (optional)
-        - if arg omitted, a comma is used as separator/delimiter (like toString())
-        - opposite of String.split()
 - SEE ALSO
     - developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods
+    - /exercism/javascript/elyses-transformative-enchantments
 
 EXAMPLE
 (1.1)
@@ -106,20 +104,28 @@ res = arr.reduce((acc, current) => {
 ); // { even: [ 2 ], odd: [ 1, 3 ] }
 (1.7)
 [1, 2, 3, 4].reverse(); // => [4, 3, 2, 1]
+(1.8)
+let a = new Array(5);
+a[0] = 0;
+a.fill("x", 1) // => a == [ 0, 'x', 'x', 'x', 'x' ]
+
 (2.1)
 [1, [2, 3]].flat() // => [1, 2, 3]
 (2.2)
 let phrases = ["hello world", "the definitive guide"];
 let words = phrases.flatMap(phrase => phrase.split(" "));
 words // => ["hello", "world", "the", "definitive", "guide"];
+
 (3)
 let a = [1,2,3];
 a.concat(4, 5); // => [1,2,3,4,5]
 a.concat([4,5],[6,7]); // => [1,2,3,4,5,6,7]; // a + [4,5] + [6,7]
+
 (4)
 let stack = [];
 console.log(stack.push(1, 2)); // stack == [1, 2] => 2 (length)
 console.log(stack.pop()) // stack == [1] => 2
+
 (5.1)
 let a = [1,2,3,4,5];
 a.slice(1,-1); // => [2,3,4]
@@ -134,10 +140,7 @@ const rem = arr.splice(3, 2, '4', '5'); // ['1', '2', '3', '4', '5']
 // removes 1 elem at index 1
 arr.splice(1, 1);
 // => ['1', '3', '4', '5']
-(5.3)
-let a = new Array(5);
-a[0] = 0;
-a.fill("x", 1) // => a == [ 0, 'x', 'x', 'x', 'x' ]
+
 (6.1)
 [0,1,2,0].indexOf(1) // => 1
 (6.2)

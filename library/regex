@@ -2,10 +2,23 @@ regex
 
 eloquent, ch.9
 
-describe patterns in strings
-two ways to construct
-    - new RegExp("abc")
-    - /[123]/
+- describe patterns in strings
+- two ways to construct
+    - as obj: new RegExp("[a-z]")
+        - escape: two backslashes
+    - as literal:  /[a-z]/
+        - escape: one backslash
+    - phone number format, e.g. '(+12) 345-678-910'
+        - new RegExp('^\\(\\+\\d\\d\\)\\s\\d{3}-\\d{3}-\\d{3}$');
+        - /^\(\+\d\d\)\s\d{3}-\d{3}-\d{3}$/;
+
+- flags
+    - /g (global): all matches in a string searched, not just the first
+    - /i (case insensitive)
+    - /m (multiline search)
+    - used in conjunction with
+        - obj: e.g. new RegExp('[a-z]', 'gi') OR new RegExp(/[a-z]/, 'gi')
+        - literal: e.g. /[a-z]/gi
 
 [0-9]: match all strings that contain a digit (hypen indicates range)
 [^01]: match any character except the ones in the set (1)
@@ -32,28 +45,40 @@ two ways to construct
 /^/             Start of input
 /$/             End of input
 
-/b: word boundary
+- /b (word boundary)
     - can be the start or end of the string or
-    - any point in the string that has a word character (as in \w) on one side and a nonword character on the other
+    - any point in the string that has a word character (as in \w) on one side and a non-word character on the other
 
-test() tells only whether regex matched and nothing else
-exec() return null if no match and returns an object otherwise
+(1) test() returns true/false whether regex matched
+(2) exec() returns null if no match and returns an array otherwise
+    - arr contains match, its index, input-string , etc.
+
+- SEE ALSO
+    - entry string->regex
+    - /exercism/javascript/regular-chatbot
 
 EXAMPLE
 (1)
 let notBinary = /[^01]/;
-console.log(notBinary.test("1100100010100110")); // → false
-console.log(notBinary.test("1100100010200110")); // → true
-(2)
+notBinary.test("1100100010100110"); // → false
+notBinary.test("1100100010200110"); // → true
+
 let dateTime = /\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{2}/;
-console.log(dateTime.test("1-30-2003 8:45")); // → true
-(3)
-let cartoonCrying = /boo+(hoo+)+/i;
-console.log(cartoonCrying.exec("Boohoooohoohooo")); // → [object]
-(4)
+dateTime.test("1-30-2003 8:45"); // → true
+
 let animalCount = /\b\d+ (pig|cow|chicken)s?\b/;
-console.log(animalCount.test("15 pigs")); // → true
-console.log(animalCount.test("15 pigchickens")); // → false
+animalCount.test("15 pigs"); // → true
+animalCount.test("15 pigchickens"); // → false
+(2)
+let cartoonCrying = /boo+(hoo+)+/i;
+cartoonCrying.exec("Boohoooohoohooo");
+// [
+//  'Boohoooohoohooo',
+//  'hooo',
+//  index: 0,
+//  input: 'Boohoooohoohooo',
+//  groups: undefined
+// ]
 
 // looping over matches
 let input = "A string with 3 numbers in it... 42 and 88.";
@@ -65,6 +90,3 @@ while (match = number.exec(input)) {
 // → Found 3 at 14
 // → Found 42 at 33
 // → Found 88 at 40
-
-// string values have match(), as well
-console.log("one two 100".match(/\d+/)); // → ["100"]
