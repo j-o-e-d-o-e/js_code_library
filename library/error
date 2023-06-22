@@ -2,10 +2,33 @@ error
 
 definitive, ch.11.5
 
-JS's Error class
+- JS's Error class (1)
     - Error() takes single arg: val of message
     - two properties: message and name
         - if created with Error(), name is always "Error"
     - modern browsers and node define additionally a property 'stack'
         - its val is a multi-line-string that contains the strack trace
-    - subclasses of Error: e.g. SyntaxError, ReferenceError
+    - subclasses of Error
+        - e.g. SyntaxError, ReferenceError
+        - create own error-class by inheriting from Error (3)
+- 'throw' to throw an error (2)
+    - current execution is stopped and resumes in 1st catch-block of the call-stack (3)
+- SEE ALSO
+    - /exercism/javascript/factory-sensors
+
+EXAMPLE
+(1)
+const error = new Error('Something went wrong');
+console.log(error.message); // "Something went wrong"
+(2)
+throw new Error('Something went wrong');
+(3)
+class CustomError extends Error {}
+
+try {
+  // code that may throw an error
+} catch (error) {
+  if (error instanceof CustomError) {
+    console.log('The error thrown is an instance of CustomError');
+  }
+}
