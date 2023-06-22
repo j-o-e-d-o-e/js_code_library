@@ -9,7 +9,8 @@ keyword 'class' since ES6
     - class-body includes method-definitions that use method-shorthand (keyword omitted) (1)
     - class can be also defined as expressions (2)
     - if constructor-func is omitted, an empty constructor-func will be implicitly created
-    - to define instance-vars/fields, one must do that in the constructor-func (or in one of the methods)
+    - define instance-vars/fields in constructor-func (or one of the methods) via 'this'
+        - no (extra) declaration of fields outside constructor (like in Java)
     - like obj-literals, getter/setter can be defined
 
 field initialization since 2020 (3)

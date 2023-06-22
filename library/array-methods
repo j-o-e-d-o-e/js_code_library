@@ -14,7 +14,7 @@ methods defined by the Array class/prototype
     - forEach() iterates over array (see also entry: for..of/for..in) (1.1)
     - map() passes elems to the supplied func and returns new arr (1.2)
     - filter() returns subset of the original array using a predicate (1.3)
-    - find() resp. findIndex() retuns the machting elem resp. index using a predicate (1.4)
+    - find() resp. findIndex() returns the 1st machting elem resp. index using a predicate (1.4)
         - if no machting elem, find() resp. findIndex() returns undefined resp. -1
     - every() returns true if predicate returns true for all elems (1.5)
         - stops iterating the first time the predicate returns false
@@ -71,6 +71,8 @@ methods defined by the Array class/prototype
         - 1st arg: delimiter (optional)
         - if arg omitted, a comma is used as separator/delimiter (like toString())
         - opposite of String.split()
+- SEE ALSO
+    - developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods
 
 EXAMPLE
 (1.1)

@@ -4,6 +4,7 @@ definitive, ch.6.10.6
 
 - private properties are declared with underscore
 - getter/setter used e.g. for sanity checks
+    - funcs are executed when a prop with the same name is accessed/assigned
 - causes implicit invocation, when querying or setting the value of its properties
 
 EXAMPLE
