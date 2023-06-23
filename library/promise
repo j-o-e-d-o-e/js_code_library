@@ -3,24 +3,25 @@ promise
 definitive, ch.13.2
 
 an obj that represents the (not-yet-available) result of an async operation
-    - its states: pending -> resolved/fulfilled or rejected -> settled
+    - its states
+        - pending -> resolved/fulfilled or rejected -> settled
         - if fulfilled ("promise kept"), val is returned
             - invokes callback func with val as arg
         - if resolved (but not yet fulfilled), return value is itself a Promise (chaining promises)
         - if rejected ("promise broken"), Error obj (or something similar) is returned
         - if settled, computation is done
-    - chaining promises: fetch().then(resp => ...).then(content => ...) (1)
-        - fetch()-calls in sequential chain on same level
     - since ES6
 
-instance-methods of promise-obj
+methods of Promise.prototype
 .then()
-    - 1st arg: registered func handles fulfilled promise
+    - 1st arg: registered func handles fulfilled promise (resolve)
         - registered func will be called once when promised computation is complete
-    - 2nd arg: registered func handles rejected promise
+    - 2nd arg: registered func handles rejected promise (reject)
         - rarely used, instead use catch()
+    - returns a newly generated promise obj
     - invoked on promise obj which is returned by an async func
     - if called mulitple times on the same promise obj, each registered func will be called on fulfillment
+    - chaining possible, e.g. fetch().then(resp => ...).then(content => ...) (2)
 .catch()
     - registered func handles rejected promise
     - shorthand for calling then() with null as 1st arg and error-handler as 2nd arg
@@ -39,7 +40,7 @@ instance-methods of promise-obj
         - but, generally ignored
     - useful for cleanup, e.g. closing open files or connections
 
-Promise.all() (2)
+Promise.all() (3)
     - to execute a number of async operations in parallel
     - takes an array of Promise objs as input and returns a Promise
     - returned Promise will be rejected if any of the input Promises are rejected
@@ -57,6 +58,20 @@ promise vs. callback (see entry: callback)
 
 EXAMPLE
 (1)
+const data = [2, 4, 6, 8];
+const myPromise = new Promise(function (resolve, reject) {
+    let randomNumber = Math.floor(Math.random() * (data.length + 1));
+    if (data[randomNumber]) resolve(data[randomNumber]);
+    else reject('An error occurred!');
+});
+
+myPromise
+    .then(e => console.log(e))
+    .catch(function (error) {
+        console.error(error);
+    })
+    .finally(() => console.log('Promise completed'));
+(2)
 fetch("/api/user/profile") // task1 returns promise1
     .then(response => { // then() invoked on promise1 -> task2 returns promise2
         return response.json();
@@ -64,7 +79,7 @@ fetch("/api/user/profile") // task1 returns promise1
     .then(profile => { // then() invoked on promise2 -> task3 returns result
         displayUserProfile(profile);
     });
-(2)
+(3)
 // see setup() in code_library.js: callback of readdir() is declared async
 let files = await Promise.all(filenames.map(fn => readTitleAndSrc(fn)));
 let count = 1;
