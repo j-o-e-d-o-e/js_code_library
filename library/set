@@ -2,13 +2,14 @@ set
 
 definitive, ch.11.1.1
 
-- unordered/un-indexed, iterable collection of values not allowing duplicates
+- unordered/un-indexed, iterable collection of unique values
     - membership is based on strict equality checks (===)
     - WeakSet implements a set of objects that does not prevent those objs from being garbage collected
 - Set()-constructor
     - arg: an arr or iterable obj (including other Set objs and strings)
     - if omitted, empty set
 - size-property tells how many vals the set contains (like length-property of an arr)
+- set's elems cannot be accessed by index
 - methods
     - add()
         - takes a single arg
@@ -22,8 +23,23 @@ definitive, ch.11.1.1
     - has() checks whether a specified val is member of the set
     - forEach() is supported (but without indices)
 - since ES6
+- SEE ALSO:
+    - /exercism/javascript/ozans-playlist
 
 EXAMPLE
+(1)
+const set = new Set();
+const obj1 = { color: 'lime green' };
+const obj2 = { color: 'lime green' };
+
+set.add(obj1);
+set.add(77);    // set.size === 2
+console.log(set.size);
+set.add(obj2);  // added because obj2 is not strictly equal to obj1
+                // set.size === 3
+set.add(77);    // not added because 77 is strictly equal to 77
+                // set.size === 3
+(2)
 let s = new Set([1, 2, 3]);
 s.add(4).add(5);
 s.delete(3); // => true
