@@ -10,9 +10,16 @@ string
     - according to dictionary (lexicographical) order
     - exact order of all chars, see: fileformat.info/info/charset/UTF-16/list.htm
 - methods (2), e.g.
-    - includes() checks whether another string is part the the given str
+    - includes() checks whether another string is part of it
     - startsWith()/endsWith()
-    - slice(): returns substring with the elems between start (incl) and end (excl)
+    - substring()/slice() return substring with the elems between start (incl) and end (excl)
+        - what they have in common
+            - if start === end, returns and empty string
+            - if end is omitted, extracts chars to the end of string
+            - if either arg is greater than string's length, length will be used instead
+        - slight distinctions, e.g. if start > end
+            - substring() swaps those 2 args
+            - slice() returns empty string
 
 EXAMPLE
 (1)
