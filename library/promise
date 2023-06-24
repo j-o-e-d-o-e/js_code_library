@@ -56,6 +56,9 @@ promise vs. callback (see entry: callback)
     - better error-handling (due to catch())
         - callbacks: error cannot be propageted back in nested structure
 
+SEE ALSO
+    - /exercism/javascript/translation-service
+
 EXAMPLE
 (1)
 const data = [2, 4, 6, 8];
