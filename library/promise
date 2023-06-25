@@ -2,34 +2,33 @@ promise
 
 definitive, ch.13.2
 
-- an obj that represents the (not-yet-available) result of an async operation
-    - its states: pending -> fulfilled/resolved or rejected -> settled
+- represents the (not-yet-available) result of an async operation
+    - states: pending -> resolved->fulfilled or rejected -> settled
+        - resolved (but not yet fulfilled): returns resolved promise
         - fulfilled ("promise kept"): returns computed val
-        - resolved (but not yet fulfilled): returns promise
-        - rejected ("promise broken"): returns error
-        - settled: promise always settles, wheter fulfilled or rejected
+        - rejected ("promise broken"): returns rejected promise (error)
+        - settled: promise always settles, whether fulfilled or rejected
     - since ES6
 
 - then()
     - 1st arg: callback handles resolved promise
     - 2nd arg: callback handles rejected promise
         - rarely used, instead use catch()
-    - returns newly generated promise obj
+    - returns newly generated promise
     - chaining, e.g. fetch().then(resp => ...).then(content => ...) (2)
 - catch()
-    - 1st arg: callback handles rejected promise
-    - shorthand for .then(null, callback)
+    - single arg: callback handles rejected promise
+    - shorthand for: then(null, callback)
     - can be inserted in a promise chain (not only at its end)
         - if previous promise resolved, catch() will be skipped
         - if catch() returns new promise, next then() will be invoked
 - finally()
-    - 1st arg: callback (without args) will be invoked when Promise settles
-    - returns new promise obj (but, generally ignored)
-    - useful for cleanup, e.g. closing open files or connections
+    - single arg: callback (without args) will be invoked when Promise settles
+    - returns new promise (but, generally ignored)
 
 - Promise.all() (3)
     - to execute multiple async operations in parallel
-    - 1st arg: array of promises
+    - single arg: array of promises
         - arr can also contain non-promise vals
     - returns a new promise
         - will be rejected if any of the input promises are rejected

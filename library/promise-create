@@ -3,14 +3,14 @@ promise->creation
 definitive, ch.13.2.6
 
 (1) based on another promise
-    - given a promise, create a new obj by calling .then() on it
+    - given a promise, create a new obj by calling e.g. then() on it
 (2) based on synchronous values
     - Promise.resolve() returns a resolved promise
         - single arg: val to be returned
     - Promise.reject() returns a rejected promise
         - single arg: val to be returned
 (3) Promise()-constructor
-    - one arg: func with two params
+    - one arg: callback with two args
         - 1st arg: callback, by convention, named 'resolve'
         - 2nd arg: callback, by convention, named 'reject'
 
