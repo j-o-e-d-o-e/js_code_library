@@ -5,19 +5,22 @@ definitve, ch.7
 Five ways to create arr
 
 (1) arr literal
-    - comma-separated list of arr elements within square brackets
+    - comma-separated list of elems
 (2) spread operator on an iterable obj
-    - since ES6
-    - see entry: spread
     - to create a (shallow) copy of an array (modifying the copy does not change the original)
-(3) new Array() constructor
-    - with no args: creates an emtpy array
-    - single numeric arg: specifies its length, but no values are stored in the array
-    - more args: specifies two or more elements
-(4) Array.of() factory method
     - since ES6
-    - returns new array with passed args as arr elements
-    - unlike (3) also creation of arr with only one elem possible
+    - SEE ALSO entry: spread
+(3) Array() constructor
+    - can be called with or without 'new'
+    - without args: creates an empty array
+    - single numeric arg: specifies its length, but no values are stored
+        - combined with fill(), returns arr with default vals
+        - SEE ALSO entry: array->methods
+    - more args: creates arr with given elems
+(4) Array.of() factory method
+    - creats arr with passed args as elems
+    - unlike (3), also creation of arr with only one elem possible
+    - since ES6
 (5) Array.from() factory
     - since ES6
     - expects an iterable of array-like obj and returns new array with those elements
@@ -34,7 +37,7 @@ copy[0] = 0;
 console.log(original); // => [ 1, 2, 3 ]
 console.log(copy); // => [ 0, 2, 3 ]
 (3)
-let a = new Array(5, 4, 3, "test"); // => [5, 4, 3, 'test']
+Array(5).fill(0); // [ 0, 0, 0, 0, 0 ]
 (4)
 console.log(Array.of(10)); // => [10]
 (5)
