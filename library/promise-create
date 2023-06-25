@@ -2,31 +2,31 @@ promise->creation
 
 definitive, ch.13.2.6
 
-(1) Promises based on other Promises
+(1) based on another promise
     - given a promise, create a new obj by calling .then() on it
-(2) Promises based on synchronous values
-    - Promise.resolve() returns a Promise that will be immediately fulfilled to given val
+(2) based on synchronous values
+    - Promise.resolve() returns a resolved promise
         - single arg: val to be returned
-    - Promise.reject() returns a Promise that will be rejected with given val as the reason
-        - single arg: val to be returned (like Promise.resolve())
-        - e.g. if error detected, report that error by returning a Promise before beginning an async operation
+    - Promise.reject() returns a rejected promise
+        - single arg: val to be returned
 (3) Promise()-constructor
     - one arg: func with two params
-        - 1st param: func, by convention, named 'resolve'
-        - 2nd param: func, by convention, named 'reject'
-        - func performs async operation and then calls either resolve or reject
-    - returned Promise is under the control of the passed func
+        - 1st arg: callback, by convention, named 'resolve'
+        - 2nd arg: callback, by convention, named 'reject'
 
 EXAMPLE
-(1)
-// Promise returned by getJson() resolves to the Promise returned by resp.json()
-function getJSON(url) {
-    return fetch(url).then(resp => resp.json());
-}
+(2)
+let p = Promise.resolve(123);
+p.then(res => console.log(res)) // 123 done
+    .finally(() => console.log("done"));
+
+let p = Promise.reject("error");
+p.catch(res => console.error(res)) // error done
+    .finally(() => console.log("done"));
 (3)
 function wait(duration) {
     return new Promise((resolve, reject) => {
-        if (duration < 0) reject(new Error("Invalid arg: Time travel not yet implemented"));
+        if (duration < 0) reject(new Error("no time travel"));
         setTimeout(resolve, duration);
     });
 }
