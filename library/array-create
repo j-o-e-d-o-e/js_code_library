@@ -7,7 +7,7 @@ Five ways to create arr
 (1) arr literal
     - comma-separated list of elems
 (2) spread operator on an iterable obj
-    - to create a (shallow) copy of an array (modifying the copy does not change the original)
+    - to create a shallow copy of an array (1st level is copied, depper levels are referenced)
     - since ES6
     - SEE ALSO entry: spread
 (3) Array() constructor

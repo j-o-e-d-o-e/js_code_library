@@ -6,8 +6,10 @@ eloquent, p.62/definitive, ch.7
 - can be sparse: elems need not have contiguous indices starting at 0
     - delete operator removes elem from array, but does not affect length (1)
     - i.e. length > number of elems
-- 'arr[arr.length] = 1' adds new element by assignment
-    - if length is set to n, any elem whose index > n is deleted (2)
+    - alternatively, use splice(index, 1) (see entry array->methods)
+- 'arr[arr.length] = 1' adds new element at the end
+    - if index > length, arr becomes sparse with gaps/empty items (2)
+- if length is set to n, any elems whose index > n is deleted (3)
 
 EXAMPLE
 (1)
@@ -17,6 +19,10 @@ console.log(1 in a); // => false
 console.log(a.length); // => 3
 
 (2)
+let arr = Array(5,2);
+arr[5] = 4; // [ 5, 2, <3 empty items>, 4 ], len=6
+
+(3)
 let a = [1,2,3];
 a.length = 1;
 console.log(a); // => [ 1 ]
