@@ -2,9 +2,9 @@ higher-order func
 
 eloquent js, p.88f./defintive, ch.8.8.2
 
-- pass function values to other functions
-- the given func fills a "gap" in the called func
-- SEE ALSO: /exercism/javascript/coordinate-transformation
+- pass func to other func
+- SEE ALSO
+    - /exercism/javascript/coordinate-transformation
 
 EXAMPLE
 (1)
@@ -16,10 +16,15 @@ const greaterThan = n => {
 const greaterThan10 = greaterThan(10);
 // m=11
 console.log(greaterThan10(11)); // true
+
 (2)
-console.log([1,2,3].filter(el => el > 2)); // [3]
+const pred = x => x % 2 === 1;
+let res = [1, 2, 3, 5].filter(pred); // res = [1, 3, 5]
+
 (3)
-console.log([1,2,3].map(el => el > 2)); // [false, false, true]
+const func = (acc, el) => acc + el;
+let res = [1, 2, 3, 4].reduce(func, 5); // res = 15
+
 (4)
 function average(array) {
     return array.reduce((a, b) => a + b) / array.length;
