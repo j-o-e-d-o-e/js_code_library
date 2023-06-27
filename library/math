@@ -1,10 +1,10 @@
-nums->math
+math
 
 
 
-two types
-    - number: usually
-    - bigint: for precision/large nums
+contains static methods for operations on
+    - numbers: usually
+    - bigints: for precision/large nums
 methods of built-in global obj 'Math'
     - 'round()' rounds to nearest int
     - 'floor()' rounds down
@@ -23,3 +23,10 @@ Math.ceil(234.34);          // => 235
 Math.pow(3, 2);             // => 9
 Math.pow(3, 2) === 3 ** 2;  // true
 Math.sqrt(25);              // => 5
+
+// max is exclusive
+const randInt = (max) => Math.floor(Math.random() * max);
+let res = randInt(3); // res = 0 || 1 || 2
+
+const randRange = (min, max) => Math.floor(Math.random() * (max - min) + min);
+let res = randRange(3, 1); // res = 1 || 2

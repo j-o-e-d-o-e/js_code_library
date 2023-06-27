@@ -3,9 +3,11 @@ object->get/set
 definitive, ch.6.10.6
 
 - private properties are declared with underscore
-- getter/setter used e.g. for sanity checks
-    - funcs are executed when a prop with the same name is accessed/assigned
-- causes implicit invocation, when querying or setting the value of its properties
+- getter/setter-funcs
+    - implicitly invoked when a prop with the same name is accessed/assigned via dot-operator
+    - useful to restrict modification of prop from outside
+- SEE ALSO
+    - /exercism/javascript/robot-name
 
 EXAMPLE
 const box = {
