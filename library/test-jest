@@ -10,7 +10,9 @@ jestjs.io/docs/getting-started
     - expect(): actual result
     - toBe(): expected result
     - toBeCloseTo(): expected result for doubles
-- to ignore tests, xtest() instead of test()
+    - beforeEach()/afterEach(): before/after each test
+- to ignore tests: xtest() instead of test()
+    - alternatively, test.skip()
 - mocks
     - creation
         - jest.mock() mocks a module
