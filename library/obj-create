@@ -9,6 +9,7 @@ three ways to create obj
             - unless they contain special characters, e.g. 'key-with-dashes'
         - shorthand methods: omit function-keyword
     (2) 'new' followed by constructor
+        - args of constructor may have default vals
         - since ES/JS 2015
     (3) Object.create()
         - returns a newly created obj that inherits from a specified prototype obj
@@ -27,7 +28,7 @@ console.log(b, c) // -> 1 3
 console.log(a.multi()) // -> 3
 (2)
 class Rabbit {
-    constructor(type) {
+    constructor(type = "black") {
         this.type = type;
     }
     speak(line) {
