@@ -33,12 +33,12 @@ const obj1 = { color: 'lime green' };
 const obj2 = { color: 'lime green' };
 
 set.add(obj1);
-set.add(77);    // set.size === 2
-set.add(obj2);  // added because obj2 is not strictly equal to obj1
-                // set.size === 3
-set.add(77);    // not added because 77 is strictly equal to 77
-                // set.size === 3
-let [a, b] = set;  // a = { color: 'lime green' }, b = 77
+set.add(77);        // set.size === 2
+set.add(obj2);      // added because obj2 is not strictly equal to obj1
+                    // set.size === 3
+set.add(77);        // not added because 77 is strictly equal to 77
+                    // set.size === 3
+let [a, b] = set;   // a = { color: 'lime green' }, b = 77
 (2)
 let s = new Set([1, 2, 3]);
 s.add(4).add(5);
