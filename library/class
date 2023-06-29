@@ -9,12 +9,12 @@ definitive, ch.9
     - class can be also defined as expressions (2)
     - if constructor-func is omitted, an empty constructor-func will be implicitly created
     - define instance-vars/fields in constructor-func (or one of the methods) via 'this'
-        - no (extra) declaration of fields outside constructor required (unlike in Java)
+        - no (extra) declaration of fields outside constructor required (unlike Java)
     - like obj-literals, getter/setter can be defined
 - field initialization since 2020 (3)
     - out of the constructor and directly in the class-body
     - if initialization omitted, initial value of the field will be 'undefined'
-    - private fields are prefixed with '#'
+    - private fields are prefixed with '#' or '_'
 - SEE ALSO
     - /exercism/javascript/windowing-system
 

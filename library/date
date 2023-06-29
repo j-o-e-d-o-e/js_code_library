@@ -11,20 +11,24 @@ eloquent, ch.8/definitive, ch.11.4
     - month starts at zero (e.g. December is 11); yet, day-of-month starts at one
     - if time fields omitted, defaults all to 0 (midnight)
     - if string is passed, constructor will attempt to parse that string as date and time
+- standard operators allow for arithmetic operations on dates (1)
 - if console.log() a date, it will by default be printed in local time zone
 - getDate() returns the day-of-month
 - getDay() returns the day-of-week (0 for Sunday through 6 for Saturday)
 - getTime() returns the date's timestamp
 - Date.now() returns the current time as a timestamp
-- Date setting-methods work correctly even when they overflow
-    - e.g. setMonth()  handles this by incrementing the year as needed
+- Date setting-methods work correctly even when they overflow, e.g.
+    - setMonth() handles this by de-/incrementing the year as needed
+    - setDate() handles this by de-/incrementing the month (2)
 
 EXAMPLE
+(1)
 const d = new Date(1982, 0, 3);
 console.log(d.toString()); // => Sun Jan 03 1982 00:00:00
 console.log(d.toUTCString()); // => 1982-01-02T23:00:00.000Z
 const age = new Date() - d; // age in millisecs
 console.log(`${Math.round(age / (1000 * 60 * 60 * 24))} days old`);
+(2)
 const e = new Date();
 e.setDate(e.getDate() + 7);
 console.log(`Next week is: ${e}`)

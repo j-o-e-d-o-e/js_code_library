@@ -20,6 +20,10 @@ string
         - slight distinctions, e.g. if start > end
             - substring() swaps those 2 args
             - slice() returns empty string
+    - padStart()/padEnd() pads to the beginnning resp. end of a string (3)
+        - 1st arg: length of the resulting string
+        - 2nd arg: string to pad to the resulting string
+        - returns padded string of the specified length
 
 EXAMPLE
 (1)
@@ -32,3 +36,5 @@ console.log(str.length);    // 3
 "joe".length;           // 3
 'joe'.endsWith("e");    // true
 "joe".slice(1);         // oe
+(3)
+let clock = "5".padStart(2, 0) + ":" + "4".padStart(2, 0); // 05:04
