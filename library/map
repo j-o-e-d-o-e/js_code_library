@@ -26,14 +26,18 @@ eloquent, p.108/defintive, ch.11.1.2
     - entries() returns key/value-pairs
     - forEach() supported (val before key-param), e.g. m.forEach((v, k) => {...});
 - since ES6
+- SEE ALSO
+    - /exercism/javascript/nucleotide-count
 
 EXAMPLE
 let m = new Map([["one", [1]], ["two", [2]]]);
 m.set("three", [3]).set("four", [4, 4.4]);
+
 arr = m.get("one")
 arr[arr.length] = 1.1;
 console.log([...m]);
 // [[ 'one', [1, 1.1] ], [ 'two', [2] ], [ 'three', [3] ], [ 'four', [4, 4.4] ]]
+
 m.delete("three");
 for (let [k, v] of m)
     console.log(v); // => [ 1, 1.1 ] [ 2 ] [ 4, 4.4 ]
