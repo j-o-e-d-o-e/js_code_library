@@ -3,11 +3,14 @@ for..of/for..in
 eloquent, ch.8
 
 (1) for..of
-    - iterates over the values of an iterable obj, like arrays and strings
-    - using arr.entries() returns the indices and elems
+    - iterates over values of an iterable obj, like arrays and strings
+    - using arr.entries() returns indices and elems
 (2) for..in
-    - iterates overall enumerable property key of an obj
+    - iterates over keys of an obj
 (3) 'for(;;)' creates a loop that doesn't terminate on its own (3)
+
+- SEE ALSO
+    - /exercism/javascript/etl
 
 EXAMPLE
 (1)
