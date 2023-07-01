@@ -16,6 +16,7 @@ methods of built-in global obj 'Math'
     - max() finds largest of zero or more args
 SEE ALSO:
     - developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+    - /exercism/javascript/grains (BigInt)
 
 EXAMPLE
 Math.round(234.34);         // => 234

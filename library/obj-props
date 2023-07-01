@@ -27,6 +27,7 @@ two ways to create/set or get
     - array notation: delete obj["prop"]
 - 'key in obj' tells whether obj has a prop with that key (including prototype's props) (3)
 - 'Object.hasOwn(obj, key)' checks whether obj has property with given key (prototype excluded)
+    - alternatively, obj.hasOwnProperty(key)
 - 'Object.keys(obj)' returns array of strings: the object's property keys (not those in its prototype) (4)
 - 'Object.assign(objA, objB)' copies all props from obj B into obj A
     - expects two or more objs as args
