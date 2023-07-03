@@ -6,8 +6,7 @@ eloquent, p.47f./defintive, ch.8.3
     - if fewer args passed than params declared, missing params are set automatically to their default (normally undefined)
     - if more args given, JS ignores extra args
     - since ES6: default values for params
-
-(2) rest-params
+(2) rest args
     - allow to write funcs that can be invoked with arbitrarily more args than params
     - must be the last param in the param-list of the func
     - additional args are stored in an array

@@ -4,7 +4,7 @@ definitive, ch.16.8
 
 - modules: http, https, http2
 - APIs for implementing HTTP clients and servers
-- more low-level
+- more low-level (compared to fetch)
 - get() for GET, request() in general, etc.
 
 EXAMPLE

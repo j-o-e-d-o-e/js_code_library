@@ -8,11 +8,10 @@ keywords simplify the use of Promises
     - allow to structure Promise-based code as if it was synchronous
 
 (1) await
-    - one arg: Promise
     - 'await p' waits until Promise p settles
-        - if fulfilled, value is the fulfillment val of the promise
-        - if rejected, throws the rejection val of the promise
-    - is only valid within funcs that have been declared 'async'
+        - if fulfilled, returns value
+        - if rejected, throws error
+    - if declared within a func, func has to be async
 (2) async functions
     - declaring a func async means that its return-val will be a Promise
 (3) for await..of (since ES2018)
@@ -22,8 +21,13 @@ keywords simplify the use of Promises
 
 EXAMPLE
 (1)
-let response = await fetch("/api/user/profile");
-let profile = await response.json();
+let res = await Promise.resolve("abc");
+console.log(res); // abc
+try {
+    let res = await Promise.reject("def");
+} catch (err){
+    console.log(err); // def
+}
 (2)
 async function getHighScore() {
     let response = await fetch("/api/user/profile");

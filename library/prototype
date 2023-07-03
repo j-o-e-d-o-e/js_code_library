@@ -6,7 +6,7 @@ eloquent, p.102ff./definitive, ch.6.3.2
 - obj inherits from prototype
 - prototype is fallback source of properties
 - root prototype: Object.prototype
-- querying properties looks up prototypes, setting them overrides inherited prototypes (2)
+- querying props looks up prototypes; setting them overrides inherited prototypes (2)
 
 EXAMPLE
 (1)

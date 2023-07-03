@@ -2,10 +2,11 @@ object->get/set
 
 definitive, ch.6.10.6
 
-- private properties are declared with underscore
-- getter/setter-funcs
+- private properties are declared with underscore or hashtag
+- getter/setter-funcs are
     - implicitly invoked when a prop with the same name is accessed/assigned via dot-operator
     - useful to restrict modification of prop from outside
+
 - SEE ALSO
     - /exercism/javascript/robot-name
 

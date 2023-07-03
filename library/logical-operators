@@ -2,13 +2,13 @@ logical operators
 
 javascript.info/logical-operators
 
-- logical operators: ||, &&, !, ??
 - operands are implicitly converted to booleans
 - ||-operator returns the first truthy val or the last val if none is found (1)
     - evaluates operands from left to right
     - for each operand, converts it to boolean
     - if true, stops and returns the original val of that operand
 - &&-operator returns the first falsy val or the last val if none is found (2)
+
 - SEE ALSO entries
     - type conversion
     - object->properties

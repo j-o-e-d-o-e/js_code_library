@@ -2,19 +2,17 @@ math
 
 
 
-contains static methods for operations on
-    - numbers: usually
-    - bigints: for precision/large nums
-methods of built-in global obj 'Math'
+- contains static methods for operations on numbers and bigints
     - round() rounds to nearest int
     - floor() rounds down
     - ceil() rounds up
     - pow() returns x^y
         - alternatively, use exponentiation-operator: x ** y
     - random() returns pseudo-random num between 0 and 1
-    - sqrt() return sqaure root of arg
+    - sqrt() return square root of arg
     - max() finds largest of zero or more args
-SEE ALSO:
+
+- SEE ALSO:
     - developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
     - /exercism/javascript/grains (BigInt)
 

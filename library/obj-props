@@ -9,7 +9,7 @@ two ways to create/set or get
     (1) dot-operator
         - accepts only static keys
         - works only with keys without special characters or whitespace
-        - 'obj.key=val' replaces the property's value if it already existed or creates a new property on the object
+        - 'obj.key=val' replaces the property's value if it already existed or creates a new prop
         - optional chaining operator '?.' (1.2)
             - if not sure whether obj (parent) contains a prop whose props are requested
             - if not the case, 'undefined' is returned
@@ -33,6 +33,7 @@ two ways to create/set or get
     - expects two or more objs as args
     - modifies and returns the first arg
     - props in target obj are overwritten if existing in source objs
+
 - SEE ALSO
     - /exercism/javascript/high-score-board
     - /exercism/javascript/amusment-park

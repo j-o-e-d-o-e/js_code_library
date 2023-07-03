@@ -3,10 +3,10 @@ for..of/for..in
 eloquent, ch.8
 
 (1) for..of
-    - iterates over values of an iterable obj, like arrays and strings
-    - using arr.entries() returns indices and elems
+    - iterates over vals of arrays and strings
+    - arr.entries() returns indices and vals
 (2) for..in
-    - iterates over keys of an obj
+    - iterates over keys of objs, arrays and strings
 (3) 'for(;;)' creates a loop that doesn't terminate on its own (3)
 
 - SEE ALSO

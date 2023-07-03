@@ -8,13 +8,15 @@ definitive, ch.9
     - class-body includes method-definitions that use method-shorthand (keyword omitted) (1)
     - class can be also defined as expressions (2)
     - if constructor-func is omitted, an empty constructor-func will be implicitly created
-    - define instance-vars/fields in constructor-func (or one of the methods) via 'this'
-        - no (extra) declaration of fields outside constructor required (unlike Java)
-    - like obj-literals, getter/setter can be defined
-- field initialization since 2020 (3)
-    - out of the constructor and directly in the class-body
-    - if initialization omitted, initial value of the field will be 'undefined'
-    - private fields are prefixed with '#' or '_'
+- two ways to define instance fields
+    - inside constructor using 'this'
+        - no extra declaration of field outside constructor required (unlike Java)
+        - though possible, e.g. to declare private fields
+    - outside constructor, inside class-body (like Java) (3)
+        - if initialization omitted, default value is 'undefined'
+        - private fields are prefixed with '#' or '_'
+        - to restrict access, use getter/setter (see entry: object->get/set)
+
 - SEE ALSO
     - /exercism/javascript/windowing-system
 

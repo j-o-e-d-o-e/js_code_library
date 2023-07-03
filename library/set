@@ -6,23 +6,25 @@ definitive, ch.11.1.1
     - membership is based on strict equality checks (===)
     - WeakSet implements a set of objects that does not prevent those objs from being garbage collected
 - Set()-constructor
-    - arg: an arr or iterable obj (including other Set objs and strings)
-    - if omitted, empty set
-- size-property tells how many vals the set contains (like length-property of an arr)
+    - single arg: an arr or iterable obj (including other Set objs and strings)
+        - if omitted, empty set
+- size-property tells how many vals the set contains (like length-property of array)
 - set's elems cannot be accessed by index
 - methods
     - add()
-        - takes a single arg
-        - if array, it adds the arr itself, not its individual elems (unlike constructor)
+        - single arg: val to be added
+            - if array, adds the arr itself, not its individual elems (unlike constructor)
         - returns the set it is invoked on
         - to add multiple values, use chained method calls: s.add('A').add('B').add('C');
     - delete()
+        - single arg: val to be removed
         - only deletes a single elem at a time
-        - returns a bool val
+        - returns boolean
     - clear() clears all elems
-    - has() checks whether a specified val is member of the set
+    - has(value) checks whether a specified val is member of the set
     - forEach() is supported (but without indices)
 - since ES6
+
 - SEE ALSO:
     - /exercism/javascript/ozans-playlist
 

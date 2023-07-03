@@ -7,29 +7,29 @@ three notations to define as
         - declares a variable whose value is the func itself
         - can be called before declaration (not top-to-bottom control-flow)
     (2) an expression
-        - does not declare automatically a variable
-        - func name is optional
-        - assign the newly defined func-obj to a constant if you are going to need to refer to it multiple times
+        - func name optional
+        - usually, assign func obj to a constant in order to refer to it multiple times
         - cannot be invoked before they are defined
     (3) an arrow function
-        - if body is a single return-statement, the return-keyword, semicolon and curly braces can be omitted
-            - if expression to be returned is additionally an obj-literal, put the obj-literal inside parentheses
+        - if body is a single statement: return keyword, semicolon and curly braces can be omitted
+            - if expression to be returned is additionally an obj-literal, put it inside parentheses
         - when only one parameter, parentheses can be omitted
         - if no parameters, parameter list is just an empty set of parentheses
         - inherit the value of 'this' from the environment in which they are defined
         - commonly used for anonymous functions passed to another func as arg
         - since ES/JS 2015 (ES6)
 
-JS funcs are objs. Therefore, they
+JS funcs are objs; therefore, they
     - have methods
-        - call() and apply() invoke the func indirectly
-            - allow to explicitly specify the 'this'-value for the invocation, i.e. you can invoke any func as a method of an obj (even if it's not)
+        - call() and apply() invoke the func
             - 1st arg: obj on which the func is to be invoked
-            - 2nd arg: for call(), multiple values; for apply(), array of values
+            - 2nd arg: for call(), multiple vals; for apply(), arr of vals
+            - allow to explicitly specify 'this' for the invocation according to environment
+                -  i.e. possible to invoke func as a method of any obj (even if it's not)
         - bind() binds a func to an obj (4)
             - most common use to make non-arrow funcs behave like arrow-funcs
     - can be assigned to variables
-        - funcs can be stored in props of objects or elems of an array, passed as args to a func, etc.
+        - funcs can be stored in props of objs or elems of an arr, passed as args to a func, etc.
     - can have (static) properties (5)
         - length: the number of params
         - name: name when defined

@@ -3,6 +3,7 @@ underscore
 eloquent, ch.8
 
 - to skip elements
+- or, to declare private fields in class (see entry: class)
 
 EXAMPLE
 let [_, month, day, year] = ['1-30-2003', '1', '30', '2003'];

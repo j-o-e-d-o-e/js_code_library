@@ -4,17 +4,12 @@ definitive, ch.6
 
 three ways to create obj
     (1) obj literal
-        - shorthand props: omit identifier if var-name and identifier have same name (ES6)
-            - keys/identifiers do not need to be wrapped in quotation marks
-            - unless they contain special characters, e.g. 'key-with-dashes'
+        - shorthand props: omit key if key-name equals var-name (ES6)
         - shorthand methods: omit function-keyword
     (2) 'new' followed by constructor
-        - args of constructor may have default vals
         - since ES/JS 2015
     (3) Object.create()
-        - returns a newly created obj that inherits from a specified prototype obj
-        - Object.create(Object.prototype)) behaves like {} (1) or new Object() (2)
-        - if null passed, newly created ob will not inherit anything, not even toString()
+        - returns newly created obj that inherits from specified prototype obj
 
 EXAMPLE
 (1)

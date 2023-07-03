@@ -8,9 +8,10 @@ eloquent, p.76f./definitive, ch.6.10.4
     - arr-var must be the last element in a destructing assignment (1)
 - spread
     - appears on the right-hand side of an assignment
-    - unpacks array (2.1) or iterable obj (such as strings) (2.2) into single elems
+    - unpacks array (2.1) or iterable obj (2.2) into single elems
     - useful to create a shallow copy of an obj (2.3)
          - shallow copy means the 1st level is copied, deeper levels are referenced
+
 - SEE ALSO
     - /exercism/javascript/elyses-destructured-enchantments
     - /exercism/javascript/grade-school (deep copy)

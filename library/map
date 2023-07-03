@@ -3,29 +3,31 @@ map
 eloquent, p.108/defintive, ch.11.1.2
 
 - iterable collection of key/value-pairs
-    - any value can be used as key (or val), including reference-types like objs and arrs as well as null and NaN
+    - any value can be used as key or val, including reference-types (objs and arrs), null and NaN
     - compares keys by identity, not by equality (like Set)
     - each iterated value is a two-elem array [key, value]
     - iterates in insertion order (like Set, surprisingly)
     - WeakMap does not prevent its keys from being garbage collected
 - constructor
-    - arg: iterable that yields two element [key, value] arrays (including other Map objs)
+    - arg: iterable containing two-elem-arrays (including other maps)
     - if arg omitted, empty map
 - size-property tells how many keys the map contains (like length-property of an arr)
 - methods
-    - get() queries the value associated with a given key
-    - set() adds a new entry
-        - takes single key/value-pair as arg
-        - if key already exists, its value will be changed
+    - get() returns val associated to given key
+    - set() adds new key-value-pair
+        - 1st arg: key
+        - 2nd arg: val
+        - if key already exists, its val will be changed
         - to add multiple pairs, use chained method calls
-    - has() checks whether that map contains the specified key
-    - delete() removes a key and its associated val
+    - has(key) checks whether map contains given key
+    - delete(key) removes a key and its associated val
     - clear() removes al key/value-pairs
-    - keys() returns the keys
-    - values() returns the vals
-    - entries() returns key/value-pairs
+    - keys() returns all keys
+    - values() returns all vals
+    - entries() returns all pairs
     - forEach() supported (val before key-param), e.g. m.forEach((v, k) => {...});
 - since ES6
+
 - SEE ALSO
     - /exercism/javascript/nucleotide-count
 

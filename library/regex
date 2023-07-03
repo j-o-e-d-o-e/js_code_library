@@ -8,10 +8,9 @@ eloquent, ch.9
         - escape: two backslashes
     - as literal:  /[a-z]/
         - escape: one backslash
-    - phone number format, e.g. '(+12) 345-678-910'
-        - new RegExp('^\\(\\+\\d\\d\\)\\s\\d{3}-\\d{3}-\\d{3}$');
-        - /^\(\+\d\d\)\s\d{3}-\d{3}-\d{3}$/;
-
+    - e.g. phone number format '(+12) 345-678-910'
+        - as obj: new RegExp('^\\(\\+\\d\\d\\)\\s\\d{3}-\\d{3}-\\d{3}$');
+        - as literal: /^\(\+\d\d\)\s\d{3}-\d{3}-\d{3}$/;
 - flags
     - /g (global): all matches in a string searched, not just the first
     - /i (case insensitive)

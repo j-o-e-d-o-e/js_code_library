@@ -2,7 +2,10 @@ bindings
 
 eloquent, p.24f.
 
-'var' is the way bindings were declared in pre-2015 js
+- pre 2015, bindings were declared using 'var'
+- since then
+    - let: for variable bindings
+    - const: for constant bindings
 
 EXAMPLES
 let name = "Joe";

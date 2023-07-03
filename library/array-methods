@@ -18,7 +18,7 @@ methods defined by the Array class/prototype
         - if no machting elem, find() resp. findIndex() returns undefined resp. -1
     - every() returns true if predicate returns true for all elems (1.5)
         - stops iterating the first time the predicate returns false
-    - some() returns true if there exists at least one elem for which predicate return true
+    - some() returns true if there exists at least one elem for which predicate returns true
         - stops iterating the first time predicate returns true
     - reduce() resp. reduceRight() combines elems to produce a single value (1.6)
         - 1st arg: callback
@@ -34,15 +34,15 @@ methods defined by the Array class/prototype
 (3) concatenation
     - concat() creates and returns a new array containing elems of the arrays
     - join() returns a new string with all elems separated as defined by arg
-        - 1st arg: delimiter (optional)
-        - if arg omitted, a comma is used as separator/delimiter
+        - single arg: delimiter (optional)
+            - if omitted, a comma is used as separator/delimiter
         - opposite of String.split()
 (4) stacks/queues
-    - push() appends one or more values to the end of an array and returns new length (4)
-    - pop() deletes the last element, decrements the length and returns the value (4)
-        - push() and pop() modify the array in place
-    - unshift() adds elements at the start (shifting existing elems up), increments length and returns length
-    - shift() removes 1st elem (shifting all elems down), decrements length and returns its value
+    - all these methods modify the array in place (including de-/incrementing its length)
+    - push() appends one or more vals to end of array and returns new length (4)
+    - pop() deletes the last element and returns its value (4)
+    - unshift() adds elements at the start (shifting existing elems up) and returns new length
+    - shift() removes 1st elem (shifting all elems down) and returns its value
 (5) subarrays
     - slice(start, end) returns a subarray with the elements between start (inclusive) and end (exclusive) (5.1)
         - if only one arg: all elems from start to end of the array
@@ -60,26 +60,27 @@ methods defined by the Array class/prototype
 (6) search/sort
     - also supported by strings
     - indexOf() resp. lastIndexOf() searches for an elem from the start resp. end (6.1)
-        - returns the index of the first such elem if found, otherwise -1
-        - uses equivalent of operator ===
+        - 1st: elem searched for
         - 2nd arg: index at which to begin searching (optional)
+        - returns index of the first such elem if found, otherwise -1
+        - uses equivalent of operator ===
     - includes() checks whether a given value exists in the array
     - sort() sorts the elems in place and returns the sorted array (6.2)
-        - no args: in alphabetical order
-        - 1st arg: comparison func
-            - two args: elems of arr
-            - if func returns negative num, 1st arg before 2nd arg
-            - if positive num, 2nd arg before 1st arg
+        - single arg: comparison func (optional)
+            - two args: elems to be compared
+            - if func returns negative num, 1st elem before 2nd elem
+            - if positive num, 2nd elem before 1st elem
             - if zero, order stays the same
+        - if arg omitted, sorts in ascending alphabetical order
 (7) misc
-    - reverse() reverses the order of the elems of an array in place (7.1)
-    - fill() sets elems to a specified value (7.2)
-        - modifies array in place
+    - reverse() reverses array in place and returns modified arr (7.1)
+    - fill() sets all elems to a specified value (7.2)
         - 1st arg: value for elems
-        - 2nd arg: starting index
+        - 2nd arg: starting index (optional)
             - if omitted, starts at index 0
         - 3rd arg: exlusive ending index (optional)
-        - returns the modified array
+            - if omiteed, until the end
+        - modifies array in place and returns the modified arr
 
 - SEE ALSO
     - developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods

@@ -2,10 +2,10 @@ generator
 
 defintive, ch. 12.3
 
-- since ES6
-- generator-funcs allow to define iterators
-- useful when vals to be iterated are not elems of a data structure (like arr), but the result of a computation
+- generator-funcs allow to define iterators (using asteriks)
+- useful if vals to be iterated are not elems of a data structure (like arr), but result of a computation
 - allow to pause a computation with 'yield'-keyword and restart it again later with arbitrary input val
+- since ES6
 
 EXAMPLE
 function* fibonacciSequence() {

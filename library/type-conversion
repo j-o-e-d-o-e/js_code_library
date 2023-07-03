@@ -2,7 +2,7 @@ type conversion
 
 eloquent, p.19f.
 
-(1) explicit conversion (using funcs)
+(1) explicit conversion
     - 'Boolean(val)' converts any value to a boolean
         - falsy values (convert to 'false'): false, 0, an empty string, null, undefined, NaN
         - truthy values: all other vals
@@ -15,6 +15,7 @@ eloquent, p.19f.
 (2) implicit conversion (type coercion)
     - when operator is applied to the wrong type of value, js will quietly convert that value to the type it needs
     - three-character comparison recommended to prevent unexpected type coercion
+
 - SEE ALSO
     - /exercism/javascript/lucky-numbers
 

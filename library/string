@@ -8,8 +8,7 @@ string
 - concatenation via addition-operator
 - like nums, can be compared by using comparison-operators
     - according to dictionary (lexicographical) order
-    - exact order of all chars, see: fileformat.info/info/charset/UTF-16/list.htm
-- methods (2), e.g.
+- methods, e.g. (2)
     - includes() checks whether another string is part of it
     - startsWith()/endsWith()
     - substring()/slice() return substring with the elems between start (incl) and end (excl)
@@ -24,6 +23,9 @@ string
         - 1st arg: length of the resulting string
         - 2nd arg: string to pad to the resulting string
         - returns padded string of the specified length
+
+- SEE ALSO:
+    - /fileformat.info/info/charset/UTF-16/list.htm (order of all chars)
 
 EXAMPLE
 (1)
