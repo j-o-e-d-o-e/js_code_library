@@ -25,7 +25,7 @@ definitive, ch.11.1.1
     - forEach() is supported (but without indices)
 - since ES6
 
-- SEE ALSO:
+- SEE ALSO
     - /exercism/javascript/ozans-playlist
 
 EXAMPLE

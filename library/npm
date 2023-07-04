@@ -11,4 +11,6 @@ definitive, ch.17.4
     - 'npm install' downloads and installs all declared dependencies in package.json
     - 'npx <tool>' runs locally installed tools, e.g. npx eslint or npx jest
     - -g: global
-- search packages: npmjs.com
+
+- SEE ALSO
+    - search packages: npmjs.com

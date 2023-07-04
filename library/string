@@ -24,7 +24,7 @@ string
         - 2nd arg: string to pad to the resulting string
         - returns padded string of the specified length
 
-- SEE ALSO:
+- SEE ALSO
     - /fileformat.info/info/charset/UTF-16/list.htm (order of all chars)
 
 EXAMPLE

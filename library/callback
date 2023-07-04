@@ -7,7 +7,8 @@ definitive, ch.13.1
     - args of calllback-func allow to return computed val from callee to caller
     - NodeJS is async by default and defines many APIs that use callbacks and events
         - uses on() to register event-listeners (instead of addEventListener())
-- SEE ALSO:
+
+- SEE ALSO
     - /exercism/javascript/fruit-picker
 
 EXAMPLE

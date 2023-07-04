@@ -9,9 +9,9 @@ javascript.info/logical-operators
     - if true, stops and returns the original val of that operand
 - &&-operator returns the first falsy val or the last val if none is found (2)
 
-- SEE ALSO entries
-    - type conversion
-    - object->properties
+- SEE ALSO
+    - entry: type conversion
+    - entry: object->properties
 
 EXAMPLE
 (1)

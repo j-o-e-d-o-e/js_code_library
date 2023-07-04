@@ -12,7 +12,7 @@ math
     - sqrt() return square root of arg
     - max() finds largest of zero or more args
 
-- SEE ALSO:
+- SEE ALSO
     - developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
     - /exercism/javascript/grains (BigInt)
 

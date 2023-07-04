@@ -21,7 +21,7 @@ jestjs.io/docs/getting-started
         - toHaveBeenCalledTimes(): how often called
         - toHaveBeenCalledWith(): called with specified args
 
-- SEE ALSO:
+- SEE ALSO
     - /exercism/javascript/fruit-picker
 
 EXAMPLE
