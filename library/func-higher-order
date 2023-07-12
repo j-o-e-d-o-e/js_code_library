@@ -1,10 +1,12 @@
-higher-order func
+function->higher-order
 
-eloquent js, p.88f./defintive, ch.8.8.2
+func
 
 - pass func to other func
 
 - SEE ALSO
+    - eloquent js, p.88f.
+    - defintive, ch.8.8.2
     - /exercism/javascript/coordinate-transformation
 
 EXAMPLE

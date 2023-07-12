@@ -1,11 +1,14 @@
 http->node
 
-definitive, ch.16.8
+async/promise/node
 
 - modules: http, https, http2
 - APIs for implementing HTTP clients and servers
 - more low-level (compared to fetch)
 - get() for GET, request() in general, etc.
+
+- SEE ALSO
+    - definitive, ch.16.8
 
 EXAMPLE
 const https = require("https");

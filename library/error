@@ -1,6 +1,6 @@
 error
 
-definitive, ch.11.5
+
 
 - constructor Error()
     - single arg: val of message (optional)
@@ -16,6 +16,7 @@ definitive, ch.11.5
     - create own error-class by inheriting from Error (3)
 
 - SEE ALSO
+    - definitive, ch.11.5
     - /exercism/javascript/factory-sensors
 
 EXAMPLE

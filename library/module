@@ -1,6 +1,6 @@
 module
 
-eloquent, ch.9/definitive, ch.10
+module/import/export
 
 (1) CommonJS modules (Node)
     - each file is an independent module with a private namespace
@@ -38,6 +38,10 @@ eloquent, ch.9/definitive, ch.10
             - wildcard-import, e.g. import * as stats from "./module.js" (2.1)
             - named import, e.g. import { render as renderUI } from "./ui.js"
         - to load an ES module in node, set "type": "module" in package.json
+
+- SEE ALSO
+    - eloquent, ch.9
+    - definitive, ch.10
 
 EXAMPLE
 (1.1)

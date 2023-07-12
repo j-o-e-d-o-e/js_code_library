@@ -1,8 +1,11 @@
 typeof
 
-eloquent, p.15
+data type
 
 - produces a string value naming the type of the given value
+
+- SEE ALSO
+    - eloquent, p.15
 
 EXAMPLE
 console.log(typeof 4.5); // -> number

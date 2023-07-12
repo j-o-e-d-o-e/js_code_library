@@ -1,6 +1,6 @@
 test->jest
 
-jestjs.io/docs/getting-started
+testing
 
 - install: `npm install --save-dev jest` (for each project)
 - run: `npm test`
@@ -22,6 +22,7 @@ jestjs.io/docs/getting-started
         - toHaveBeenCalledWith(): called with specified args
 
 - SEE ALSO
+    - jestjs.io/docs/getting-started
     - /exercism/javascript/fruit-picker
 
 EXAMPLE

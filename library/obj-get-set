@@ -1,6 +1,6 @@
 object->get/set
 
-definitive, ch.6.10.6
+obj/prototype
 
 - private properties are declared with underscore or hashtag
 - getter/setter-funcs are
@@ -8,6 +8,7 @@ definitive, ch.6.10.6
     - useful to restrict modification of prop from outside
 
 - SEE ALSO
+    - definitive, ch.6.10.6
     - /exercism/javascript/robot-name
 
 EXAMPLE

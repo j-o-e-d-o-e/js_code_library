@@ -1,6 +1,6 @@
 timer
 
-definitive, ch.11.10
+async
 
 - funcs to register callbacks to run async
     (1) setTimeout() invokes func once after period of time
@@ -14,6 +14,9 @@ definitive, ch.11.10
             - in browser, typically a num
             - in node, an obj
             - to cancel, pass val to clearInterval()
+
+- SEE ALSO
+    - definitive, ch.11.10
 
 EXAMPLE
 let clock = setInterval(() => {

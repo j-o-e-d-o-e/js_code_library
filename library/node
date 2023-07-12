@@ -1,6 +1,6 @@
 node
 
-definitive, ch.16
+async/promise/node
 
 - JS with bindings to the underlying OS to allow read/write operations and access to system resources
     - single-threaded
@@ -36,6 +36,7 @@ definitive, ch.16
         - defaults to CommonJS module
 
 - SEE ALSO
+    - definitive, ch.16
     - docs: nodejs.org/api
     - entry: module
 

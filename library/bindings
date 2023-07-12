@@ -1,11 +1,14 @@
 bindings
 
-eloquent, p.24f.
+
 
 - pre 2015, bindings were declared using 'var'
 - since then
     - let: for variable bindings
     - const: for constant bindings
+
+- SEE ALSO
+    - eloquent, p.24f.
 
 EXAMPLES
 let name = "Joe";

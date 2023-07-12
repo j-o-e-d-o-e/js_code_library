@@ -1,6 +1,6 @@
 for..of/for..in
 
-eloquent, ch.8
+loop
 
 (1) for..of
     - iterates over vals of arrays and strings
@@ -10,6 +10,7 @@ eloquent, ch.8
 (3) 'for(;;)' creates a loop that doesn't terminate on its own (3)
 
 - SEE ALSO
+    - eloquent, ch.8
     - /exercism/javascript/etl
 
 EXAMPLE

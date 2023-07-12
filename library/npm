@@ -1,6 +1,6 @@
 npm
 
-definitive, ch.17.4
+package manager
 
 - keeps track of dependencies in package.json
 - by default, node installation includes npm-package manager
@@ -13,4 +13,5 @@ definitive, ch.17.4
     - -g: global
 
 - SEE ALSO
+    - definitive, ch.17.4
     - search packages: npmjs.com

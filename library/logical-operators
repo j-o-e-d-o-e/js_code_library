@@ -1,6 +1,6 @@
 logical operators
 
-javascript.info/logical-operators
+operator
 
 - operands are implicitly converted to booleans
 - ||-operator returns the first truthy val or the last val if none is found (1)
@@ -10,6 +10,7 @@ javascript.info/logical-operators
 - &&-operator returns the first falsy val or the last val if none is found (2)
 
 - SEE ALSO
+    - javascript.info/logical-operators
     - entry: type conversion
     - entry: object->properties
 

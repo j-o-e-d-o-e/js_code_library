@@ -1,6 +1,6 @@
 math
 
-
+built-in global obj
 
 - contains static methods for operations on numbers and bigints
     - round() rounds to nearest int

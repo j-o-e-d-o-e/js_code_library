@@ -1,9 +1,12 @@
 template literals
 
-eloquent, p.101
+string
 
 - for string interpolation
 - requires backticks (`) instead of single or double quotes
+
+- SEE ALSO
+    - eloquent, p.101
 
 EXAMPLE
 function speak(line) {

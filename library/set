@@ -1,6 +1,6 @@
 set
 
-definitive, ch.11.1.1
+data structure
 
 - unordered/un-indexed, iterable collection of unique values
     - membership is based on strict equality checks (===)
@@ -26,6 +26,7 @@ definitive, ch.11.1.1
 - since ES6
 
 - SEE ALSO
+    - definitive, ch.11.1.1
     - /exercism/javascript/ozans-playlist
 
 EXAMPLE

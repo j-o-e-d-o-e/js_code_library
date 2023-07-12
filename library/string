@@ -1,6 +1,6 @@
 string
 
-
+data type/string
 
 - list/array of chars
     - accessible via array-notation

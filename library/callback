@@ -1,6 +1,6 @@
 callback
 
-definitive, ch.13.1
+async/func
 
 - func passed to another func which invokes this callback if some condition is met or some (async) event occurs
     - invocation of callback notifies that the condition is met or event occured (e.g. mouse click)
@@ -9,6 +9,7 @@ definitive, ch.13.1
         - uses on() to register event-listeners (instead of addEventListener())
 
 - SEE ALSO
+    - definitive, ch.13.1
     - /exercism/javascript/fruit-picker
 
 EXAMPLE

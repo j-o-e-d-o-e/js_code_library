@@ -1,6 +1,6 @@
 class
 
-definitive, ch.9
+prototype
 
 - set of objs that inherit properties from the same prototype
 - the prototype-property of the constructor is used as the prototype of the newly created obj
@@ -18,6 +18,7 @@ definitive, ch.9
         - to restrict access, use getter/setter (see entry: object->get/set)
 
 - SEE ALSO
+    - definitive, ch.9
     - /exercism/javascript/windowing-system
 
 EXAMPLE

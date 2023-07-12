@@ -1,6 +1,6 @@
 regex
 
-eloquent, ch.9
+built-in func/regex
 
 - describe patterns in strings
 - two ways to construct
@@ -53,6 +53,7 @@ eloquent, ch.9
     - arr contains match, its index, input-string , etc.
 
 - SEE ALSO
+    - eloquent, ch.9
     - entry string->regex
     - /exercism/javascript/regular-chatbot
 

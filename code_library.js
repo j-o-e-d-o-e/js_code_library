@@ -7,9 +7,9 @@ const DELIMITER_E = '------------------------------'
 const RED = 91 // text color
 const GREEN = 92
 const CYAN = 96
-const COLOR_E = [CYAN, GREEN]
+const COLOR_E = [GREEN, CYAN]
 const BLACK = 40 // background color
-const COLOR_E_BG = [BLACK, undefined]
+const COLOR_E_BG = [undefined, BLACK]
 const LITERATURE = [
     "David Flanagan (2020): JavaScript. The Definitive Guide, 7th Edition, O'Reilly.",
     "Marijn Haverbeke (2018): Eloquent JavaScript, 3rd Edition, No Starch Press."
@@ -23,7 +23,7 @@ function readTitleAndSrc(fn) {
         let lines = {};
         reader.on('line', function (line) {
             if (count === 1) lines.title = line; else if (count === 3) {
-                lines.src = line;
+                lines.tags = line;
                 reader.close();
             }
             count++;
@@ -39,22 +39,28 @@ function setup() {
         fs.readdir(DIR, async (err, filenames) => {
             if (err) return reject(format({color: RED}, 'Opening Directory ' + DIR + ' failed.'));
             let promises = filenames.map(fn => readTitleAndSrc(fn));
-            let count = 1;
             for await (const [fn, content] of promises) library.push({
-                index: count++, fn, title: content.title, src: content.src
+                fn, title: content.title, tags: content.tags
             })
+            library = library.sort((a, b) => {
+                return a.title.localeCompare(b.title);
+            });
+            let count = 1;
+            for (let entry of library) {
+                entry["index"] = count++;
+            }
             resolve();
         });
     });
 }
 
-function toc() {
+function toc(library) {
     log(format({color: RED, bold: true}, `${DELIMITER_H} JS CODE LIBRARY ${DELIMITER_H}`));
-    for (let entry of library) {
+    for (let [i, entry] of library.entries()) {
         log(format({
-            color: COLOR_E[entry.index % 2],
-            color_bg: COLOR_E_BG[entry.index % 2]
-        }, `${" ".repeat(entry.index < 10 ? 1 : 0)}${entry.index} - ${entry.title} ${" ".repeat(40 - entry.title.length)} ${entry.src}`));
+            color: COLOR_E[i % 2],
+            color_bg: COLOR_E_BG[i % 2]
+        }, `${" ".repeat(entry.index < 10 ? 1 : 0)}${entry.index} - ${entry.title} ${" ".repeat(40 - entry.title.length)} ${entry.tags}`));
     }
     recursiveAsyncReadInput();
 }
@@ -92,6 +98,7 @@ const reader = readline.createInterface({
 
 const recursiveAsyncReadInput = function () {
     reader.question(format({color: RED}, '\nWhat would you like to read? '), function (input) {
+        if (input.startsWith("s:")) toc(library.filter(e => e.tags.toLowerCase().includes(input.substring(2))));
         const num = +input;
         if (isNaN(num)) {
             log(format({color: RED}, 'Not a num.'));
@@ -104,7 +111,7 @@ const recursiveAsyncReadInput = function () {
             recursiveAsyncReadInput();
         } else if (num === 0) {
             log('');
-            toc();
+            toc(library);
         } else entry(num);
     });
 };
@@ -115,7 +122,7 @@ function main() {
         process.exit(0);
     }
     setup()
-        .then(() => toc())
+        .then(() => toc(library))
         .catch(err => {
             log(err);
             process.exit(0);

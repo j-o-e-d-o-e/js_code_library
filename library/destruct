@@ -1,9 +1,13 @@
 destructing
 
-eloquent, p.79f./defintive, ch.3.10.3/8.3.5
+
 
 - extracts one or more vals from an arr (1) or obj (2) and stores them into one or more vars
 - if var-names differ, varName: newVarName
+
+- SEE ALSO
+    - eloquent, p.79f.
+    - defintive, ch.3.10.3/8.3.5
 
 EXAMPLE
 (1)

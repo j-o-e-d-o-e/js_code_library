@@ -1,6 +1,6 @@
 object->properties
 
-eloquent, p.61ff./definitive, ch.6
+obj/prototype
 
 properties (key:value) are seperated by commas
     - keys that aren't valid binding names have to be quoted
@@ -35,6 +35,8 @@ two ways to create/set or get
     - props in target obj are overwritten if existing in source objs
 
 - SEE ALSO
+    - eloquent, p.61ff.
+    - definitive, ch.6
     - /exercism/javascript/high-score-board
     - /exercism/javascript/amusment-park
     - /exercism/javascript/palindrome-products

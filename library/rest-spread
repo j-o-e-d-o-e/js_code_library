@@ -1,6 +1,6 @@
 rest/spread
 
-eloquent, p.76f./definitive, ch.6.10.4
+operator
 
 - rest
     - appears on the left-hand side of an assignment
@@ -13,6 +13,8 @@ eloquent, p.76f./definitive, ch.6.10.4
          - shallow copy means the 1st level is copied, deeper levels are referenced
 
 - SEE ALSO
+    - eloquent, p.76f.
+    - definitive, ch.6.10.4
     - /exercism/javascript/elyses-destructured-enchantments
     - /exercism/javascript/grade-school (deep copy)
 

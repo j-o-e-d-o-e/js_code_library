@@ -1,6 +1,6 @@
 internationalization
 
-definitive, Ch.11.7
+built-in obj
 
 - API to format nums, including monetary amounts, percentages, etc.
     (1) Intl.NumberFormat
@@ -13,6 +13,9 @@ definitive, Ch.11.7
     (3) Intl.Collator
         - for sorting/comparing (collation order)
         - constructor takes the same 2 args like Intl.NumberFormat()
+
+- SEE ALSO
+    - definitive, Ch.11.7
 
 EXAMPLE
 (1)

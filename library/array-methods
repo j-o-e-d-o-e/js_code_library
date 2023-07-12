@@ -1,6 +1,6 @@
 array->methods
 
-definitive, ch.7.8.1
+data structure
 
 methods defined by the Array class/prototype
 
@@ -83,6 +83,7 @@ methods defined by the Array class/prototype
         - modifies array in place and returns the modified arr
 
 - SEE ALSO
+    - definitive, ch.7.8.1
     - developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods
     - /exercism/javascript/elyses-transformative-enchantments
 

@@ -1,6 +1,6 @@
 promise->creation
 
-definitive, ch.13.2.6
+async/promise
 
 (1) based on another promise
     - given a promise, create a new obj by calling e.g. then() on it
@@ -13,6 +13,9 @@ definitive, ch.13.2.6
     - one arg: callback with two args
         - 1st arg: callback, by convention, named 'resolve'
         - 2nd arg: callback, by convention, named 'reject'
+
+- SEE ALSO
+    - definitive, ch.13.2.6
 
 EXAMPLE
 (2)

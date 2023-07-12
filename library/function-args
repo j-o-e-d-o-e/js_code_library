@@ -1,6 +1,6 @@
 function->args
 
-eloquent, p.47f./defintive, ch.8.3
+func
 
 (1) optional args
     - if fewer args passed than params declared, missing params are set automatically to their default (normally undefined)
@@ -11,6 +11,10 @@ eloquent, p.47f./defintive, ch.8.3
     - must be the last param in the param-list of the func
     - additional args are stored in an array
     - since ES6
+
+- SEE ALSO
+    - eloquent, p.47f.
+    - defintive, ch.8.3
 
 EXAMPLE
 (1)

@@ -1,6 +1,6 @@
 date
 
-eloquent, ch.8/definitive, ch.11.4
+built-in obj
 
 - JS's API for dates and times
 - Date()-constructor
@@ -20,6 +20,10 @@ eloquent, ch.8/definitive, ch.11.4
 - Date setting-methods work correctly even when they overflow, e.g.
     - setMonth() handles this by de-/incrementing the year as needed
     - setDate() handles this by de-/incrementing the month (2)
+
+- SEE ALSO
+    - eloquent, ch.8
+    - definitive, ch.11.4
 
 EXAMPLE
 (1)

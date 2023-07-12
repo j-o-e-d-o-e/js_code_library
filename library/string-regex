@@ -1,6 +1,6 @@
 string->regex
 
-eloquent, ch.8
+string/regex
 
 (1) replace() replaces part of the string with another string
     - 1st arg: regex/string to search for
@@ -14,6 +14,7 @@ eloquent, ch.8
 (4) split() divides string according to given regex/string and returns arr
 
 - SEE ALSO
+    - eloquent, ch.8
     - entry: regex
     - /exercism/javascript/regular-chatbot
 

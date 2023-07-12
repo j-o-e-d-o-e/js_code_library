@@ -1,6 +1,6 @@
 console
 
-defintive, ch.11.8
+string
 
 - log() converts args to strings and outputs them
     - shorthand: declare const to be able to omit omit 'console' (1)
@@ -10,6 +10,9 @@ defintive, ch.11.8
 - count() takes a string as arg and logs that string followed by the number of times it has been called
     - e.g. to keep track of how many times an event handler has been triggered
     - countReset() resets the counter for the specified string
+
+- SEE ALSO
+    - defintive, ch.11.8
 
 EXAMPLE
 (1)

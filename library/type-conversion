@@ -1,6 +1,6 @@
 type conversion
 
-eloquent, p.19f.
+data type
 
 (1) explicit conversion
     - 'Boolean(val)' converts any value to a boolean
@@ -17,6 +17,7 @@ eloquent, p.19f.
     - three-character comparison recommended to prevent unexpected type coercion
 
 - SEE ALSO
+    - eloquent, p.19f.
     - /exercism/javascript/lucky-numbers
 
 EXAMPLE

@@ -1,6 +1,6 @@
 promise
 
-definitive, ch.13.2
+async/promise
 
 - represents the (not-yet-available) result of an async operation
     - states: pending -> resolved->fulfilled or rejected -> settled
@@ -39,6 +39,7 @@ definitive, ch.13.2
             - either 'fulfilled' or 'rejected'
 
 SEE ALSO
+    - definitive, ch.13.2
     - /exercism/javascript/translation-service
 
 EXAMPLE

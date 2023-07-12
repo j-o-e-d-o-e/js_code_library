@@ -1,12 +1,15 @@
 subclass
 
-definitive, ch.9.5.2
+prototype
 
 - create subclass by adding an 'extends'-clause
 - instance and static methods are inherited
 - super-keyword to invoke constructor and methods of the superclass
     - 'this' may not be used in constructor before invocation of superclass-constructor (like Java)
 - since ES6
+
+- SEE ALSO
+    - definitive, ch.9.5.2
 
 EXAMPLE
 // A trivial Array subclass that adds getters for the first and last elements.

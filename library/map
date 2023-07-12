@@ -1,6 +1,6 @@
 map
 
-eloquent, p.108/defintive, ch.11.1.2
+data structure
 
 - iterable collection of key/value-pairs
     - any value can be used as key or val, including reference-types (objs and arrs), null and NaN
@@ -29,6 +29,8 @@ eloquent, p.108/defintive, ch.11.1.2
 - since ES6
 
 - SEE ALSO
+    - eloquent, p.108
+    - defintive, ch.11.1.2
     - /exercism/javascript/nucleotide-count
 
 EXAMPLE

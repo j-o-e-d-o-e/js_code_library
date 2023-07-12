@@ -1,6 +1,6 @@
 async/await
 
-definitive, ch.13.3
+async/promise
 
 since ES2017
 
@@ -18,6 +18,9 @@ keywords simplify the use of Promises
     - assigns fulfillment-val of Promise-array to loop-var
     - instead of Promise.all(), computes result step-by-step (see entry: promise)
     - only valid within async func (like await)
+
+- SEE ALSO
+    - definitive, ch.13.3
 
 EXAMPLE
 (1)

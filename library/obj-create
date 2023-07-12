@@ -1,6 +1,6 @@
 object->creation
 
-definitive, ch.6
+obj/prototype
 
 three ways to create obj
     (1) obj literal
@@ -10,6 +10,9 @@ three ways to create obj
         - since ES/JS 2015
     (3) Object.create()
         - returns newly created obj that inherits from specified prototype obj
+
+- SEE ALSO
+    - definitive, ch.6
 
 EXAMPLE
 (1)
