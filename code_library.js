@@ -98,7 +98,7 @@ const reader = readline.createInterface({
 
 const recursiveAsyncReadInput = function () {
     reader.question(format({color: RED}, '\nWhat would you like to read? '), function (input) {
-        if (input.startsWith("s:")) toc(library.filter(e => e.tags.toLowerCase().includes(input.substring(2))));
+        if (input.startsWith("s:")) toc(library.filter(e => e.tags.toLowerCase().includes(input.substring(2).trim())));
         const num = +input;
         if (isNaN(num)) {
             log(format({color: RED}, 'Not a num.'));
