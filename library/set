@@ -4,12 +4,13 @@ data structure
 
 - unordered/un-indexed, iterable collection of unique values
     - membership is based on strict equality checks (===)
+    - set's elems cannot be accessed by index
     - WeakSet implements a set of objects that does not prevent those objs from being garbage collected
 - Set()-constructor
     - single arg: an arr or iterable obj (including other Set objs and strings)
         - if omitted, empty set
-- size-property tells how many vals the set contains (like length-property of array)
-- set's elems cannot be accessed by index
+- properties
+    - 'size' tells how many vals the set contains (like length-property of array)
 - methods
     - add()
         - single arg: val to be added

@@ -4,7 +4,7 @@ async/promise
 
 since ES2017
 
-keywords simplify the use of Promises
+keywords to simplify the use of Promises
     - allow to structure Promise-based code as if it was synchronous
 
 (1) await
