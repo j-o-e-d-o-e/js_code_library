@@ -6,7 +6,7 @@ loop
     - iterates over vals of arrays and strings
     - arr.entries() returns indices and vals
 (2) for..in
-    - iterates over keys of objs, arrays and strings
+    - iterates over indices of arrays/strings or over keys of objs
 (3) 'for(;;)' creates a loop that doesn't terminate on its own (3)
 
 - SEE ALSO
