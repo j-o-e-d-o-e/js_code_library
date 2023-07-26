@@ -24,10 +24,10 @@ const box = {
     }
 };
 
-box.content = "diamond"; // implicit invoke of setter
-console.log(box._content); // [ 'gold piece', 'diamond' ]
+box.content = "diamond";        // implicitly invokes setter
+console.log(box._content);      // [ 'gold piece', 'diamond' ]
 try {
-    console.log(box.content) // implicit invoke of getter
+    console.log(box.content)    // implicitly invokes getter
 } catch (e) {
-    console.log(e.message) // Locked!
+    console.log(e.message)      // Locked!
 }

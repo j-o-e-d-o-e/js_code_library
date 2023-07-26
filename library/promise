@@ -3,7 +3,7 @@ promise
 async/promise
 
 - represents the (not-yet-available) result of an async operation
-    - states: pending -> resolved->fulfilled or rejected -> settled
+    - states: pending -> resolved -> fulfilled or rejected -> settled
         - resolved (but not yet fulfilled): returns resolved promise
         - fulfilled ("promise kept"): returns computed val
         - rejected ("promise broken"): returns rejected promise (error)

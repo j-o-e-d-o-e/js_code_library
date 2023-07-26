@@ -31,7 +31,7 @@ two ways to create/set or get
 - 'Object.keys(obj)' returns array of strings: the object's property keys (not those in its prototype) (4)
 - 'Object.assign(objA, objB)' copies all props from obj B into obj A
     - expects two or more objs as args
-    - modifies and returns the first arg
+    - modifies and returns the 1st arg
     - props in target obj are overwritten if existing in source objs
 
 - SEE ALSO
@@ -46,7 +46,7 @@ EXAMPLE
 obj.x
 (1.2)
 let devices = { laptop: "think-pad" };
-devices.desktop.cpu; // TypeErrorw
+devices.desktop.cpu; // TypeError
 devices.desktop?.cpu; // undefined
 devices.desktop.gpu ?? "nothing"; // TypeError
 devices.desktop?.gpu ?? "nothing"; // nothing

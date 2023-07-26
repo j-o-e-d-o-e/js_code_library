@@ -4,7 +4,7 @@ package manager
 
 - keeps track of dependencies in package.json
 - by default, node installation includes npm-package manager
-- dependencies are stored in node_modules/
+- dependencies are stored in /node_modules
     - dev dependency: for dev-tools (not to run the code)
 - commands/flags, e.g.
     - 'npm init' creates package.json

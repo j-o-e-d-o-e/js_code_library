@@ -5,7 +5,7 @@ data structure
 - iterable collection of key/value-pairs
     - any value can be used as key or val, including reference-types (objs and arrs), null and NaN
     - compares keys by identity, not by equality (like Set)
-    - each iterated value is a two-elem array [key, value]
+    - each iterated pair is a two-elem array [key, value]
     - iterates in insertion order (like Set, surprisingly)
     - WeakMap does not prevent its keys from being garbage collected
 - constructor
@@ -21,7 +21,7 @@ data structure
         - to add multiple pairs, use chained method calls
     - has(key) checks whether map contains given key
     - delete(key) removes a key and its associated val
-    - clear() removes al key/value-pairs
+    - clear() removes all key/value-pairs
     - keys() returns all keys
     - values() returns all vals
     - entries() returns all pairs

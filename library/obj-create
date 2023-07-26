@@ -34,7 +34,7 @@ class Rabbit {
     }
 }
 let rabbit = new Rabbit("white");
-rabbit.speak("omg"); // The white rabbit says 'omg'
+rabbit.speak("follow me"); // The white rabbit says 'follow me'
 new Rabbit("purple").speak("yeah"); // The purple rabbit says 'yeah'
 (3)
 let o = Object.create({x: 1, y: 2});
