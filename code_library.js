@@ -132,7 +132,7 @@ function main() {
 function flags(arg) {
     if (arg === '-h' || arg === '-help') {
         log(format({color: RED, bold: true}, `${DELIMITER_H} JS CODE LIBRARY ${DELIMITER_H}`));
-        log(format({color: CYAN}, "Commands\n\t- 0/'Enter': Table of Content\n\t- 667: Exit"));
+        log(format({color: CYAN}, "Commands\n\t- 0  : Table of Content (or 'ENTER')\n\t- 667: Exit\n\t- s: : Search"));
         log(format({color: GREEN}, 'Literature'));
         for (let lit of LITERATURE) log(format({color: GREEN}, `\t- ${lit}`))
     }
