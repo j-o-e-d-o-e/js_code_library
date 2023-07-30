@@ -13,6 +13,7 @@ data type
     - String(val) converts val to a string
         - for arrays, resulting elems are separated by commas
 (2) implicit conversion (type coercion)
+    - +-operator may be used to convert string to num
     - when operator is applied to the wrong type of value, js will quietly convert that value to the type it needs
     - three-character comparison recommended to prevent unexpected type coercion
 
@@ -25,7 +26,9 @@ EXAMPLE
 Boolean(1);             // true
 Boolean(' ');           // true
 Number('  -12.34  ');   // -12.34
+
 (2)
+a = +"5"                 // a = 5
 console.log("5" - 1);    // -> 4
 console.log("5" + 1);    // -> 51
 console.log(false == 0); // -> true
