@@ -1,11 +1,11 @@
 callback
 
-async/func
+async
 
 - func passed to another func which invokes this callback if some condition is met or some (async) event occurs
     - invocation of callback notifies that the condition is met or event occured (e.g. mouse click)
     - args of calllback-func allow to return computed val from callee to caller
-    - NodeJS is async by default and defines many APIs that use callbacks and events
+    - NodeJS is async by default and defines many APIs that use callbacks and events (2)
         - uses on() to register event-listeners (instead of addEventListener())
 
 - SEE ALSO
@@ -14,40 +14,32 @@ async/func
 
 EXAMPLE
 (1)
-// Caller function takes a callback function
 function apply(callback, num) {
     return callback(num); // one arg
 }
 
-// Callback must expect one arg from the calling func
 function square(n = 2) {
     return n * n;
 }
-let res = apply(square, 5); // => 25
-res = apply(square);        // => 4
+let res = apply(square, 5); // res = 25
+res = apply(square);        // res = 4
+
 (2)
 const fs = require('fs');
 const readline = require('readline');
 
 function entry(num, callback) {
-    const reader = readline.createInterface({
-        input: fs.createReadStream("./main.js")
-    });
-    reader.on('line', function (line) { // register a listener (2nd arg) for the event 'line' on obj reader
+    const reader = readline.createInterface({input: fs.createReadStream("./main.js")});
+    reader.on('line', function (line) {     // register listener (2nd arg) for event 'line'
         reader.close();
     });
-    reader.on('close', () => callback()); // on event 'close' (EOF): call back (invoke listener)
+    reader.on('close', () => callback());   // on event 'close' (EOF): call back (invoke listener)
 }
-
 const recursiveAsyncReadLine = function () {
-    const reader = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-    reader.question('\nWhat would you like to read? ', input => { // input: arg of callback
+    const reader = readline.createInterface({input: process.stdin, output: process.stdout});
+    reader.question('\nWhat would you like to read? ', input => {
         const num = parseInt(input);
         entry(num, recursiveAsyncReadLine); // passing func itself to ask new question
     });
 };
-
 recursiveAsyncReadLine();

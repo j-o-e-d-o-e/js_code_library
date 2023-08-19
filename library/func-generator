@@ -1,0 +1,24 @@
+function->generator
+
+
+
+- func declared with asteriks and containing 'yield' (instead of 'return')
+    - allows to define iterator with lazy loading
+- useful if vals to be iterated are not elems of a data structure, but result of a computation
+- since ES6
+
+- SEE ALSO
+    - defintive, ch. 12.3
+
+EXAMPLE
+function* fibonacciSequence() {
+    let x = 0, y = 1;
+    for (; ;) {
+        yield y;
+        [x, y] = [y, x + y];
+    }
+}
+function fibonacci(n) {
+    for (let f of fibonacciSequence()) if (n-- <= 0) return f;
+}
+let res = fibonacci(20); // res = 10946

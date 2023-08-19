@@ -1,24 +1,24 @@
 module
 
-module/import/export
+
 
 (1) CommonJS modules (Node)
     - each file is an independent module with a private namespace
         - consts, vars, funcs, and classes defined in one file are private to that file unless exported
-        - exported values are only visible to those modules which explicitly import them
+        - exported vals are only visible to those modules which explicitly import them
     - EXPORT
         - Node defines a global 'exports'-obj that is always defined (1.1)
             - to export, simply assign values to the properties of this obj
         - to export only a single func or class, use 'module.exports' (1.2)
-            - default value of module.exports is the same obj that 'exports' refers to
+            - default val of module.exports is the same obj that 'exports' refers to
             - to export a single obj, use modules.exports = {} at the end of the module (rather than one by one)
     - IMPORT
         - require()-func loads module and returns its interface (1.1)
-            - if package, arg is its name (without "/")
-            - if own code, arg is its relative path (typically, starts with "./")
-                - .js-suffix can be omitted
+            - if package (installed by npm), arg is its name (without "/")
+            - if project-file, arg is its relative path (typically, starts with "./")
+                - .js-suffix may be omitted
         - if obj with multiple props, one can just import the specific props by destructing (1.2)
-    - bundling-tools (like webpack) allow to use this style of modules for code that is intended to run in web browsers
+    - bundling-tools (like webpack) allow to use CommonJS modules for code that is intended to run in web browsers
 
 (2) ES modules (since ES6)
     - modularity as a core language feature
@@ -28,13 +28,13 @@ module/import/export
         - put keyword 'export' in front of a func, class or variable (let, const, var) (2.1)
             - only possible for declarations that have a name
         - to export from a single place (typically at the end of the module): export {} (2.2)
-        - to export only one value, it is common to use 'export default' (2.3)
+        - to export only one val, it is common to use 'export default' (2.3)
             - can export any expression, including anonymous funcs
         - named export, e.g. export { render as renderLayout };
     - IMPORT
-        - 'import'-keyword loads exported values
-            - string of the module from which a value is imported is a path (typically, starts with "./")
-                - apparently, .js-suffix can not be omitted
+        - 'import'-keyword loads exported vals
+            - string of the module from which a val is imported is a path (typically, starts with "./")
+                - apparently, .js-suffix may not be omitted
             - wildcard-import, e.g. import * as stats from "./module.js" (2.1)
             - named import, e.g. import { render as renderUI } from "./ui.js"
         - to load an ES module in node, set "type": "module" in package.json
@@ -50,27 +50,28 @@ const sum = (x, y) => x + y;
 exports.mean = data => data.reduce(sum)/data.length;
 // 2nd file
 const stats = require('./scratch.js');
-let res = stats.mean([1,2,3]); // => 2
+let res = stats.mean([1, 2, 3]);  // res = 2
 (1.2)
 // 1st file
 const mean = data => data.reduce((x, y) => x + y) / data.length;
 module.exports = {mean}
 // 2nd file
 const {mean} = require('./scratch.js');
-let res = mean([1, 2, 3]); // => 2
+let res = mean([1, 2, 3]);        // res = 2
+
 (2.1)
 // 1st file
 export const mean = data => data.reduce((x, y) => x + y) / data.length;
 // 2nd file
 import * as stats from './scratch.js'
-let res = stats.mean([1, 2, 3]); // => 2
+let res = stats.mean([1, 2, 3]);  // res = 2
 (2.2)
 // 1st file
 const mean = data => data.reduce((x, y) => x + y) / data.length;
 export {mean};
 // 2nd file
 import {mean} from './scratch.js'
-let res = mean([1, 2, 3]); // => 2
+let res = mean([1, 2, 3]);        // res = 2
 (2.3)
 // 1st file
 export default class Export {
@@ -78,4 +79,4 @@ export default class Export {
 }
 // 2nd file
 import Export from './scratch.js'
-new Export().test(); // => Export imported.
+new Export().test();              // => Export imported.

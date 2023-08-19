@@ -1,6 +1,6 @@
 string->regex
 
-string/regex
+
 
 (1) replace() replaces part of the string with another string
     - 1st arg: regex/string to search for
@@ -21,18 +21,15 @@ string/regex
 EXAMPLE
 (1)
 "luck".replace("l", "d"); // => duck
+"Doe, Joe\nJane, Mary".replace(/(\w+), (\w+)/g, "$2 $1"); // => Joe Doe    Mary Jane
+'joe doe'.replace(/\b(joe|doe)\b/g, str => str.toUpperCase()); // => JOE DOE
 
-"Doe, Joe\nJane, Mary".replace(/(\w+), (\w+)/g, "$2 $1");
-// => Joe Doe    Mary Jane
-
-'joe doe'.replace(/\b(joe|doe)\b/g, str => str.toUpperCase());
-// JOE DOE
 (2)
 "  word".search(/\S/); // -> 2
-(3)
-"one two 100".match(/\d+/);
-// [ '100', index: 8, input: 'one two 100', groups: undefined ]
 
-'Home, sweet home.'.match(/home/gi); // ["Home", "home"]
+(3)
+"one two 100".match(/\d+/); // => [ '100', index: 8, input: 'one two 100', groups: undefined ]
+'Home, sweet home.'.match(/home/gi); // => ["Home", "home"]
+
 (4)
-'joe doe'.split(' '); // [ 'joe', 'doe' ]
+'joe doe'.split(' '); // => [ 'joe', 'doe' ]

@@ -1,0 +1,29 @@
+function->args
+
+
+
+(1) optional args
+    - if fewer args passed than params declared, missing params are automatically set to their default (normally undefined)
+    - if more args given, JS ignores extra args
+    - since ES6: default values for params
+(2) rest args
+    - allow func to be invoked with arbitrarily more args than params
+    - must be the last param in the param-list
+    - additional args are stored in an array
+    - since ES6
+
+- SEE ALSO
+    - eloquent, p.47f.
+    - defintive, ch.8.3
+
+EXAMPLE
+(1)
+const minus = (a, b = 3) => a - b;
+minus(5);     // => 2
+minus(5, 3);  // => 2
+
+(2)
+function arr(...nums) {
+    return nums;
+}
+arr(1, 2, 3); // => [1, 2, 3]

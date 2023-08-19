@@ -3,7 +3,7 @@ underscore
 
 
 - to skip elements
-- or, to declare private fields in class (see entry: class)
+- or, to declare private fields in a class (see entry: class)
 
 - SEE ALSO
     - eloquent, ch.8

@@ -1,28 +1,37 @@
 string
 
-data type/string
+data type
 
 - list/array of chars
     - accessible via array-notation
-    - like array, deleting elems does not affect length-property (1)
+    - like array, deleting elems does not affect length-property
 - concatenation via addition-operator
-- like nums, can be compared by using comparison-operators
+- like nums, may be compared by using comparison-operators
     - according to dictionary (lexicographical) order
-- methods, e.g. (2)
+- methods
+    - charAt() returns string at specified index
+    - concat() returns this concatenated to one or multiple args
     - includes() checks whether another string is part of it
+    - indexOf() returns index of 1st occurrence of given string
+        - 2nd arg: where searching begins (optional)
+    - lastIndexOf() returns index of last occurrence of given string
+    - padStart()/padEnd() pads to the beginnning resp. end of a string (3)
+        - 1st arg: length of resulting string
+        - 2nd arg: string to pad to resulting string
+        - returns padded string of specified length
+    - repeat() returns a concatentation of given number of copies of this
     - startsWith()/endsWith()
-    - substring()/slice() return substring with the elems between start (incl) and end (excl)
+    - substring()/slice() return substring with elems between start (incl) and end (excl)
         - what they have in common
-            - if start === end, returns and empty string
+            - if start === end, returns empty string
             - if end is omitted, extracts chars to the end of string
             - if either arg is greater than string's length, length will be used instead
         - slight distinctions, e.g. if start > end
             - substring() swaps those 2 args
             - slice() returns empty string
-    - padStart()/padEnd() pads to the beginnning resp. end of a string (3)
-        - 1st arg: length of the resulting string
-        - 2nd arg: string to pad to the resulting string
-        - returns padded string of the specified length
+    - toUpperCase() returns string in uppercase
+    - toLowerCase() returns string in lowercase
+    - trim() strips leading and trailing whitespace
 
 - SEE ALSO
     - /fileformat.info/info/charset/UTF-16/list.htm (order of all chars)
@@ -31,12 +40,14 @@ EXAMPLE
 (1)
 let word = " joe\t";
 let str = word.trim();
-console.log(word.length);   // 5
-console.log(str.length);    // 3
+word.length;          // => 5
+str.length;           // => 3
+
 (2)
-"joe"[0];               // j
-"joe".length;           // 3
-'joe'.endsWith("e");    // true
-"joe".slice(1);         // oe
+"joe"[0];             // => j
+"joe".length;         // => 3
+'joe'.endsWith("e");  // => true
+"joe".slice(1);       // => oe
+
 (3)
-let clock = "5".padStart(2, 0) + ":" + "4".padStart(2, 0); // 05:04
+let clock = "5".padStart(2, 0) + ":" + "4".padStart(2, 0); // clock = 05:04

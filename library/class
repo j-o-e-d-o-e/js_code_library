@@ -1,18 +1,18 @@
 class
 
-prototype
+
 
 - set of objs that inherit properties from the same prototype
 - the prototype-property of the constructor is used as the prototype of the newly created obj
-- keyword 'class' since ES6
+- keyword 'class' (since ES6)
     - class-body includes method-definitions that use method-shorthand (keyword omitted) (1)
-    - class can be also defined as expressions (2)
-    - if constructor-func is omitted, an empty constructor-func will be implicitly created
+    - class may be also defined as expression (2)
+    - if constructor-func is omitted, an empty constructor will be implicitly created
 - two ways to define instance fields
     - inside constructor using 'this'
-        - no extra declaration of field outside constructor required (unlike Java)
+        - no extra declaration of field outside constructor required
         - though possible, e.g. to declare private fields
-    - outside constructor, inside class-body (like Java) (3)
+    - outside constructor, inside class-body
         - if initialization omitted, default value is 'undefined'
         - private fields are prefixed with '#' or '_'
         - to restrict access, use getter/setter (see entry: object->get/set)
@@ -25,6 +25,7 @@ EXAMPLE
 (1)
 class Range {
     static COUNT = 0;
+
     constructor(from, to) {
         this.from = from;
         this.to = to;
@@ -36,7 +37,7 @@ class Range {
         return `(${this.from}...${this.to})`;
     }
     get getFrom(){
-        return `get ${this.from}`;
+        return `from=${this.from}`;
     }
     static count() {
         return ++Range.COUNT;
@@ -44,16 +45,11 @@ class Range {
 }
 Range.COUNT = 10;
 let r = new Range(1, 3);
-r.includes(2) // => true
-r.toString() // => "(1...3)"
-Range.count(); // => 11
-r.getFrom; // get 1
+r.includes(2);      // => true
+r.toString();       // => "(1...3)"
+Range.count();      // => 11
+r.getFrom;          // => from=1
+
 (2)
 let Square = class { constructor(x) { this.area = x * x; } };
-new Square(3).area // => 9
-(3)
-class Buffer {
-    #size = 0;
-    capacity = 4096;
-    buffer = new Uint8Array(this.capacity);
-}
+new Square(3).area; // => 9

@@ -1,8 +1,8 @@
 object->creation
 
-obj/prototype
 
-three ways to create obj
+
+- 3 ways to create an obj
     (1) obj literal
         - shorthand props: omit key if key-name equals var-name (ES6)
         - shorthand methods: omit function-keyword
@@ -21,21 +21,24 @@ let a = {
         return this.b * this.c;
     }
 }
-let {b, c} = a;
-console.log(b, c) // -> 1 3
-console.log(a.multi()) // -> 3
+let {b, c} = a;                           // b = 1, c = 3
+a.multi();                                // => 3
+
 (2)
 class Rabbit {
-    constructor(type = "black") {
-        this.type = type;
+    constructor(color = "white") {
+        this.color = color;
     }
+
     speak(line) {
-        console.log(`The ${this.type} rabbit says '${line}'`);
+        console.log(`The ${this.color} rabbit says '${line}'`);
     }
 }
-let rabbit = new Rabbit("white");
-rabbit.speak("follow me"); // The white rabbit says 'follow me'
-new Rabbit("purple").speak("yeah"); // The purple rabbit says 'yeah'
+
+let rabbit = new Rabbit();
+rabbit.speak("follow me");                // The white rabbit says 'follow me'
+new Rabbit("purple").speak("yeah, yeah"); // The purple rabbit says 'yeah, yeah'
+
 (3)
 let o = Object.create({x: 1, y: 2});
-console.log(o.x); // 1
+o.x;                                      // => 1

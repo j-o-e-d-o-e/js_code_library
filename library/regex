@@ -1,9 +1,9 @@
 regex
 
-built-in func/regex
+built-in obj
 
-- describe patterns in strings
-- two ways to construct
+- describes pattern in a string
+- 2 ways to create
     - as obj: new RegExp("[a-z]")
         - escape: two backslashes
     - as literal:  /[a-z]/
@@ -12,63 +12,62 @@ built-in func/regex
         - as obj: new RegExp('^\\(\\+\\d\\d\\)\\s\\d{3}-\\d{3}-\\d{3}$');
         - as literal: /^\(\+\d\d\)\s\d{3}-\d{3}-\d{3}$/;
 - flags
-    - /g (global): all matches in a string searched, not just the first
-    - /i (case insensitive)
-    - /m (multiline search)
+    - /g: all matches in a string are found, not just the first (global)
+    - /i: case insensitive
+    - /m: multiline search
     - used in conjunction with
         - obj: e.g. new RegExp('[a-z]', 'gi') OR new RegExp(/[a-z]/, 'gi')
         - literal: e.g. /[a-z]/gi
-
-[0-9]: match all strings that contain a digit (hypen indicates range)
-[^01]: match any character except the ones in the set (1)
-
-/\d+/: matches one or more digit characters ('+' indicates element may be repeated)
-/\d*/: like +, but allows the pattern to match zero times
-
-/abc/	        A sequence of characters
-/[abc]/	        Any character from a set of characters
-/[^abc]/        Any character not in a set of characters
-/[0-9]/	        Any character in a range of characters
-/x+/	        One or more occurrences of the pattern x
-/x+?/	        One or more occurrences, nongreedy
-/x*/	        Zero or more occurrences
-/x?/	        Zero or one occurrence
-/x{2,4}/        Two to four occurrences
-/(abc)/	        A group
-/a|b|c/	        Any one of several patterns
-/\d/	        Any digit character
-/\w/	        An alphanumeric character (“word character”)
-/\s/	        Any whitespace character
-/./             Any character except newlines
-/\b/            A word boundary
-/^/             Start of input
-/$/             End of input
-
-- /b (word boundary)
-    - can be the start or end of the string or
-    - any point in the string that has a word character (as in \w) on one side and a non-word character on the other
-
+- methods
 (1) test() returns true/false whether regex matched
 (2) exec() returns null if no match and returns an array otherwise
     - arr contains match, its index, input-string , etc.
 
+- [0-9]: matches all strings that contain a digit (hyphen indicates range)
+- [^01]: matches any char except the ones in the set
+- /\d+/: matches one or more digit chars ('+' indicates eleme may be repeated)
+- /\d*/: like +, but allows pattern to match zero times
+- /b (word boundary)
+    - can be the start or end of the string or
+    - any point in the string that has a word char (as in \w) on one side and a non-word char on the other
+┌───────────┬──────────────────────────────────────────────┐
+|  /abc/    | A sequence of characters                     |
+|  /[abc]/  | Any character from a set of characters       |
+|  /[^abc]/ | Any character not in a set of characters     |
+|  /[0-9]/  | Any character in a range of characters       |
+|  /x+/     | One or more occurrences of the pattern x     |
+|  /x+?/    | One or more occurrences, nongreedy           |
+|  /x*/     | Zero or more occurrences                     |
+|  /x?/	    | Zero or one occurrence                       |
+|  /x{2,4}/ | Two to four occurrences                      |
+|  /(abc)/  | A group                                      |
+|  /a|b|c/  | Any one of several patterns                  |
+|  /\d/	    | Any digit character                          |
+|  /\w/	    | An alphanumeric character (“word character”) |
+|  /\s/	    | Any whitespace character                     |
+|  /./      | Any character except newlines                |
+|  /\b/     | A word boundary                              |
+|  /^/      | Start of input                               |
+|  /$/      | End of input                                 |
+└───────────┴──────────────────────────────────────────────┘
+
 - SEE ALSO
     - eloquent, ch.9
-    - entry string->regex
+    - entry: string->regex
     - /exercism/javascript/regular-chatbot
 
 EXAMPLE
 (1)
 let notBinary = /[^01]/;
-notBinary.test("1100100010100110"); // → false
-notBinary.test("1100100010200110"); // → true
+notBinary.test("1100100010100110"); // => false
+notBinary.test("1100100010200110"); // => true
 
 let dateTime = /\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{2}/;
-dateTime.test("1-30-2003 8:45"); // → true
+dateTime.test("1-30-2003 8:45");    // => true
 
 let animalCount = /\b\d+ (pig|cow|chicken)s?\b/;
-animalCount.test("15 pigs"); // → true
-animalCount.test("15 pigchickens"); // → false
+animalCount.test("15 pigs");        // => true
+animalCount.test("15 pigchickens"); // => false
 (2)
 let cartoonCrying = /boo+(hoo+)+/i;
 cartoonCrying.exec("Boohoooohoohooo");
@@ -85,8 +84,6 @@ let input = "A string with 3 numbers in it... 42 and 88.";
 let number = /\b\d+\b/g;
 let match;
 while (match = number.exec(input)) {
-  console.log("Found", match[0], "at", match.index);
-}
-// → Found 3 at 14
-// → Found 42 at 33
-// → Found 88 at 40
+  console.log("Found", match[0], "at", match.index);  // => Found 3 at 14
+}                                                     // => Found 42 at 33
+                                                      // => Found 88 at 40

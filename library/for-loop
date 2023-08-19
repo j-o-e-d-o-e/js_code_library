@@ -1,13 +1,14 @@
 for..of/for..in
 
-loop
+
 
 (1) for..of
-    - iterates over vals of arrays and strings
+    - iterates over vals of an array or string
     - arr.entries() returns indices and vals
 (2) for..in
-    - iterates over indices of arrays/strings or over keys of objs
-(3) 'for(;;)' creates a loop that doesn't terminate on its own (3)
+    - iterates over indices of array/string or over keys of an obj
+(3) for(;;)
+    - infinite loop
 
 - SEE ALSO
     - eloquent, ch.8
@@ -16,23 +17,24 @@ loop
 EXAMPLE
 (1)
 let a = "joe";
-for (let i of a) console.log(i) // -> j o e
+for (let i of a) console.log(i);          // => j o e
 
 for (let [index, elem] of [1, 2, 3].entries()) {
-    console.log(index, elem); // -> 0 1   1 2   2 3
+    console.log(index, elem);             // => 0 1   1 2   2 3
 }
-(2.1)
-for (let i in [1, 2, 3]) console.log(i) // -> 0 1 2
-(2.2)
+
+(2)
+for (let i in [1, 2, 3]) console.log(i);  // => 0 1 2
+
 let ls = {
-    'Mary Jane': 1,
-    'Joe Doe': 2,
+    'mary': 1,
+    'joe': 2,
 };
-for (let name in ls) ls[name] += 100;
-// { 'Mary Jane': 101, 'Joe Doe': 102 }
+for (let name in ls) ls[name] += 100;     // => { 'mary': 101, 'joe': 102 }
+
 (3)
 let count = 1;
 for (; ;) {
     if (count > 3) break
-    console.log(count++); // 1 2 3
+    console.log(count++);                 // => 1 2 3
 }

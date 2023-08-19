@@ -1,9 +1,8 @@
 array->methods
 
-data structure
 
-methods defined by the Array class/prototype
 
+- methods defined by the Array class/prototype
 (1) iterators
     - accept a func as their 1st arg and invoke that func on each elem
         - except reduce(), callback may be invoked with 3 args
@@ -14,8 +13,8 @@ methods defined by the Array class/prototype
     - forEach() iterates over array (1.1)
     - map() passes elems to the supplied func and returns new arr (1.2)
     - filter() returns subset of the original array using a predicate (1.3)
-    - find() resp. findIndex() returns the 1st machting elem resp. index using a predicate (1.4)
-        - if no machting elem, find() resp. findIndex() returns undefined resp. -1
+    - find() resp. findIndex() returns the 1st matching elem resp. index using a predicate (1.4)
+        - if no matching elem, find() resp. findIndex() returns undefined resp. -1
     - every() returns true if predicate returns true for all elems (1.5)
         - stops iterating the first time the predicate returns false
     - some() returns true if there exists at least one elem for which predicate returns true
@@ -57,6 +56,7 @@ methods defined by the Array class/prototype
         - additional args:  elems to be inserted starting at start pos (1st arg)
             - if omitted, no insertion
         - returns an array of the deleted elems
+        - splice(index, 1) removes single elem at index
 (6) search/sort
     - also supported by strings
     - indexOf() resp. lastIndexOf() searches for an elem from the start resp. end (6.1)
@@ -89,69 +89,65 @@ methods defined by the Array class/prototype
 
 EXAMPLE
 (1.1)
-let data = [1, 2, 3, 4, 5]
-data.forEach((v, i, a) => { a[i] = v + 1; }); // data == [2,3,4,5,6]
+let data = [1, 2, 3, 4, 5];
+data.forEach((v, i, a) => { a[i] = v + 1; }); // data = [2, 3, 4, 5, 6]
 (1.2)
-[1, 2, 3].map(x => x * x) // => [1, 4, 9]
+[1, 2, 3].map(x => x * x);                    // => [1, 4, 9]
 (1.3)
-[5, 4, 3, 2, 1].filter((x, i) => i % 2 === 0) // => [5, 3, 1]
+[5, 4, 3, 2, 1].filter((x, i) => i % 2 === 0);// => [5, 3, 1]
 (1.4)
-[1,2,3,4,5].findIndex(x => x < 0) // => -1
+[1, 2, 3, 4, 5].findIndex(x => x < 0);        // => -1
 (1.5)
-[1,2,3,4,5].every(x => x < 10) // => true
+[1, 2, 3, 4, 5].every(x => x < 10);           // => true
 (1.6)
 let arr = [1, 2, 3];
-let res = arr.reduce((accumulator, current) => accumulator * current, 2); // => 12
+let res = arr.reduce((acc, current) => acc * current, 2); // res = 12
 
 res = arr.reduce((acc, current) => {
         if (current % 2 === 0) acc.even.push(current);
         else acc.odd.push(current);
         return acc;
     }, {even: [], odd: []}
-); // { even: [ 2 ], odd: [ 1, 3 ] }
+);                                    // => { even: [ 2 ], odd: [ 1, 3 ] }
 
 (2.1)
-[1, [2, 3]].flat() // => [1, 2, 3]
+[1, [2, 3]].flat();                   // => [1, 2, 3]
 (2.2)
-let phrases = ["hello world", "the definitive guide"];
+let phrases = ["joe doe", "mary jane"];
 let words = phrases.flatMap(phrase => phrase.split(" "));
-words // => ["hello", "world", "the", "definitive", "guide"];
+words;                                // words = ["joe", "doe", "mary", "jane"];
 
 (3)
-let a = [1,2,3];
-a.concat(4, 5); // => [1,2,3,4,5]
-a.concat([4,5],[6,7]); // => [1,2,3,4,5,6,7]; // a + [4,5] + [6,7]
+let a = [1, 2, 3];
+a.concat(4, 5);                       // => [1, 2, 3, 4, 5]
+a.concat([4, 5], [6, 7]);             // => [1, 2, 3, 4, 5, 6, 7]
 
 (4)
 let stack = [];
-console.log(stack.push(1, 2)); // stack == [1, 2] => 2 (length)
-console.log(stack.pop()) // stack == [1] => 2
+stack.push(1, 2);                     // stack = [1, 2], stack.length = 2
+let b = stack.pop();                  // stack = [1], b = 2
 
 (5.1)
-let a = [1,2,3,4,5];
-a.slice(1,-1); // => [2,3,4]
-a.slice(-3,-2); // => [3]
+let a = [1, 2, 3, 4, 5];
+a = a.slice(1, -1);                   // a = [2, 3, 4]
+a = [1, 2, 3, 4, 5];
+a = a.slice(-3, -2);                  // a = [3]
 (5.2)
 const arr = ['1', '2', '5', '6'];
-// inserts an elem at index 2
-arr.splice(2, 0, '3'); // ['1', '2', '3', '5', '6']
-// removes 2 elems starting at index 3 and inserts 3 elems
-const rem = arr.splice(3, 2, '4', '5'); // ['1', '2', '3', '4', '5']
-// rem = ['5', '6']
-// removes 1 elem at index 1
-arr.splice(1, 1);
-// => ['1', '3', '4', '5']
+arr.splice(2, 0, '3');                // arr = ['1', '2', '3', '5', '6']
+const r = arr.splice(3, 2, '4', '5'); // arr = ['1', '2', '3', '4', '5'], r = ['5', '6']
+arr.splice(1, 1);                     // arr = ['1', '3', '4', '5']
 
 (6.1)
-[0,1,2,0].indexOf(1) // => 1
+[0, 1, 2, 0].indexOf(1);              // => 1
 (6.2)
 let a = [33, 4, 1111, 222];
-a.sort(); // a == [1111, 222, 33, 4];
-a.sort((a, b) => { return a - b; }); // a == [4, 33, 222, 1111]
+a.sort();                             // a == [1111, 222, 33, 4];
+a.sort((a, b) => { return a - b; });  // a == [4, 33, 222, 1111]
 
 (7.1)
-[1, 2, 3, 4].reverse(); // => [4, 3, 2, 1]
+[1, 2, 3, 4].reverse();               // => [4, 3, 2, 1]
 (7.2)
 let a = new Array(5);
 a[0] = 0;
-a.fill("x", 1) // => a == [ 0, 'x', 'x', 'x', 'x' ]
+a.fill("x", 1);                       // => a == [ 0, 'x', 'x', 'x', 'x' ]

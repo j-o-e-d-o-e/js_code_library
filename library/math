@@ -1,6 +1,6 @@
 math
 
-built-in global obj
+built-in obj
 
 - contains static methods for operations on numbers and bigints
     - round() rounds to nearest int
@@ -27,7 +27,7 @@ Math.max(...[1, 2, 3,]);    // => 3
 
 // max is exclusive
 const randInt = (max) => Math.floor(Math.random() * max);
-let res = randInt(3); // res = 0 || 1 || 2
+let res = randInt(3);       // res = 0 || 1 || 2
 
 const randRange = (min, max) => Math.floor(Math.random() * (max - min) + min);
-let res = randRange(3, 1); // res = 1 || 2
+let res = randRange(3, 1);  // res = 1 || 2

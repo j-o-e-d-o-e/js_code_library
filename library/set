@@ -2,15 +2,14 @@ set
 
 data structure
 
-- unordered/un-indexed, iterable collection of unique values
+- unordered, iterable collection of unique values
     - membership is based on strict equality checks (===)
-    - set's elems cannot be accessed by index
-    - WeakSet implements a set of objects that does not prevent those objs from being garbage collected
-- Set()-constructor
-    - single arg: an arr or iterable obj (including other Set objs and strings)
+    - elems cannot be accessed by index
+    - WeakSet implements a set of objs that does not prevent objs from being garbage-collected
+- constructor
+    - single arg: an arr or iterable obj (including other sets and strings)
         - if omitted, empty set
-- properties
-    - 'size' tells how many vals the set contains (like length-property of array)
+- size-prop tells how many vals the set contains (like length-prop of array)
 - methods
     - add()
         - single arg: val to be added
@@ -22,9 +21,8 @@ data structure
         - only deletes a single elem at a time
         - returns boolean
     - clear() clears all elems
-    - has(value) checks whether a specified val is member of the set
+    - has(val) checks whether this contains val
     - forEach() is supported (but without indices)
-- since ES6
 
 - SEE ALSO
     - definitive, ch.11.1.1
@@ -37,15 +35,14 @@ const obj1 = { color: 'lime green' };
 const obj2 = { color: 'lime green' };
 
 set.add(obj1);
-set.add(77);        // set.size === 2
-set.add(obj2);      // added because obj2 is not strictly equal to obj1
-                    // set.size === 3
-set.add(77);        // not added because 77 is strictly equal to 77
-                    // set.size === 3
-let [a, b] = set;   // a = { color: 'lime green' }, b = 77
+set.add(77);          // set.size = 2
+set.add(obj2);        // added since obj2 is not strictly equal to obj1, set.size = 3
+set.add(77);          // not added since 77 is strictly equal to 77, set.size = 3
+let [a, b] = set;     // a = { color: 'lime green' }, b = 77
+
 (2)
 let s = new Set([1, 2, 3]);
 s.add(4).add(5);
-s.delete(3); // => true
-console.log([...s]); // => [ 1, 2, 4, 5 ]
-Math.max(...s); // => 5
+s.delete(3);          // => true
+console.log([...s]);  // => [ 1, 2, 4, 5 ]
+Math.max(...s);       // => 5

@@ -68,13 +68,14 @@ function printToc(lib) {
 
 function printEntry(entry) {
     log(format({color: RED}, '\n' + DELIMITER_E));
-    log(format({color: COLOR_E[entry.index % 2], bold: true}, `${entry.index} - ${entry.title}`));
+    let color = Number(entry.index % 2 !== 1);
+    log(format({color: COLOR_E[color], bold: true, underline: true}, `${entry.index} - ${entry.title}`));
     let count = 1;
     const reader = readline.createInterface({input: fs.createReadStream(DIR + '/' + entry.fn)});
     reader.on('line', function (line) {
         if (count > 3) {
-            if (line === 'EXAMPLE') log(format({color: COLOR_E[entry.index % 2], bold: true}, line));
-            else log(format({color: COLOR_E[entry.index % 2]}, line));
+            if (line === 'EXAMPLE') log(format({color: COLOR_E[color], bold: true}, line));
+            else log(format({color: COLOR_E[color]}, line));
         } else count++;
     });
     reader.on('close', function () {
@@ -123,7 +124,8 @@ const recursiveAsyncReadInput = function () {
                 recursiveAsyncReadInput();
             } else if (num === 667) {
                 log(format({color: RED}, "Devil's neighbour wishes a good day."));
-                return reader.close();
+                reader.close();
+                process.exit();
             } else if (num < 0 || num > library.length) {
                 reader.history.splice(0, 1);
                 log(format({color: RED}, 'Not a valid num.\n'));

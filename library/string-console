@@ -1,9 +1,9 @@
-console
+string->console
 
-string
+
 
 - log() converts args to strings and outputs them
-    - shorthand: declare const to be able to omit omit 'console' (1)
+    - shorthand: declaring as const 'log' allows to omit 'console' (1)
 - clear() clears the console (if possible)
 - table() attempts to display its iterable arg as table (2)
     - works best when arg is relatively short arr of objs with same props

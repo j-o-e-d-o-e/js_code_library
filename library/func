@@ -1,0 +1,92 @@
+function
+
+
+
+- three ways to define a func as
+(1) a declaration
+    - declares a var whose val is the func itself
+    - may be called before declaration
+(2) an expression
+    - func name optional
+    - typically, assign func obj to a constant in order to refer to it multiple times
+    - cannot be invoked before declaration
+(3) an arrow function
+    - if body is a single statement: return keyword, semicolon and curly braces may be omitted
+        - if expression to be returned is an obj-literal, put it inside parentheses
+    - if only one param, parentheses may be omitted
+    - if no params, param list is just an empty set of parentheses
+    - inherits 'this' from the environment in which it is defined
+    - commonly used for anonymous funcs passed to another func as arg
+    - since ES/JS 2015 (ES6)
+- JS funcs are objs; therefore, a func
+    - has methods itself
+        - call() and apply() invoke the func
+            - 1st arg: obj on which the func is to be invoked
+            - 2nd arg: for call(), multiple vals; for apply(), arr of vals
+            - allow to explicitly specify 'this' for the invocation according to environment
+                -  i.e. possible to invoke func as a method of any obj (even if it's not)
+        - bind() binds a func to an obj (4)
+            - commonly used to make non-arrow funcs behave like arrow-funcs
+    - has pre-defined props
+        - length: the number of params
+        - name: name when defined
+    - may have user-defined (static) properties (5)
+    - may be assigned to a var
+    - may be stored in props of objs or elems of an arr, passed as args to a func, etc.
+- 'return' without a val, returns undefined
+
+- SEE ALSO
+    - definitve, ch.8
+    - eloquent, p.40ff.
+
+EXAMPLE
+(1)
+distance(...[1, 1, 5, 4]);  // => 5
+function distance(x1, y1, x2, y2) {
+    let dx = x2 - x1;
+    let dy = y2 - y1;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+(2)
+const square = function (x) {
+    return x * x;
+};
+square(3);                  // => 9
+
+(3)
+const sum = (x, y) => x + y;
+sum(1, 2);                  // => 3
+
+(4)
+function func(y) {
+    return this.x + y;
+}
+let obj = {x: 1};
+let f = func.bind(obj);
+f(2);                       // => 3
+
+(5)
+uniqueInt.counter = 0;
+function uniqueInt() {
+    return uniqueInt.counter++;
+}
+uniqueInt();                // => 0
+uniqueInt();                // => 1
+
+function counter() {
+    let n = 0;
+    return {
+        count() {
+            return ++n;
+        },
+        reset: function () {
+            n = 0;
+        }
+    };
+}
+let c = counter();
+c.count();
+c.count();                  // => 2
+c.reset();
+c.count();                  // => 1

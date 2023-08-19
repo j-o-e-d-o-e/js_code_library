@@ -1,31 +1,29 @@
 array->creation
 
-data structure
 
-five ways to create arr
 
+- five ways to create arr
 (1) arr literal
     - comma-separated list of elems
 (2) spread operator on an iterable obj
     - to create a shallow copy of an array (1st level is copied, deeper levels are referenced)
     - since ES6
-    - SEE ALSO entry: spread
+    - see entry: spread
 (3) Array() constructor
     - can be called with or without 'new'
     - without args: creates an empty array
-    - single numeric arg: specifies its length, but no values are stored
-        - combined with fill(), returns arr with default vals
-        - SEE ALSO entry: array->methods
+    - single numeric arg: specifies its length, but no vals are stored
+        - combined with fill(), returns arr with default vals (see entry: array->methods)
     - more args: creates arr with given elems
 (4) Array.of() factory method
-    - creats arr with passed args as elems
+    - creates arr with passed args as elems
     - unlike (3), also creation of arr with only one elem possible
     - since ES6
 (5) Array.from() factory
-    - since ES6
     - expects an iterable of array-like obj and returns new array with those elements
     - similar to spread operator
-    - accepts an optional 2nd arg, e.g. a func to which each elem of 1st arg is passed        
+    - accepts an optional 2nd arg, e.g. a mapping func
+    - since ES6
 
 - SEE ALSO
     - definitve, ch.7
@@ -34,7 +32,7 @@ EXAMPLE
 (1)
 let misc = [1.1, true, "a", {x: 1, y: 2}];
 (2)
-let original = [1,2,3];
+let original = [1, 2, 3];
 let copy = [...original];
 copy[0] = 0;
 console.log(original); // => [ 1, 2, 3 ]

@@ -1,35 +1,33 @@
 object->properties
 
-obj/prototype
 
-properties (key:value) are seperated by commas
+
+- properties are key-value-pairs (key:val)
     - keys that aren't valid binding names have to be quoted
-
-two ways to create/set or get
+- 2 ways to create/set or get
     (1) dot-operator
         - accepts only static keys
-        - works only with keys without special characters or whitespace
-        - 'obj.key=val' replaces the property's value if it already existed or creates a new prop
+        - keys must not include special characters or whitespace
+        - 'obj.key=val' replaces the prop's val if it already existed or creates a new prop
         - optional chaining operator '?.' (1.2)
             - if not sure whether obj (parent) contains a prop whose props are requested
-            - if not the case, 'undefined' is returned
+            - if not, 'undefined' is returned
         - nullish coalescing operator '??' (both since ES 2020)
-            - allows to set default value if prop is null or undefined
+            - allows to set default val if prop is null or undefined
     (2) square brackets
         - allows for dynamic keys (evaluated from an expression during runtime)
             - e.g. concatenated string, return val from a func
         - for keys containing special chars, e.g. obj['key with whitespace']
-        - for elements in an array (since nums aren't valid bindings)
-
-- 'delete obj.key' removes the prop according to key from the obj
-    - deletes only own props, not inherited ones from prototype
+        - also applicable for elem in an array (since nums aren't valid bindings)
+- delete obj.key: removes prop associated with key from obj
+    - deletes only props of this, not inherited ones from prototype
     - evaluates to true if deletion succeeded or if it had no effect (like deleting a non-existent prop)
-    - array notation: delete obj["prop"]
-- 'key in obj' tells whether obj has a prop with that key (including prototype's props) (3)
-- 'Object.hasOwn(obj, key)' checks whether obj has property with given key (prototype excluded)
-    - alternatively, obj.hasOwnProperty(key)
-- 'Object.keys(obj)' returns array of strings: the object's property keys (not those in its prototype) (4)
-- 'Object.assign(objA, objB)' copies all props from obj B into obj A
+    - array notation: delete obj["key"]
+- key in obj: tells whether obj has a prop with that key (including prototype's props) (3)
+- Object.hasOwn(obj, key): checks whether obj has property with given key (prototype excluded)
+    - alternatively: obj.hasOwnProperty(key)
+- Object.keys(obj): returns array of strings containing the obj's prop-keys (not those in its prototype) (4)
+- Object.assign(objA, objB): copies all props from objB into objA
     - expects two or more objs as args
     - modifies and returns the 1st arg
     - props in target obj are overwritten if existing in source objs
@@ -42,25 +40,26 @@ two ways to create/set or get
     - /exercism/javascript/palindrome-products
 
 EXAMPLE
-(1.1)
-obj.x
-(1.2)
+(1)
 let devices = { laptop: "think-pad" };
-devices.desktop.cpu; // TypeError
-devices.desktop?.cpu; // undefined
-devices.desktop.gpu ?? "nothing"; // TypeError
-devices.desktop?.gpu ?? "nothing"; // nothing
+devices.desktop.cpu;                // => TypeError
+devices.desktop?.cpu;               // => undefined
+devices.desktop.gpu ?? "nothing";   // => TypeError
+devices.desktop?.gpu ?? "nothing";  // => nothing
+
 (2)
 let ls = {
     'Mary Jane': 1,
 };
-ls["Joe Doe"] = 21; // { 'Mary Jane': 1, 'Joe Doe': 21 }
+ls["Joe Doe"] = 21;                 // ls = { 'Mary Jane': 1, 'Joe Doe': 21 }
+
 (3)
 let descr = {
     "thoughts on this lib": "address the details",
     entries: undefined
 };
-console.log("thoughts on this lib" in descr); // -> true
+"thoughts on this lib" in descr;    // => true
+
 (4)
 let ls = {
     'Mary Jane': 1,
@@ -68,4 +67,4 @@ let ls = {
 };
 for (let name of Object.keys(ls)) { // alternatively, for..in
     ls[name] += 100;
-} // { 'Mary Jane': 101, 'Joe Doe': 102 }
+}                                   // ls = { 'Mary Jane': 101, 'Joe Doe': 102 }

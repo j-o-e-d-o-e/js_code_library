@@ -1,10 +1,10 @@
 http->node
 
-async/promise/node
+async
 
 - modules: http, https, http2
 - APIs for implementing HTTP clients and servers
-- more low-level (compared to fetch)
+- more low-level (compared to http->fetch)
 - get() for GET, request() in general, etc.
 
 - SEE ALSO

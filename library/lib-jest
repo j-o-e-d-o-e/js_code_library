@@ -3,7 +3,7 @@ lib->jest
 testing
 
 - install: `npm install --save-dev jest` (for each project)
-- run: `npm test`
+- run tests: `npm test`
 - methods, e.g.
     - describe(): bundles tests
     - test(): single test

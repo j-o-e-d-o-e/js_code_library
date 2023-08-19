@@ -5,12 +5,13 @@ operator
 - rest
     - appears on the left-hand side of an assignment
     - packs zero or more elems into a single array
-    - arr-var must be the last element in a destructing assignment (1)
+    - arr-var must be last elem in a destructing assignment (1)
+    - see also entry: function->args
 - spread
     - appears on the right-hand side of an assignment
     - unpacks array (2.1) or iterable obj (2.2) into single elems
     - useful to create a shallow copy of an obj (2.3)
-         - shallow copy means the 1st level is copied, deeper levels are referenced
+         - shallow copy means 1st level is copied, deeper levels are referenced
 
 - SEE ALSO
     - eloquent, p.76f.
@@ -20,22 +21,21 @@ operator
 
 EXAMPLE
 (1)
-const [a, b, ...everythingElse] = [0, 1, 2, 3];
-everythingElse; // => [2, 3]
+const [a, b, ...rest] = [0, 1, 2, 3]; // rest = [2, 3]
+
 (2.1)
 function concat(a, b) {
     return `${a} + ${b}`;
 }
-console.log(concat(...[1, 2, 3])); // -> 1 + 2
+concat(...[1, 2, 3]);                 // => 1 + 2
 (2.2)
 let position = { x: 0, y: 0 };
 let dimensions = { width: 100, height: 75 };
 let rect = { ...position, ...dimensions };
-let res = rect.x + rect.y + rect.width + rect.height;
-console.log(res); // => 175
+let res = rect.x + rect.y + rect.width + rect.height; // res = 175
 (2.3)
 const device = {color: "blue"};
 let res = device;
-console.log(res === device); // true
+res === device;                       // => true
 res = {...device};
-console.log(res === device); // false
+res === device;                       // => false

@@ -1,8 +1,8 @@
 object->get/set
 
-obj/prototype
 
-- private properties are declared with underscore or hashtag
+
+- private props are prefixed with _ or #
 - getter/setter-funcs are
     - implicitly invoked when a prop with the same name is accessed/assigned via dot-operator
     - useful to restrict modification of prop from outside
@@ -25,9 +25,9 @@ const box = {
 };
 
 box.content = "diamond";        // implicitly invokes setter
-console.log(box._content);      // [ 'gold piece', 'diamond' ]
+console.log(box._content);      // => [ 'gold piece', 'diamond' ]
 try {
     console.log(box.content)    // implicitly invokes getter
 } catch (e) {
-    console.log(e.message)      // Locked!
+    console.log(e.message)      // => Locked!
 }

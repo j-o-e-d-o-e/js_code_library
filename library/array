@@ -3,10 +3,10 @@ array
 data structure
 
 - are untyped: elems may be of different types
-- can be sparse: elems need not have contiguous indices starting at 0
-    - delete operator removes elem from array, but does not affect length (1)
-    - i.e. length > number of elems
-    - alternatively, use splice(index, 1) (see entry array->methods)
+- may be sparse: elems need not have contiguous indices starting at 0
+    - delete-operator removes elem from array, but does not affect length (1)
+        - i.e. results in: length > number of elems
+    - alternatively: to remove single elem, use splice(index, 1) (see entry: array->methods)
 - 'arr[arr.length] = 1' adds new element at the end
     - if index > length, arr becomes sparse with gaps/empty items (2)
 - if length is set to n, any elems whose index > n is deleted (3)

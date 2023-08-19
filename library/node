@@ -1,13 +1,13 @@
 node
 
-async/promise/node
+async
 
 - JS with bindings to the underlying OS to allow read/write operations and access to system resources
     - single-threaded
     - event-based
         - 'event loop': triggered when an event happens at which time the OS starts it running again
     - async (non-blocking), by default
-        - high concurrency (multiple computations at the same time) despite single-threaded model
+        - high concurrency (multiple computations almost at the same time) despite being single-threaded
         - e.g. also read/write operations from local OS are asnyc (1)
         - util.promisify() creates Promise-based func of many Node's callback-based APIs (2)
             - alternatively, using keywords async and await
@@ -21,7 +21,7 @@ async/promise/node
     - process.env for environment variables
     - cwd() returns the current working dir
     - exit() terminates the program
-- by default, node installation includes the npm-package manager
+- by default, node installation ships with npm
 - program life cycle
     - to start, 'node'-command expects a file to be run, e.g. node test.js
     - to exit, process.exit() or Ctrl-C
@@ -30,7 +30,7 @@ async/promise/node
     - module type of file by its suffix
         - .mjs: loaded as ES module => import/export
         - .cjs: loaded as CommonJS module => require() provided
-    - module type of file by nearest package.json
+    - module type of file is defined by nearest package.json
         - "type": "module": loads as ES module
         - "type": "commonjs": loads as CommonJS module
         - defaults to CommonJS module
@@ -42,13 +42,13 @@ async/promise/node
 
 EXAMPLE
 (1)
-const fs = require('fs'); // fs = filesystem
+const fs = require('fs');   // fs stands for filesystem
 fs.readFile('./test.json', "utf8", (err, text) => { console.log(text); });
 (2)
 const util = require('util');
 const pfs = { readFile: util.promisify(fs.readFile) };
 pfs.readFile('./test.json', 'utf-8').then(text => console.log(text));
 (3)
-console.log(process.argv); // => [ '/usr/bin/node' ]
+console.log(process.argv);  // => [ '/usr/bin/node' ]
 (4)
-node -p -e 'process.env' // on command-line, shows config
+node -p -e 'process.env'    // on command-line, shows config

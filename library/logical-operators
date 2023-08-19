@@ -3,11 +3,11 @@ logical operators
 operator
 
 - operands are implicitly converted to booleans
-- ||-operator returns the first truthy val or the last val if none is found (1)
+(1) ||-operator returns 1st truthy val or last val if none was found
     - evaluates operands from left to right
     - for each operand, converts it to boolean
     - if true, stops and returns the original val of that operand
-- &&-operator returns the first falsy val or the last val if none is found (2)
+(2) &&-operator returns 1st falsy val or last val if none was found
 
 - SEE ALSO
     - javascript.info/logical-operators
@@ -17,14 +17,10 @@ operator
 EXAMPLE
 (1)
 let res = [];
-let x = res[0] || 0 || 5;
-// since res[0] (undefined) and 0 are false => x = 5
-let y = res[0] || 0;
-// both are false, returns last val => y = 0
+let x = res[0] || 0 || 5; // x = 5 (since res[0] (undefined) and 0 are false)
+let y = res[0] || 0;      // y = 0 (since both are false, returns last val)
 
 (2)
 let res = [];
-let x = 5 && 0 && res[0];
-// since 5 is true, but 0 is false => x = 0
-let y = 5 && 1;
-// both are true, returns last val => y = 1
+let x = 5 && 0 && res[0]; // x = 0 (since 5 is true, but 0 is false)
+let y = 5 && 1;           // y = 1 (both are true, returns last val)

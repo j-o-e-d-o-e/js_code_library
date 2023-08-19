@@ -1,12 +1,9 @@
-async/await
+promise->async/await
 
-async/promise
 
-since ES2017
 
-keywords to simplify the use of Promises
+- keywords to simplify the use of Promises
     - allow to structure Promise-based code as if it was synchronous
-
 (1) await
     - 'await p' waits until Promise p settles
         - if fulfilled, returns value
@@ -18,6 +15,7 @@ keywords to simplify the use of Promises
     - assigns fulfillment-val of Promise-array to loop-var
     - instead of Promise.all(), computes result step-by-step (see entry: promise)
     - only valid within async func (like await)
+- since ES2017
 
 - SEE ALSO
     - definitive, ch.13.3
@@ -25,18 +23,20 @@ keywords to simplify the use of Promises
 EXAMPLE
 (1)
 let res = await Promise.resolve("abc");
-console.log(res); // abc
+console.log(res);     // abc
 try {
     let res = await Promise.reject("def");
 } catch (err){
     console.log(err); // def
 }
+
 (2)
 async function getHighScore() {
     let response = await fetch("/api/user/profile");
     let profile = await response.json();
     return profile.highScore;
 }
+
 (3)
 // see setup() in code_library.js: callback of readdir() is declared async
 let promises = filenames.map(fn => readTitleAndSrc(fn));

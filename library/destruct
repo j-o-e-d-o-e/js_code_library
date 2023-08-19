@@ -2,8 +2,8 @@ destructing
 
 
 
-- extracts one or more vals from an arr (1) or obj (2) and stores them into one or more vars
-- if var-names differ, varName: newVarName
+- extracts one or more vals from an arr (1) or obj (2)
+- to destruct var and assign its val to a new var, use '<var> : <newVar>'
 
 - SEE ALSO
     - eloquent, p.79f.
@@ -14,11 +14,11 @@ EXAMPLE
 function vectorAdd([x1, y1], [x2, y2]) {
     return [x1 + x2, y1 + y2];
 }
-vectorAdd([1, 2], [3, 4]) // => [4, 6]
+vectorAdd([1, 2], [3, 4]);  // => [4, 6]
+
+let a = [1, 2, 3];
+let [b, c, d] = a;
 
 (2)
-let {name: n, age}= {name: "joe", age: 39}
-console.log(n, age); // joe 39
-
-let b = [1, 2, 3]
-let [x, y, z] = b;
+let {name: n, age} = {name: "joe", age: 39};
+console.log(n, age)        // => joe 39

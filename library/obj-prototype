@@ -1,0 +1,24 @@
+object->prototype
+
+
+
+- root prototype: Object.prototype
+- almost every obj has a prototype
+    - an obj inherits from its prototype
+    - its prototype is the fallback source for its props
+
+- SEE ALSO
+    - eloquent, p.102ff.
+    - definitive, ch.6.3.2
+
+EXAMPLE
+(1)
+Object.getPrototypeOf(Math.max) == Function.prototype; // => true
+Object.getPrototypeOf([]) == Array.prototype;          // => true
+
+(2)
+let unitCircle = { r: 1 };          // an obj to inherit from
+let c = Object.create(unitCircle);  // c inherits prop r
+c.x = 1; c.y = 1;                   // c defines two props of its own
+c.r = 2;                            // c overrides its inherited prop
+console.log(unitCircle.r);          // => 1 (prototype is unaffected)

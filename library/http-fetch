@@ -1,10 +1,10 @@
 http->fetch
 
-async/promise
+async
 
-Promise-based API for making HTTP requests in browser
-  - for node, import required: const fetch = require('node-fetch')
-fetch()
+- Promise-based API for making HTTP requests in browser
+    - for node, import required: const fetch = require('node-fetch')
+- fetch()
     - 1st arg: url
         - alternatively, new Request() with 1st and 2nd arg
     - 2nd arg: options (optional)
@@ -14,7 +14,7 @@ fetch()
         - status: HTTP status code
         - ok: true, if status === 200
         - bodyUsed: true, if body-stream (Readable stream obj) has already been read
-typically, two then()-calls
+- typically, followed by two then()-calls
     (1) fetch() asks for response and returns promise
         - fulfilled promise represents response
     (2) text()/json() access response-body with content-type text resp. json and return promise

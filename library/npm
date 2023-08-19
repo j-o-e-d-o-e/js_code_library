@@ -1,15 +1,16 @@
 npm
 
-package manager
+tooling
 
+- node package manager
 - keeps track of dependencies in package.json
-- by default, node installation includes npm-package manager
+- by default, node installation ships with npm
 - dependencies are stored in /node_modules
     - dev dependency: for dev-tools (not to run the code)
 - commands/flags, e.g.
-    - 'npm init' creates package.json
-    - 'npm install' downloads and installs all declared dependencies in package.json
-    - 'npx <tool>' runs locally installed tools, e.g. npx eslint or npx jest
+    - npm init: creates package.json
+    - npm install: downloads and installs dependencies declared in package.json
+    - npx <tool>: runs locally installed tools, e.g. npx eslint or npx jest
     - -g: global
 
 - SEE ALSO

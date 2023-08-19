@@ -1,12 +1,11 @@
-subclass
+class->subclass
 
-prototype
 
-- create subclass by adding an 'extends'-clause
+
+- extends-clause allows to define subclass
 - instance and static methods are inherited
 - super-keyword to invoke constructor and methods of the superclass
-    - 'this' may not be used in constructor before invocation of superclass-constructor (like Java)
-- since ES6
+    - 'this' may not be used in constructor before invocation of superclass-constructor
 
 - SEE ALSO
     - definitive, ch.9.5.2

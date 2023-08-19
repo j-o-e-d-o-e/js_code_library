@@ -1,0 +1,11 @@
+object->typeof
+
+
+
+- returns string naming the type of the given val
+
+- SEE ALSO
+    - eloquent, p.15
+
+EXAMPLE
+typeof 4.5; // => number

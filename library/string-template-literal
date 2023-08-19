@@ -1,9 +1,9 @@
-template literals
+string->template literal
 
-string
+
 
 - for string interpolation
-- requires backticks (`) instead of single or double quotes
+- requires enclosing backticks ` (instead of single or double quotes)
 
 - SEE ALSO
     - eloquent, p.101

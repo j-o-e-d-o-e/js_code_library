@@ -3,7 +3,7 @@ type conversion
 data type
 
 (1) explicit conversion
-    - Boolean(val) converts any value to a boolean
+    - Boolean(val) converts any val to a boolean
         - falsy values (convert to 'false'): false, 0, an empty string, null, undefined, NaN
         - truthy values: all other vals
     - Number(val) converts val to a num
@@ -14,7 +14,7 @@ data type
         - for arrays, resulting elems are separated by commas
 (2) implicit conversion (type coercion)
     - +-operator may be used to convert string to num
-    - when operator is applied to the wrong type of value, js will quietly convert that value to the type it needs
+    - when operator is applied to wrong type of val, JS will quietly convert that val to the type it needs
     - three-character comparison recommended to prevent unexpected type coercion
 
 - SEE ALSO

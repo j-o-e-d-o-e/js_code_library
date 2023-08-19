@@ -4,15 +4,15 @@ built-in obj
 
 - API to format nums, including monetary amounts, percentages, etc.
     (1) Intl.NumberFormat
-        - 2 args for constructor
-            - locale, e.g. "de-DE"
+        - two args for constructor
+            - locale, e.g. "fr-FR"
             - obj that specifies how num should be formatted
         - format() returns an appropriately formatted string
     (2) Intl.DateTimeFormat
-        - constructor takes the same 2 args like Intl.NumberFormat()
+        - constructor takes same two args like Intl.NumberFormat()
     (3) Intl.Collator
         - for sorting/comparing (collation order)
-        - constructor takes the same 2 args like Intl.NumberFormat()
+        - constructor takes same two args like Intl.NumberFormat()
 
 - SEE ALSO
     - definitive, Ch.11.7
@@ -21,5 +21,6 @@ EXAMPLE
 (1)
 let euros = Intl.NumberFormat("fr", {style: "currency", currency: "EUR"});
 euros.format(10) // => 10,00 €
+
 (2)
 Intl.DateTimeFormat("fr-FR").format(new Date()); // => 27/08/2021

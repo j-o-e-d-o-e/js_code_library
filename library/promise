@@ -1,6 +1,6 @@
 promise
 
-async/promise
+async
 
 - represents the (not-yet-available) result of an async operation
     - states: pending -> resolved -> fulfilled or rejected -> settled
@@ -9,7 +9,6 @@ async/promise
         - rejected ("promise broken"): returns rejected promise (error)
         - settled: promise always settles, whether fulfilled or rejected
     - since ES6
-
 - then()
     - 1st arg: callback handles resolved promise
     - 2nd arg: callback handles rejected promise
@@ -25,7 +24,6 @@ async/promise
 - finally()
     - single arg: callback (without args) will be invoked when Promise settles
     - returns new promise (but, generally ignored)
-
 - Promise.all() (3)
     - to execute multiple async operations in parallel
     - single arg: array of promises
@@ -34,9 +32,8 @@ async/promise
         - will be rejected if any of the input promises are rejected
         - or, will be fulfilled with an array of vals of each of the input promises
 - Promise.allSettled()
-        - never rejects
-        - returns array of objs with additional 'status'-property
-            - either 'fulfilled' or 'rejected'
+    - never rejects
+    - returns array of objs with additional 'status'-property (either fulfilled or rejected)
 
 SEE ALSO
     - definitive, ch.13.2
@@ -46,17 +43,17 @@ EXAMPLE
 (1)
 const data = [2, 4, 6, 8];
 const promise = new Promise(function (resolve, reject) {
-    let randomNumber = Math.floor(Math.random() * (data.length + 1));
-    if (data[randomNumber]) resolve(data[randomNumber]);
+    let num = Math.floor(Math.random() * (data.length + 1));
+    if (data[num]) resolve(data[num]);
     else reject('An error occurred!');
 });
 
-promise
-    .then(e => console.log(e))
+promise.then(e => console.log(e))
     .catch(function (error) {
         console.error(error);
     })
     .finally(() => console.log('Promise completed'));
+
 (2)
 fetch("/api/user/profile") // task1 returns promise1
     .then(response => { // then() invoked on promise1 -> task2 returns promise2
@@ -65,6 +62,7 @@ fetch("/api/user/profile") // task1 returns promise1
     .then(profile => { // then() invoked on promise2 -> task3 returns result
         displayUserProfile(profile);
     });
+
 (3)
 // see setup() in code_library.js: callback of readdir() is declared async
 let files = await Promise.all(filenames.map(fn => readTitleAndSrc(fn)));

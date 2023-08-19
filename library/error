@@ -13,7 +13,7 @@ error
     - current execution is stopped and resumes in 1st catch-block of the call-stack
 - subclasses of Error
     - e.g. SyntaxError, ReferenceError
-    - create own error-class by inheriting from Error (3)
+    - create custom error-class by inheriting from Error (3)
 
 - SEE ALSO
     - definitive, ch.11.5
@@ -23,8 +23,10 @@ EXAMPLE
 (1)
 const error = new Error('Something went wrong');
 console.log(error.message); // "Something went wrong"
+
 (2)
 throw Error('Something went wrong');
+
 (3)
 class CustomError extends Error {}
 
