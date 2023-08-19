@@ -54,19 +54,19 @@ function setup() {
     });
 }
 
-function toc(library) {
+function printToc(lib) {
     log(format({color: RED, bold: true}, `${DELIMITER_H} JS CODE LIBRARY ${DELIMITER_H}`));
-    for (let [i, entry] of library.entries()) {
+    for (let [i, entry] of lib.entries()) {
         log(format({
             color: COLOR_E[i % 2],
             color_bg: COLOR_E_BG[i % 2]
         }, `${" ".repeat(entry.index < 10 ? 1 : 0)}${entry.index} - ${entry.title} ${" ".repeat(40 - entry.title.length)} ${entry.tags}`));
     }
+    log();
     recursiveAsyncReadInput();
 }
 
-function entry(num) {
-    const entry = library[num - 1];
+function printEntry(entry) {
     log(format({color: RED}, '\n' + DELIMITER_E));
     log(format({color: COLOR_E[entry.index % 2], bold: true}, `${entry.index} - ${entry.title}`));
     let count = 1;
@@ -78,7 +78,7 @@ function entry(num) {
         } else count++;
     });
     reader.on('close', function () {
-        log(format({color: RED}, DELIMITER_E));
+        log(format({color: RED}, DELIMITER_E + '\n'));
         recursiveAsyncReadInput();
     });
 }
@@ -93,26 +93,50 @@ function format({color, color_bg = null, bold = false, underline = false}, str) 
 }
 
 const reader = readline.createInterface({
-    input: process.stdin, output: process.stdout
+    input: process.stdin, output: process.stdout, removeHistoryDuplicates: true
+});
+
+reader.on('history', (history) => {
+    let latest = history[0];
+    if (latest === '0') history.splice(0, 1);
 });
 
 const recursiveAsyncReadInput = function () {
-    reader.question(format({color: RED}, '\nWhat would you like to read? '), function (input) {
-        if (input.startsWith("s:")) toc(library.filter(e => e.tags.toLowerCase().includes(input.substring(2).trim())));
-        const num = +input;
-        if (isNaN(num)) {
-            log(format({color: RED}, 'Not a num.'));
+    reader.question(format({color: RED}, 'What would you like to read? '), function (input) {
+        if (input.startsWith("s:")) {
+            let search = input.substring(2).trim()
+            let tmp = library.filter(e => e.tags.toLowerCase().includes(search));
+            if (tmp.length === 0) {
+                reader.history.splice(0, 1);
+                log(format({color: RED}, 'No match found.\n'));
+            } else {
+                log();
+                printToc(tmp);
+            }
             recursiveAsyncReadInput();
-        } else if (num === 667) {
-            log(format({color: RED}, "Devil's neighbour wishes a good day."));
-            return reader.close();
-        } else if (num < 0 || num > library.length) {
-            log(format({color: RED}, 'Not a valid num.'));
-            recursiveAsyncReadInput();
-        } else if (num === 0) {
-            log('');
-            toc(library);
-        } else entry(num);
+        } else {
+            input = input.replace(/ \(.+\)$/, "");
+            const num = +input;
+            if (isNaN(num)) {
+                reader.history.splice(0, 1);
+                log(format({color: RED}, 'Not a num.\n'));
+                recursiveAsyncReadInput();
+            } else if (num === 667) {
+                log(format({color: RED}, "Devil's neighbour wishes a good day."));
+                return reader.close();
+            } else if (num < 0 || num > library.length) {
+                reader.history.splice(0, 1);
+                log(format({color: RED}, 'Not a valid num.\n'));
+                recursiveAsyncReadInput();
+            } else if (num === 0) {
+                log('');
+                printToc(library);
+            } else {
+                let entry = library[num - 1];
+                reader.history[0] = `${num} (${entry.title})`;
+                printEntry(entry);
+            }
+        }
     });
 };
 
@@ -122,7 +146,7 @@ function main() {
         process.exit(0);
     }
     setup()
-        .then(() => toc(library))
+        .then(() => printToc(library))
         .catch(err => {
             log(err);
             process.exit(0);
