@@ -3,7 +3,7 @@ Array->creation
 
 
 - five ways to create arr
-(1) arr literal
+(1) arr literal (most common)
     - comma-separated list of elems
 (2) spread operator on an iterable obj
     - to create a shallow copy of an array (1st level is copied, deeper levels are referenced)
@@ -31,15 +31,19 @@ Array->creation
 EXAMPLE
 (1)
 let misc = [1.1, true, "a", {x: 1, y: 2}];
+
 (2)
 let original = [1, 2, 3];
 let copy = [...original];
 copy[0] = 0;
-console.log(original); // => [ 1, 2, 3 ]
-console.log(copy); // => [ 0, 2, 3 ]
+console.log(original);      // => [ 1, 2, 3 ]
+console.log(copy);          // => [ 0, 2, 3 ]
+
 (3)
-Array(5).fill(0); // [ 0, 0, 0, 0, 0 ]
+Array(5).fill(0);           // [ 0, 0, 0, 0, 0 ]
+
 (4)
-console.log(Array.of(10)); // => [10]
+console.log(Array.of(10));  // => [10]
+
 (5)
 let copy = Array.from(original);

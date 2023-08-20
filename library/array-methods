@@ -2,7 +2,6 @@ Array->methods
 
 
 
-- methods defined by the Array class/prototype
 (1) iterators
     - accept a func as their 1st arg and invoke that func on each elem
         - except reduce(), callback may be invoked with 3 args

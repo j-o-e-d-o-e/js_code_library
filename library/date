@@ -2,7 +2,6 @@ Date
 
 built-in obj
 
-- JS's API for dates and times
 - Date() constructor
     - with no arg: returns current date and time
     - one numeric arg: interprets it as a timestamp
