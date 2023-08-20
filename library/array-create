@@ -3,7 +3,7 @@ Array->creation
 
 
 - five ways to create arr
-(1) arr literal (most common)
+(1) arr literal in square bracktes (most common)
     - comma-separated list of elems
 (2) spread operator on an iterable obj
     - to create a shallow copy of an array (1st level is copied, deeper levels are referenced)
