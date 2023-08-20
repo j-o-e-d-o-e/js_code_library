@@ -1,0 +1,52 @@
+object
+
+data structure
+
+- has zero, one or more properties
+    - props are key-value pairs (key:val)
+    - keys (property-names) that aren't valid binding names have to be quoted
+- 2 ways to create/set or get props
+    (1) dot-operator
+        - accepts only static keys which must not include special chars or whitespace
+        - 'obj.key=val' replaces the prop's val if it already existed or creates new prop
+    (2) quoted and within square brackets (array-notation)
+        - allows for dynamic keys (evaluated from an expression during runtime)
+            - e.g. concatenated string, return val from a func
+        - keys may contain special chars, e.g. obj['key with whitespace']
+- funcs
+    - delete: removes prop associated with key from obj
+        - dot-/array-notation: delete obj.key/delete obj["key"]
+        - deletes only props of this, not inherited ones from prototype
+        - evaluates to true if deletion succeeded or if it had no effect
+    - key in obj: tells whether obj has a prop with that name (including prototype's props)
+    - Object.hasOwn(obj, key): checks whether obj has property with given key (prototype excluded)
+        - alternatively: obj.hasOwnProperty(key)
+    - Object.keys(obj): returns array of obj's prop-names as strings (not those in its prototype)
+    - Object.assign(objA, objB): copies all props from objB into objA
+        - expects two or more objs as args
+        - modifies and returns 1st arg
+        - props are replaced if already existed
+
+- SEE ALSO
+    - eloquent, p.61ff.
+    - definitive, ch.6
+    - /exercism/javascript/high-score-board
+    - /exercism/javascript/amusment-park
+    - /exercism/javascript/palindrome-products
+
+EXAMPLE
+(1)
+let devices = {desktop: {cpu: "ryzen"}, laptop: {name: "think-pad"}};
+devices.laptop.cpu = "intel";
+delete devices.laptop.name;
+let a = "name" in devices.laptop; // a = false
+console.log(devices);             // => { desktop: { cpu: 'ryzen' }, laptop: { cpu: 'intel' } }
+
+(2)
+let persons = {
+    'Mary Jane': 33,
+};
+persons["Joe Doe"] = 44;
+for (let name of Object.keys(persons)) { // alternatively: for..in
+    persons[name] -= 10;
+}                                        // persons = { 'Mary Jane': 23, 'Joe Doe': 34 }

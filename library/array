@@ -1,8 +1,7 @@
-array
+Array
 
 data structure
 
-- are untyped: elems may be of different types
 - may be sparse: elems need not have contiguous indices starting at 0
     - delete-operator removes elem from array, but does not affect length (1)
         - i.e. results in: length > number of elems

@@ -1,8 +1,8 @@
-math
+Math
 
 built-in obj
 
-- contains static methods for operations on numbers and bigints
+- contains static methods for operations on numbers and bigints, e.g.
     - round() rounds to nearest int
     - floor() rounds down
     - ceil() rounds up

@@ -1,4 +1,4 @@
-set
+Set
 
 data structure
 
@@ -6,7 +6,7 @@ data structure
     - membership is based on strict equality checks (===)
     - elems cannot be accessed by index
     - WeakSet implements a set of objs that does not prevent objs from being garbage-collected
-- constructor
+- Set() constructor
     - single arg: an arr or iterable obj (including other sets and strings)
         - if omitted, empty set
 - size-prop tells how many vals the set contains (like length-prop of array)

@@ -1,11 +1,11 @@
-object->get/set
+object->getter/setter
 
 
 
 - private props are prefixed with _ or #
 - getter/setter-funcs are
     - implicitly invoked when a prop with the same name is accessed/assigned via dot-operator
-    - useful to restrict modification of prop from outside
+    - useful to restrict access
 
 - SEE ALSO
     - definitive, ch.6.10.6

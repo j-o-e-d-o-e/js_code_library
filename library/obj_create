@@ -1,12 +1,12 @@
-object->creation
+object->create
 
 
 
 - 3 ways to create an obj
-    (1) obj literal
+    (1) obj literal (most common)
         - shorthand props: omit key if key-name equals var-name (ES6)
         - shorthand methods: omit function-keyword
-    (2) 'new' followed by constructor
+    (2) instance of a class
         - since ES/JS 2015
     (3) Object.create()
         - returns newly created obj that inherits from specified prototype obj

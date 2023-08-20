@@ -4,7 +4,6 @@ object->prototype
 
 - root prototype: Object.prototype
 - almost every obj has a prototype
-    - an obj inherits from its prototype
     - its prototype is the fallback source for its props
 
 - SEE ALSO

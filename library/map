@@ -1,4 +1,4 @@
-map
+Map
 
 data structure
 
@@ -9,7 +9,7 @@ data structure
     - each iterated pair is a two-elem array [key, value]
     - iterates in insertion order (like Set, surprisingly)
     - WeakMap does not prevent its keys from being garbage-collected
-- constructor
+- Map() constructor
     - arg: iterable containing two-elem-arrays (including other maps)
     - if arg omitted, empty map
 - size-property tells how many pairs the map contains (like length-prop of an arr)

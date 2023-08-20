@@ -1,8 +1,8 @@
-error
+Error
 
 
 
-- constructor Error()
+- Error() constructor
     - single arg: val of message (optional)
     - 'new' may be omitted
 - two properties: message and name (1)

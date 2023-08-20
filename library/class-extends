@@ -1,10 +1,10 @@
-class->subclass
+class->extends
 
 
 
-- extends-clause allows to define subclass
+- allows class to inherit from a superclass
 - instance and static methods are inherited
-- super-keyword to invoke constructor and methods of the superclass
+- 'super' allows to invoke constructor and methods of superclass
     - 'this' may not be used in constructor before invocation of superclass-constructor
 
 - SEE ALSO

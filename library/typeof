@@ -1,6 +1,6 @@
-object->typeof
+typeof
 
-
+operator
 
 - returns string naming the type of the given val
 
