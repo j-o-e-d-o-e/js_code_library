@@ -1,6 +1,6 @@
 node
 
-async
+runtime
 
 - JS with bindings to the underlying OS to allow read/write operations and access to system resources
     - single-threaded

@@ -1,6 +1,6 @@
-npm
+node->npm
 
-tooling
+package manager
 
 - node package manager
 - keeps track of dependencies in package.json

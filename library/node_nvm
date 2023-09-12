@@ -1,0 +1,15 @@
+node->nvm
+
+version manager
+
+- commands
+    - ls-remote: displays available versions
+    - ls: displays locally installed versions
+        - list also includes system-version (currently v14.21.3)
+    - use <version>: sets current version to <version>
+        - e.g. nvm use system, nvm use default
+        - alias 'default' currently refers to v18.17.1 
+
+- SEE ALSO
+    - github.com/nvm-sh/nvm
+    - freecodecamp.org/news/node-version-manager-nvm-install-guide/
