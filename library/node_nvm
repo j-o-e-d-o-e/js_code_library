@@ -9,6 +9,7 @@ version manager
     - use <version>: sets current version to <version>
         - e.g. nvm use system, nvm use default
         - alias 'default' currently refers to v18.17.1 
+    - current: displays currently used version
 
 - SEE ALSO
     - github.com/nvm-sh/nvm
