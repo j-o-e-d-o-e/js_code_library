@@ -5,10 +5,8 @@ version manager
 - commands
     - ls-remote: displays available versions
     - ls: displays locally installed versions
-        - list also includes system-version (currently v14.21.3)
     - use <version>: sets current version to <version>
-        - e.g. nvm use system, nvm use default
-        - alias 'default' currently refers to v18.17.1 
+        - e.g. nvm use default (alias 'default' currently refers to LTS v18.17.1)
     - current: displays currently used version
 
 - SEE ALSO

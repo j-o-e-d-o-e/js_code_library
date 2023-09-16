@@ -1,0 +1,26 @@
+lib->RxJS
+
+reactive
+
+- Observable: invokable collection of future vals/events
+    - creation: e.g. of()
+- Observer: listens to vals delivered by Observable (callback)
+- Operators: e.g. map(), filter(), concat(), flatMap() (in module: rxjs/operators)
+    - pipe() allows to link operators together (in module: rxjs)
+- Subscription: execution of an Observable (primarily used for cancelling the execution)
+    - subscribe() produces a result from an Observeable (typically with applied Operators)
+- Subject: for multicasting val to multiple Observers (like EventEmitter)
+
+- SEE ALSO
+    - rxjs.dev/guide/overview
+    - angular.io/guide/rx-library
+
+EXAMPLE
+import {of} from 'rxjs';
+import {filter, map} from 'rxjs/operators';
+
+const squareOdd = of(1, 2, 3, 4, 5).pipe(
+    filter(n => n % 2 !== 0),
+    map(n => n * n)
+);
+squareOdd.subscribe(x => console.log(x)); // 1 9 25
