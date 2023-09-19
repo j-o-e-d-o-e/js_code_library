@@ -17,7 +17,7 @@ lib->RxJS
         - mergeMap() flattens vals into a single observable
         - switchMap() replaces current observable with another one
         - scan()
-- Pipe: allows allows to link multiple operators together (pipe() in `rxjs`)
+- Pipe: allows to link multiple operators together (pipe() in `rxjs`)
 - Subscription: produces a result from an Observable
     - subscribe() accepts single callback or object-map: {next: ..., error: ..., completed: ...}
 - Subject: multicasts vals to multiple Observers (instead of Observable)
