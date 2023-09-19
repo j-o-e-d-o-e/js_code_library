@@ -1,26 +1,42 @@
 lib->RxJS
 
-reactive
 
-- Observable: invokable collection of future vals/events
-    - creation: e.g. of()
-- Observer: listens to vals delivered by Observable (callback)
-- Operators: e.g. map(), filter(), concat(), flatMap() (in module: rxjs/operators)
-    - pipe() allows to link operators together (in module: rxjs)
-- Subscription: execution of an Observable (primarily used for cancelling the execution)
-    - subscribe() produces a result from an Observeable (typically with applied Operators)
-- Subject: for multicasting val to multiple Observers (like EventEmitter)
+
+- allows to build async pipelines for data sources
+- Observable: represents source of future vals
+- Observer: listens to vals delivered by Observable
+    - typically, a callback-method passed to subscribe()
+- Operator: allows to manipulate vals from Observable (in `rxjs/operators`)
+    - create: of(), from() 
+    - combine: concat(), merge()
+    - error handling: catchError()
+    - filter: filter(), take(), takeUntil()
+    - transform
+        - map()
+        - concatMap() transforms one val at a time triggered by completion of previous val
+        - mergeMap() flattens vals into a single observable
+        - switchMap() replaces current observable with another one
+        - scan()
+- Pipe: allows allows to link multiple operators together (pipe() in `rxjs`)
+- Subscription: produces a result from an Observable
+    - subscribe() accepts single callback or object-map: {next: ..., error: ..., completed: ...}
+- Subject: multicasts vals to multiple Observers (instead of Observable)
 
 - SEE ALSO
     - rxjs.dev/guide/overview
+    - rxjs.dev/api/operators
+    - rxjs-dev.firebaseapp.com/operator-decision-tree (for choosing an operator)
     - angular.io/guide/rx-library
+    - js/snippets/rxjs
 
 EXAMPLE
 import {of} from 'rxjs';
 import {filter, map} from 'rxjs/operators';
 
-const squareOdd = of(1, 2, 3, 4, 5).pipe(
-    filter(n => n % 2 !== 0),
-    map(n => n * n)
+let observable = of(1, 2, 3, 4, 5);
+const squareOdd = observable.pipe(
+    filter(i => i % 2 !== 0),
+    map(i => i * i)
 );
-squareOdd.subscribe(x => console.log(x)); // 1 9 25
+let subscription = squareOdd.subscribe(i => console.log(i)); // 1 9 25
+subscription.unsubscribe();
