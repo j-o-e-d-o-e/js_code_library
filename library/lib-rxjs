@@ -11,16 +11,16 @@ lib->RxJS
     - combine: concat(), merge()
     - error handling: catchError()
     - filter: filter(), take(), takeUntil()
-    - transform
+    - transform:
         - map()
         - concatMap() transforms one val at a time triggered by completion of previous val
-         - mergeMap() flattens vals into a single observable
+        - mergeMap() flattens vals into a single observable
         - switchMap() replaces current observable with another one
         - scan()
 - Pipe: allows to link multiple operators together (pipe() in `rxjs`)
 - Subscription: produces a result from an Observable
     - subscribe() accepts single callback or object-map: {next: ..., error: ..., completed: ...}
-- Subject: multicasts vals to multiple Observers (instead of Observable)
+- Subject: multicasts vals to multiple Observers (instead of single Observer as for Observable)
 
 - SEE ALSO
     - rxjs.dev/guide/overview
