@@ -7,14 +7,14 @@ lib->RxJS
 - Observer: listens to vals delivered by Observable
     - typically, a callback-method passed to subscribe()
 - Operator: allows to manipulate vals from Observable (in `rxjs/operators`)
-    - create: of(), from() 
+    - create: of() for single vals, from() for arrays
     - combine: concat(), merge()
     - error handling: catchError()
     - filter: filter(), take(), takeUntil()
     - transform
         - map()
         - concatMap() transforms one val at a time triggered by completion of previous val
-        - mergeMap() flattens vals into a single observable
+         - mergeMap() flattens vals into a single observable
         - switchMap() replaces current observable with another one
         - scan()
 - Pipe: allows to link multiple operators together (pipe() in `rxjs`)

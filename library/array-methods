@@ -2,7 +2,7 @@ Array->methods
 
 
 
-(1) iterators
+(1) iterators/projections
     - accept a func as their 1st arg and invoke that func on each elem
         - except reduce(), callback may be invoked with 3 args
             - value of elem
