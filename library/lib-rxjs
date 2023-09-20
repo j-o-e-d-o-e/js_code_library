@@ -2,28 +2,40 @@ lib->RxJS
 
 
 
-- allows to build async pipelines for data sources
+- extensions of the ReactiveX (Rx) project
+    - aims to provide reactive (event-based) concepts to various languages
+    - dependency in package.json: { "rxjs": "^7.8.1" } (as of Sep '23)
+        - for ES modules, requires "type": "module"
 - Observable: represents source of future vals
 - Observer: listens to vals delivered by Observable
     - typically, a callback-method passed to subscribe()
 - Operator: allows to manipulate vals from Observable (in `rxjs/operators`)
-    - create: of() for single vals, from() for arrays
-    - combine: concat(), merge()
-    - error handling: catchError()
-    - filter: filter(), take(), takeUntil()
-    - transform:
-        - map()
+    - create
+        - of() for single vals
+        - from() for arrays
+    - combine
+        - concat() combines multiple Observables sequentially
+        - merge() combines multiple Observables into a single Observable
+    - error handling
+        - catchError() catches error
+    - filter
+        - filter() emits vals based on given predicate (like Array.filter())
+        - take() emits first n vals (opposite to skip())
+        - takeUntil() emits vals based on another Observable
+    - transform
+        - map() passes vals to the supplied func (like Array.map())
         - concatMap() transforms one val at a time triggered by completion of previous val
         - mergeMap() flattens vals into a single observable
         - switchMap() replaces current observable with another one
-        - scan()
+        - scan() accumulates/reduces vals continuously
+        - reduce() combines vals to produce a single val (like Array.reduce())
 - Pipe: allows to link multiple operators together (pipe() in `rxjs`)
 - Subscription: produces a result from an Observable
     - subscribe() accepts single callback or object-map: {next: ..., error: ..., completed: ...}
 - Subject: multicasts vals to multiple Observers (instead of single Observer as for Observable)
 
 - SEE ALSO
-    - rxjs.dev/guide/overview
+    - learnrxjs.io
     - rxjs.dev/api/operators
     - rxjs-dev.firebaseapp.com/operator-decision-tree (for choosing an operator)
     - angular.io/guide/rx-library
