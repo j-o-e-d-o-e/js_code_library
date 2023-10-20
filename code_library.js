@@ -16,7 +16,7 @@ const LITERATURE = [
 ];
 let library = [];
 
-function readTitleAndSrc(fn) {
+function readTitleAndTags(fn) {
     return new Promise((resolve) => {
         const reader = readline.createInterface({input: fs.createReadStream(DIR + '/' + fn)});
         let count = 1;
@@ -38,7 +38,7 @@ function setup() {
     return new Promise((resolve, reject) => {
         fs.readdir(DIR, async (err, filenames) => {
             if (err) return reject(format({color: RED}, 'Opening Directory ' + DIR + ' failed.'));
-            let promises = filenames.map(fn => readTitleAndSrc(fn));
+            let promises = filenames.map(fn => readTitleAndTags(fn));
             for await (const [fn, content] of promises) library.push({
                 fn, title: content.title, tags: content.tags
             })
