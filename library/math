@@ -4,6 +4,7 @@ built-in obj
 
 - contains static methods for operations on numbers and bigints, e.g.
     - round() rounds to nearest int
+        - for two decimal places: Math.round(val * 100) / 100
     - floor() rounds down
     - ceil() rounds up
     - pow() returns x^y
