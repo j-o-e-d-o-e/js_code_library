@@ -4,7 +4,7 @@ operator
 
 (1) ?.-operator allows to access props of an obj's prop without potientially throwing a TypeError
     - if prop does not have child, 'undefined' is returned; otherwise, val is returned
-(2) ??-operator allows to set default val if pop is null or undefined (nullish coalescing operator)
+(2) ??-operator allows to set default val if prop is null or undefined (nullish coalescing operator)
 - both since ES 2020
 
 EXAMPLE
