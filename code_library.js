@@ -14,6 +14,10 @@ const LITERATURE = [
     "David Flanagan (2020): JavaScript. The Definitive Guide, 7th Edition, O'Reilly.",
     "Marijn Haverbeke (2018): Eloquent JavaScript, 3rd Edition, No Starch Press."
 ];
+const reader = readline.createInterface({
+    input: process.stdin, output: process.stdout, removeHistoryDuplicates: true
+});
+reader.on('history', history => { if (history[0] === '0') history.splice(0, 1) });
 let library = [];
 
 function readTitleAndTags(fn) {
@@ -93,16 +97,7 @@ function format({color, color_bg = null, bold = false, underline = false}, str) 
     return `${ANSI_ESC}${format}m${str}${ANSI_ESC}0m`;
 }
 
-const reader = readline.createInterface({
-    input: process.stdin, output: process.stdout, removeHistoryDuplicates: true
-});
-
-reader.on('history', (history) => {
-    let latest = history[0];
-    if (latest === '0') history.splice(0, 1);
-});
-
-const recursiveAsyncReadInput = function () {
+function recursiveAsyncReadInput() {
     reader.question(format({color: RED}, 'What would you like to read? '), function (input) {
         if (input.startsWith("s:")) {
             let search = input.substring(2).trim()
