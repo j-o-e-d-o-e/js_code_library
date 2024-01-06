@@ -42,7 +42,7 @@ Array->methods
     - unshift() adds elements at the start (shifting existing elems up) and returns new length
     - shift() removes 1st elem (shifting all elems down) and returns its value
 (5) subarrays
-    - slice(start, end) returns a subarray with the elements between start (inclusive) and end (exclusive) (5.1)
+    - slice(start, end) returns subarray with the elems between start (inclusive) and end (exclusive) (5.1)
         - if only one arg: all elems from start to end of the array
         - if arg(s) negative, they represent the indexes starting from the end of the arr
         - also supported by strings
@@ -52,7 +52,7 @@ Array->methods
         - 2nd arg: number of elements to be deleted
             - if omitted, all elems from start pos to end are deleted
             - if zero, no removal
-        - additional args:  elems to be inserted starting at start pos (1st arg)
+        - additional args: elems to be inserted starting at start pos (1st arg)
             - if omitted, no insertion
         - returns an array of the deleted elems
         - splice(index, 1) removes single elem at index
@@ -70,7 +70,7 @@ Array->methods
             - if func returns negative num, 1st elem before 2nd elem
             - if positive num, 2nd elem before 1st elem
             - if zero, order stays the same
-        - if arg omitted, sorts in ascending alphabetical order
+        - if arg omitted, sorts in ascending natural order
 (7) misc
     - reverse() reverses array in place and returns modified arr (7.1)
     - fill() sets all elems to a specified value (7.2)
