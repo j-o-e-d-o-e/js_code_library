@@ -3,9 +3,9 @@ function->args
 
 
 (1) optional args
-    - if fewer args passed than params declared, missing params are automatically set to their default (normally undefined)
+    - if fewer args passed than params declared, missing params are automatically set to their default (typically undefined)
     - if more args given, JS ignores extra args
-    - since ES6: default values for params
+    - since ES6: user-defined default vals for params
 (2) rest args
     - allow func to be invoked with arbitrarily more args than params
     - must be the last param in the param-list

@@ -12,7 +12,7 @@ async
 
 EXAMPLE
 const https = require("https");
-const url = 'https://traffic-tracker.herokuapp.com/api/years/current'
+const url = 'https://traffic-tracker-817b828649ad.herokuapp.com/api/years/current'
 
 https.get(url, function (res) {
     let body = '';
@@ -22,7 +22,6 @@ https.get(url, function (res) {
     res.on('end', function () {
         body = JSON.parse(body);
         console.log(`In ${body.year}, ${body.total} flights, so far.`);
-        // e.g. In 2023, 13797 flights, so far.
     });
 }).on('error', function (e) {
     console.log("Got error: " + e.message);

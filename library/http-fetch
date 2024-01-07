@@ -24,17 +24,16 @@ async
     - definitive, ch. 15.11.1
 
 EXAMPLE
-<!-- server startup time: ~10secs (if still online) -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Test</title>
   </head>
   <body>
     <p> Fetch results:</p>
   </body>
   <script type="text/javascript">
-    fetch('https://traffic-tracker.herokuapp.com/api/years/current')
+    fetch('https://traffic-tracker-817b828649ad.herokuapp.com/api/years/current')
     .then(resp => {
       if (resp.ok) return resp.json();
     })
