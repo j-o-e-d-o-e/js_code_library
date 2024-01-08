@@ -10,6 +10,8 @@ built-in obj
     - pow() returns x^y
         - alternatively, use exponentiation-operator: x ** y
     - random() returns pseudo-random num between 0 and 1
+        - for ints within range: Math.floor(Math.random() * (max - min) + min)
+        - min inclusive, max exclusive
     - sqrt() return square root of arg
     - max() finds largest of zero or more args
 
