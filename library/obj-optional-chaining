@@ -8,6 +8,6 @@ operator
 - both since ES 2020
 
 EXAMPLE
-let devices = {desktop: {cpu: "ryzen"}};
-let a = devices.laptop?.cpu;                // a = undefined
-let b = devices.desktop.name ?? "no name";  // b = no name
+let desktop = {};
+let a = desktop?.cpu;               // a = undefined
+let b = desktop?.cpu ?? "ryzen";    // b = ryzen

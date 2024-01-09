@@ -36,4 +36,4 @@ function wait(duration) {
 }
 wait(2000)
     .then(r => console.log("Waited for 2 secs."))
-    .catch(e => console.log(e));
+    .catch(e => console.log(e.message));
