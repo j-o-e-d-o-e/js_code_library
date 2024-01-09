@@ -10,7 +10,7 @@ string->regex
     - if not found, returns -1
 (3) match() matches string against regex and returns array of matches
     - arr contains match, its index, input-string , etc.
-    - combined with '/g', returned arr contains all occurences (without indices, etc.)
+    - combined with '/g', returned arr contains all occurrences (without indices, etc.)
 (4) split() divides string according to given regex/string and returns arr
 
 - SEE ALSO

@@ -9,7 +9,7 @@ data type
 - like nums, may be compared by using comparison-operators
     - according to dictionary (lexicographical) order
 - methods
-    - charAt() returns string at specified index
+    - charAt() returns char at specified index
     - concat() returns this concatenated to one or multiple args
     - includes() checks whether another string is part of it
     - indexOf() returns index of 1st occurrence of given string
