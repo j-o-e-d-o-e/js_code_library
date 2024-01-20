@@ -23,6 +23,7 @@ testing
 
 - SEE ALSO
     - jestjs.io/docs/getting-started
+    - jestjs.io/docs/expect
     - /exercism/javascript/fruit-picker
 
 EXAMPLE
