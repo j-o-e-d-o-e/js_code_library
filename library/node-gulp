@@ -1,0 +1,47 @@
+node->gulp
+
+tooling
+
+- 3rd party build-tool to automate tasks, e.g. minifiying, bundling
+- each task is defined as a func in 'gulpfile.js'
+- many plugins available
+    - by convention, each prefixed with 'gulp-'
+    - need to be installed individually, e.g. npm -D gulp-uglify
+    - useful plugins, e.g.
+        - uglify: minifies .js-files
+        - concat: concatenates .js-files into single one
+- run tasks
+    - gulp: runs default tasks
+    - gulp <task>: runs individual task
+
+- SEE ALSO
+    - gulpjs.com/docs/en/getting-started/quick-start
+
+EXAMPLE
+const gulp = require('gulp');
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
+
+// gulp html
+function html(cb) {
+    gulp.src('src/*.html')
+        .pipe(gulp.dest('dist'));
+    cb();
+}
+
+// gulp scripts
+function scripts(cb) {
+    gulp.src('src/js/*.js')
+        .pipe(concat('main.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist'))
+    cb();
+}
+
+// gulp watch
+exports.watch = function () {
+    gulp.watch('src/js/*.js', scripts);
+    gulp.watch('src/*.html', html);
+}
+
+exports.default = gulp.series(html, scripts)
