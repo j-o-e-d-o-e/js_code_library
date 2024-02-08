@@ -73,12 +73,13 @@ Array->methods
         - if arg omitted, sorts in ascending natural order
 (7) misc
     - reverse() reverses array in place and returns modified arr (7.1)
-    - fill() sets all elems to a specified value (7.2)
-        - 1st arg: value for elems
+    - fill() sets all elems to a specified val (7.2)
+        - 1st arg: val for elems
+            - if val is obj/arr, all elems share the same reference
         - 2nd arg: starting index (optional)
             - if omitted, starts at index 0
         - 3rd arg: exlusive ending index (optional)
-            - if omiteed, until the end
+            - if omitted, until the end
         - modifies array in place and returns the modified arr
 
 - SEE ALSO
