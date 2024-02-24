@@ -25,7 +25,9 @@ async
     - single arg: callback (without args) will be invoked when Promise settles
     - returns new promise (but, generally ignored)
 - Promise.all() (3)
-    - to execute multiple async operations in parallel
+    - to execute multiple async operations concurrently (not in parallel)
+        - promises start after one another, but don't wait for previous ones to end
+        - therefore, they can make progress at the same time
     - single arg: array of promises
         - arr can also contain non-promise vals
     - returns a new promise
