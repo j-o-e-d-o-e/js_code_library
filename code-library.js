@@ -1,7 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 const log = console.log;
-const DIR = './library'
+const DIR = '/home/joe/prog/js/code_library/library'
 const DELIMITER_H = '=============================='
 const DELIMITER_E = '------------------------------'
 const RED = 91 // text color
