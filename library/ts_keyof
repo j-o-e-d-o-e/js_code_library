@@ -1,0 +1,20 @@
+keyof
+
+typescript
+
+- allows to extract the key-type from an obj-type
+
+EXAMPLE
+interface Person {
+    name: string;
+    age: number;
+}
+// `keyof Person` here creates a union type of "name" and "age", other strings will not be allowed
+function printProp(person: Person, prop: keyof Person) {
+    console.log(`${prop}: "${person[prop]}"`);
+}
+let person = {
+    name: "joe",
+    age: 42
+};
+printProp(person, "name"); // name: "joe"

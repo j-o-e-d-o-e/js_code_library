@@ -1,0 +1,16 @@
+cast
+
+typescript
+
+(1) as
+    - more common
+(2) <type>
+    - apparently does not work with tsx
+
+EXAMPLE
+(1)
+let a: any = "joe";
+let b = (a as string).toUpperCase(); // b = JOE
+
+(2)
+b = (<string>a).toUpperCase(); // b = JOE

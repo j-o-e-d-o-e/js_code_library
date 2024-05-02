@@ -1,0 +1,30 @@
+interface
+
+typescript
+
+(1) allows to define type separately
+    - only for objects
+    - alternatively: alias
+        - to apply custom-name for type
+        - also for primitives
+(2) may be implemented by class
+
+EXAMPLE
+type Point = { x: number; y: number };
+
+interface Shape {
+     center: Point;
+}
+
+class Circle implements Shape {
+    center: Point;
+    radius: number;
+
+    constructor(center: Point, radius: number = 2) {
+        this.center = center;
+        this.radius = radius;
+    }
+}
+
+console.log(new Circle({x: 2, y: 3})); // Circle { center: { x: 2, y: 3 }, radius: 2 }
+

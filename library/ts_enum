@@ -1,0 +1,27 @@
+enum
+
+typescript
+
+(1) numeric: default
+    - 1st val set to 0, 2nd to 1, ...
+    - if not set, auto-incremented
+(2) string: contain strings
+
+EXAMPLE
+(1)
+enum Direction {
+    North= 1,
+    East,
+    South,
+    West
+}
+console.log(Direction.East); // 2
+
+(2)
+enum Freq {
+    LOW = "low",
+    MEDIUM = "medium",
+    HIGH = "high"
+}
+
+console.log(Freq.HIGH); // high

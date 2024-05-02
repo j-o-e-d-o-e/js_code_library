@@ -1,0 +1,37 @@
+datatype
+
+typescript
+
+(1) basic
+    - boolean: true/false
+    - number: ints/floats
+    - string
+    - bigint: big ints/floats
+    - symbol: globally unique id
+(2) special
+    - any: disables type-checking
+(3) object types
+    - may be optional
+(4) union |
+    - or-relationship
+(5) void
+    - for return-type
+(6) optional
+    - for func-params
+    - by default, typescript assumes all params are required
+
+EXAMPLE
+(3)
+const me: {name: string, age: number, hobbies?: string[]} = {name: "joe", age: 42};
+me.hobbies = ["music"];
+console.log(me); // { name: 'joe', age: 42, hobbies: [ 'music' ] }
+
+(4)
+var numOrStr: number | string = 42;
+numOrStr = numOrStr.toString();
+
+(5+6)
+function print(name: string, age?: number): void {
+    console.log(`${name} is ${age ? age : 42}`);
+}
+print("joe"); // joe is 42

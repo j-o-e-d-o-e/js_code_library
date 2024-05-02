@@ -1,0 +1,42 @@
+generics
+
+typescript
+
+- allow for different (parameterized) types and still ensure type safety
+    (1) for funcs
+    (2) for classes
+    (3) for aliases
+- also supports constraints: <T extends type>
+
+EXAMPLE
+(1)
+function createPair<T extends string | number, U>(v1: T, v2: U): [T, U] {
+    return [v1, v2];
+}
+const pair: [string, number] = createPair<string, number>('joe', 42);
+console.log(pair); // [ 'joe', 42 ]
+
+(2)
+class NamedValue<T> {
+    private val: T | undefined;
+
+    constructor(private name: string) {}
+
+    public set(value: T) {
+        this.val = value;
+    }
+
+    public toString(): string {
+        return `${this.name}: ${this.val}`;
+    }
+}
+let val = new NamedValue<number>('age');
+val.set(42);
+console.log(val.toString()); // age: 42
+
+(3)
+type Wrapped<T> = { val: T };
+const wrapped: Wrapped<number> = { val: 42 };
+console.log(wrapped); // { val: 42 }
+
+(4)

@@ -1,0 +1,17 @@
+tuple
+
+typescript
+
+(1) array with type-declaration for each index
+    - and therefore, with a pre-defined length
+(2) elems at indices may be named
+    - purely informative
+
+EXAMPLE
+(1)
+const ls : [number, string, boolean] = [1, "joe", false];
+ls.push("mary")
+console.log(ls); // [ 1, 'joe', false, 'mary' ]
+
+(2)
+const point : [x: number, y: number] = [1, 2];

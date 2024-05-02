@@ -1,0 +1,35 @@
+utility type
+
+typescript
+
+(1) Partial: all props in an obj are optional
+(2) Required: all props in an obj are required
+(3) Record: shortcut to define an obj-type as key-val-pair
+(4) Omit: removes keys from an obj-type
+(5) Pick: retains keys
+(6) Exclude: removes types from a union
+(7) ReturnType: extracts the return-type of a func-type
+(8) Parameters: extracts param-types of a func-type as an array
+(9) Readonly: creates new type where all props are read-only
+
+EXAMPLE
+interface Point {
+    x: number;
+    y: number;
+}
+(1)
+let point: Partial<Point> = {}; // without Partial, unsupported
+(2)
+let point: Required<Point> = {x: 1, y: 2};
+(3)
+const line: Record<string, Point> = {
+    "start": {x: 0, y: 1},
+    "end": {x: 2, y: 3},
+}
+console.log(line); // { start: { x: 0, y: 1 }, end: { x: 2, y: 3 } }
+(4)
+const x: Omit<Point, 'y'> = {x: 2};
+console.log(x); // { x: 2 }
+(5)
+const y: Pick<Point, 'y'> = {y: 2};
+console.log(y); // { y: 2 }

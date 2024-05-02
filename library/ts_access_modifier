@@ -1,0 +1,13 @@
+access modifier
+
+typescript
+
+(1) readonly
+(2) public
+(3) private
+(4) protected
+
+EXAMPLE
+const names: readonly String[] = ["A", "B", "C"];
+console.log(names);
+names[0] = "D"; // not allowed
